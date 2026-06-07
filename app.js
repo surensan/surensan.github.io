@@ -1,110 +1,221 @@
-// 作品数据：实际项目中只需要替换标题、图片、说明与标签即可
+// 作品数据来自简历 PDF 中提取的图片素材。
+// coverImage 用作卡片封面，detailImages 用作点击后的长详情展示。
 const projects = [
   {
     id: 1,
-    title: "Nurture Baby Care Identity",
-    mainCategory: "2d",
-    subCategory: "mom",
-    coverImage: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1200&q=80",
-    tags: ["母婴类", "包装设计", "品牌识别"],
-    description: "围绕温和、安心、专业的品牌关键词建立母婴护理视觉系统，使用柔和色阶、圆角图形与低对比排版，让产品在货架与电商场景中保持高识别度。"
+    title: "零食礼盒包装渲染",
+    mainCategory: "3d",
+    subCategory: "packaging3d",
+    coverImage: "assets/covers/project-01.jpg",
+    detailImages: [
+      "assets/extracted/p04-img01.jpg",
+      "assets/extracted/p05-img01.jpg",
+      "assets/extracted/p05-img02.jpg"
+    ],
+    tags: ["渲染", "包装渲染", "礼盒场景"],
+    description: "以深色棚拍氛围突出礼盒质感，通过产品摆放、主次层级和暖色灯光建立节日礼赠场景，适合电商主图、活动 KV 与详情页头图使用。"
   },
   {
     id: 2,
-    title: "Home Ritual Packaging System",
-    mainCategory: "2d",
-    subCategory: "home",
-    coverImage: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80",
-    tags: ["居家类", "包装系统", "版式设计"],
-    description: "为居家香氛与清洁用品建立统一包装语言，通过克制的字体层级、材质留白与生活方式图像，强化产品的高级感与日常使用场景。"
+    title: "智能设备与消费电子渲染",
+    mainCategory: "3d",
+    subCategory: "product3d",
+    coverImage: "assets/covers/project-02.jpg",
+    detailImages: [
+      "assets/extracted/p09-img01.jpg",
+      "assets/extracted/p10-img01.jpg",
+      "assets/extracted/p11-img01.jpg"
+    ],
+    tags: ["渲染", "3C数码", "产品表现"],
+    description: "覆盖可穿戴、VR 设备与金属零件等不同材质产品，通过干净背景、产品角度和高光控制强化科技感与精密感。"
   },
   {
     id: 3,
-    title: "Smart Audio Product Render",
+    title: "耳机产品详情页视觉",
     mainCategory: "3d",
-    subCategory: "3c",
-    coverImage: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1200&q=80",
-    tags: ["3C数码", "产品渲染", "材质灯光"],
-    description: "针对智能音频产品制作三维主视觉，包含硬表面建模、磨砂材质、边缘高光控制与暗场灯光，用于新品首发海报和详情页头图。"
+    subCategory: "product3d",
+    coverImage: "assets/covers/project-03.jpg",
+    detailImages: [
+      "assets/extracted/p12-img01.jpg",
+      "assets/extracted/p12-img04.jpg",
+      "assets/extracted/p12-img05.jpg",
+      "assets/extracted/p12-img06.jpg",
+      "assets/extracted/p12-img07.jpg",
+      "assets/extracted/p12-img08.jpg",
+      "assets/extracted/p12-img09.jpg",
+      "assets/extracted/p12-img10.jpg",
+      "assets/extracted/p12-img11.jpg",
+      "assets/extracted/p12-img12.jpg",
+      "assets/extracted/p12-img13.jpg",
+      "assets/extracted/p12-img14.jpg"
+    ],
+    tags: ["渲染", "详情页", "3C数码"],
+    description: "围绕耳机产品的功能卖点与使用场景展开，结合产品渲染、场景合成、卖点版式与详情页模块，形成完整的电商页面表达。"
   },
   {
     id: 4,
-    title: "Beauty Serum 3D Campaign",
+    title: "IP 角色与概念场景渲染",
     mainCategory: "3d",
-    subCategory: "beauty",
-    coverImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80",
-    tags: ["美妆个护", "三维场景", "KV"],
-    description: "为精华产品搭建三维视觉场景，结合玻璃材质、液体折射与柔性布光，输出主视觉、通道图、白模图与多比例电商素材。"
+    subCategory: "aigc",
+    coverImage: "assets/covers/project-04.jpg",
+    detailImages: [
+      "assets/extracted/p13-img04.jpg",
+      "assets/extracted/p13-img05.jpg",
+      "assets/extracted/p13-img06.jpg",
+      "assets/extracted/p13-img07.jpg",
+      "assets/extracted/p13-img08.jpg",
+      "assets/extracted/p13-img09.jpg",
+      "assets/extracted/p13-img10.jpg",
+      "assets/extracted/p13-img11.jpg"
+    ],
+    tags: ["渲染", "IP角色", "AIGC摄影"],
+    description: "展示角色、产品与空间氛围的多种视觉实验，适合用于创意提案、品牌活动延展和内容营销视觉资产。"
   },
   {
     id: 5,
-    title: "Minimal Furniture Visual Direction",
+    title: "自行车产品长详情页",
     mainCategory: "2d",
-    subCategory: "home",
-    coverImage: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=80",
-    tags: ["居家类", "画册", "视觉规范"],
-    description: "面向现代家具品牌建立画册与社媒视觉规范，以网格系统控制图片比例、文字节奏与留白关系，形成安静、耐看的品牌表达。"
+    subCategory: "detail",
+    coverImage: "assets/covers/project-05.jpg",
+    detailImages: [
+      "assets/extracted/p15-img01.jpg",
+      "assets/extracted/p15-img02.jpg",
+      "assets/extracted/p15-img03.jpg",
+      "assets/extracted/p16-img01.jpg",
+      "assets/extracted/p16-img02.jpg",
+      "assets/extracted/p16-img03.jpg",
+      "assets/extracted/p17-img01.jpg",
+      "assets/extracted/p17-img02.jpg",
+      "assets/extracted/p17-img03.jpg",
+      "assets/extracted/p17-img04.jpg",
+      "assets/extracted/p18-img01.jpg",
+      "assets/extracted/p18-img02.jpg",
+      "assets/extracted/p18-img03.jpg",
+      "assets/extracted/p19-img01.jpg",
+      "assets/extracted/p19-img02.jpg",
+      "assets/extracted/p19-img03.jpg"
+    ],
+    tags: ["平面", "详情页", "电商视觉"],
+    description: "一组完整电商长详情页项目，包含产品卖点、结构展示、场景氛围、参数模块与购买转化模块，重点体现长页面的信息组织能力。"
   },
   {
     id: 6,
-    title: "Personal Care Bottle Study",
-    mainCategory: "3d",
-    subCategory: "beauty",
-    coverImage: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1200&q=80",
-    tags: ["美妆个护", "白模展示", "材质研究"],
-    description: "围绕个护瓶型进行建模与材质实验，输出白模、AO、反射通道与最终合成图，帮助团队快速验证瓶身比例与视觉触感。"
+    title: "红豆居家产品视觉",
+    mainCategory: "2d",
+    subCategory: "poster",
+    coverImage: "assets/covers/project-06.jpg",
+    detailImages: [
+      "assets/extracted/p20-img01.jpg",
+      "assets/extracted/p20-img02.jpg",
+      "assets/extracted/p20-img03.jpg",
+      "assets/extracted/p20-img04.jpg",
+      "assets/extracted/p20-img05.jpg",
+      "assets/extracted/p20-img06.jpg",
+      "assets/extracted/p20-img07.jpg",
+      "assets/extracted/p20-img08.jpg",
+      "assets/extracted/p20-img09.jpg",
+      "assets/extracted/p20-img10.jpg",
+      "assets/extracted/p20-img11.jpg",
+      "assets/extracted/p20-img12.jpg",
+      "assets/extracted/p20-img13.jpg",
+      "assets/extracted/p20-img14.jpg"
+    ],
+    tags: ["平面", "个护服饰", "社媒海报"],
+    description: "围绕抗菌、舒适与基础款卖点设计系列方图素材，使用柔和配色、模特图与产品图形成统一的品牌视觉节奏。"
   },
   {
     id: 7,
-    title: "Infant Nutrition Poster Series",
+    title: "礼盒节日营销 KV",
     mainCategory: "2d",
-    subCategory: "mom",
-    coverImage: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
-    tags: ["母婴类", "海报设计", "电商视觉"],
-    description: "为婴幼儿营养品设计一组电商传播海报，使用明亮但不过度甜腻的色彩与清晰卖点层级，兼顾品牌温度和转化效率。"
+    subCategory: "poster",
+    coverImage: "assets/covers/project-07.jpg",
+    detailImages: [
+      "assets/extracted/p23-img01.jpg",
+      "assets/extracted/p23-img04.jpg",
+      "assets/extracted/p23-img05.jpg",
+      "assets/extracted/p23-img06.jpg",
+      "assets/extracted/p23-img07.jpg",
+      "assets/extracted/p23-img15.jpg",
+      "assets/extracted/p24-img01.jpg",
+      "assets/extracted/p24-img02.jpg",
+      "assets/extracted/p24-img03.jpg",
+      "assets/extracted/p25-img01.jpg",
+      "assets/extracted/p25-img02.jpg",
+      "assets/extracted/p25-img03.jpg",
+      "assets/extracted/p26-img01.jpg",
+      "assets/extracted/p26-img02.jpg"
+    ],
+    tags: ["平面", "节日KV", "食品礼盒"],
+    description: "以高饱和红色和礼赠氛围为核心，延展活动主图、明星物料、门店打法、节气海报与横版 Banner，形成完整营销视觉包。"
   },
   {
     id: 8,
-    title: "Wearable Device Launch Visual",
-    mainCategory: "3d",
-    subCategory: "3c",
-    coverImage: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80",
-    tags: ["3C数码", "新品视觉", "场景搭建"],
-    description: "为穿戴设备制作发布会与线上首发视觉，强调产品轮廓、屏幕高光与金属材质，以极简空间突出科技感和精密感。"
+    title: "包装品牌视觉系统",
+    mainCategory: "2d",
+    subCategory: "packaging2d",
+    coverImage: "assets/covers/project-08.jpg",
+    detailImages: [
+      "assets/extracted/p14-img01.jpg",
+      "assets/extracted/p21-img01.jpg",
+      "assets/extracted/p22-img01.jpg"
+    ],
+    tags: ["平面", "包装规范", "品牌物料"],
+    description: "展示包装识别、促销信息层级与品牌物料延展，强调版式规范、色彩系统和多规格素材的一致性。"
   },
   {
     id: 9,
-    title: "Experimental Object Forms",
+    title: "家电与生活方式视觉",
     mainCategory: "3d",
-    subCategory: "others",
-    coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
-    tags: ["其他", "概念视觉", "形体实验"],
-    description: "一组用于视觉提案的抽象物体实验，探索半透明材质、弧面结构和空间秩序，可延展为品牌活动主视觉或数字艺术资产。"
+    subCategory: "product3d",
+    coverImage: "assets/covers/project-09.jpg",
+    detailImages: [
+      "assets/extracted/p08-img01.jpg",
+      "assets/extracted/p13-img02.jpg",
+      "assets/extracted/p13-img03.jpg",
+      "assets/extracted/p13-img10.jpg"
+    ],
+    tags: ["渲染", "生活方式", "场景合成"],
+    description: "从抽象场景、产品棚拍到居家空间合成，展示不同风格下的渲染和后期整合能力。"
+  },
+  {
+    id: 10,
+    title: "封面与视觉总览",
+    mainCategory: "3d",
+    subCategory: "aigc",
+    coverImage: "assets/covers/project-10.jpg",
+    detailImages: [
+      "assets/extracted/p01-img01.jpg",
+      "assets/extracted/p28-img01.jpg"
+    ],
+    tags: ["渲染", "作品集封面", "视觉总览"],
+    description: "作品集封面与结束页素材，概括了首页、详情页、海报 KV、3D 渲染、产品渲染、包装渲染与 AIGC 摄影等能力方向。"
   }
 ];
 
 const categoryLabels = {
   "2d": "平面设计",
-  "3d": "三维设计",
-  mom: "母婴类",
-  home: "居家类",
-  "3c": "3C数码",
-  beauty: "美妆个护",
-  others: "其他"
+  "3d": "渲染 / 三维",
+  detail: "详情页",
+  poster: "海报 KV",
+  packaging2d: "包装物料",
+  product3d: "产品渲染",
+  packaging3d: "包装渲染",
+  aigc: "AIGC / 场景"
 };
 
 const subFilterMap = {
   all: [{ label: "全部", value: "all" }],
   "2d": [
     { label: "全部", value: "all" },
-    { label: "母婴类", value: "mom" },
-    { label: "居家类", value: "home" }
+    { label: "详情页", value: "detail" },
+    { label: "海报 KV", value: "poster" },
+    { label: "包装物料", value: "packaging2d" }
   ],
   "3d": [
     { label: "全部", value: "all" },
-    { label: "3C数码", value: "3c" },
-    { label: "美妆个护", value: "beauty" },
-    { label: "其他", value: "others" }
+    { label: "产品渲染", value: "product3d" },
+    { label: "包装渲染", value: "packaging3d" },
+    { label: "AIGC / 场景", value: "aigc" }
   ]
 };
 
@@ -122,10 +233,11 @@ const modalCategory = document.querySelector("#modalCategory");
 const modalTitle = document.querySelector("#modalTitle");
 const modalDescription = document.querySelector("#modalDescription");
 const modalTags = document.querySelector("#modalTags");
+const modalGallery = document.querySelector("#modalGallery");
 const mobileMenuBtn = document.querySelector("#mobileMenuBtn");
 const mobileMenu = document.querySelector("#mobileMenu");
 
-// 创建作品卡片：统一用于精选区与作品归档区
+// 创建作品卡片：统一用于精选区与作品归档区。
 function createProjectCard(project) {
   const card = document.createElement("article");
   card.className = "project-card";
@@ -148,14 +260,14 @@ function createProjectCard(project) {
   return card;
 }
 
-// 渲染精选作品：默认取前四个，混合平面与三维作品
+// 渲染精选作品：优先展示平面详情页、包装渲染、3C渲染和节日KV。
 function renderFeaturedWorks() {
-  const featuredProjects = projects.slice(0, 4);
+  const featuredProjects = [projects[4], projects[0], projects[2], projects[6]];
   featuredGrid.innerHTML = "";
   featuredProjects.forEach((project) => featuredGrid.appendChild(createProjectCard(project)));
 }
 
-// 根据当前筛选状态计算需要展示的项目
+// 根据当前筛选状态计算需要展示的项目。
 function getFilteredProjects() {
   return projects.filter((project) => {
     const matchesMain = state.main === "all" || project.mainCategory === state.main;
@@ -164,9 +276,8 @@ function getFilteredProjects() {
   });
 }
 
-// 渲染作品列表，并用短暂淡出淡入模拟平滑筛选过渡
+// 渲染作品列表，并用短暂淡出淡入模拟平滑筛选过渡。
 function renderWorks() {
-  worksGrid.classList.add("is-transitioning");
   const currentCards = [...worksGrid.children];
   currentCards.forEach((card) => card.classList.add("is-hiding"));
 
@@ -178,11 +289,10 @@ function renderWorks() {
       worksGrid.appendChild(card);
       requestAnimationFrame(() => card.classList.remove("is-hiding"));
     });
-    worksGrid.classList.remove("is-transitioning");
   }, 180);
 }
 
-// 渲染联动子类筛选项
+// 渲染联动子类筛选项。
 function renderSubFilters() {
   const filters = subFilterMap[state.main];
   subFilters.innerHTML = "";
@@ -204,7 +314,7 @@ function renderSubFilters() {
   });
 }
 
-// 绑定大类筛选，并在切换大类时重置子类为“全部”
+// 绑定大类筛选，并在切换大类时重置子类为“全部”。
 function bindMainFilters() {
   document.querySelectorAll("[data-main-filter]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -221,7 +331,7 @@ function bindMainFilters() {
   });
 }
 
-// 导航中的“平面设计 / 三维设计”可以直接触发作品筛选
+// 导航中的“平面设计 / 三维设计”可以直接触发作品筛选。
 function bindNavFilters() {
   document.querySelectorAll("[data-nav-filter]").forEach((link) => {
     link.addEventListener("click", () => {
@@ -240,10 +350,14 @@ function openModal(project) {
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.description;
   modalTags.innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
+  modalGallery.innerHTML = project.detailImages
+    .map((image, index) => `<img src="${image}" alt="${project.title} 详情图 ${index + 1}" loading="lazy">`)
+    .join("");
 
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+  modal.querySelector(".modal-content").scrollTop = 0;
 }
 
 function closeModal() {
@@ -278,7 +392,7 @@ function bindMobileMenu() {
   });
 }
 
-// 初始化页面
+// 初始化页面。
 function initPortfolio() {
   renderFeaturedWorks();
   renderSubFilters();

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="视觉设计作品集，展示 2D 平面设计与 3D 三维设计作品。" />
-  <title>Visual Design Portfolio</title>
+  <meta name="description" content="黄敏视觉设计师作品集，展示平面设计、电商详情页、包装视觉与产品渲染作品。" />
+  <title>黄敏 | 视觉设计师作品集</title>
 
   <!-- Tailwind CSS CDN：用于快速构建响应式布局与基础样式 -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,14 +17,15 @@
   <header class="site-header">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
       <a href="#home" class="group flex items-center gap-3" aria-label="返回首页">
-        <span class="logo-mark">VX</span>
-        <span class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900">Visual Atelier</span>
+        <span class="logo-mark">HM</span>
+        <span class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900">Huang Min</span>
       </a>
 
       <div class="hidden items-center gap-8 text-sm text-slate-500 md:flex">
         <a class="nav-link" href="#home">首页</a>
         <a class="nav-link" href="#works" data-nav-filter="2d">平面设计</a>
-        <a class="nav-link" href="#works" data-nav-filter="3d">三维设计</a>
+        <a class="nav-link" href="#works" data-nav-filter="3d">渲染作品</a>
+        <a class="nav-link" href="#experience">履历</a>
         <a class="nav-link" href="#about">关于我</a>
       </div>
 
@@ -38,7 +39,8 @@
     <div id="mobileMenu" class="mobile-menu md:hidden">
       <a href="#home">首页</a>
       <a href="#works" data-nav-filter="2d">平面设计</a>
-      <a href="#works" data-nav-filter="3d">三维设计</a>
+      <a href="#works" data-nav-filter="3d">渲染作品</a>
+      <a href="#experience">履历</a>
       <a href="#about">关于我</a>
     </div>
   </header>
@@ -48,27 +50,27 @@
     <section class="mx-auto max-w-7xl px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
       <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <div class="hero-copy">
-          <p class="eyebrow">Selected 2D & 3D Visual Design</p>
+          <p class="eyebrow">Visual Designer / 2015-2025</p>
           <h1 class="mt-5 max-w-4xl text-5xl font-semibold leading-[0.98] text-slate-950 md:text-7xl">
-            Crafting Brand Moats through 2D & 3D Visuals.
+            黄敏，视觉设计师。
           </h1>
           <p class="mt-7 max-w-xl text-base leading-8 text-slate-500 md:text-lg">
-            以品牌策略为起点，融合平面视觉、包装系统、三维产品场景与材质表达，构建更有记忆点的商业视觉资产。
+            聚焦电商视觉、平面海报、详情页、包装视觉与 3D 产品渲染，擅长将产品卖点转译为高完成度的商业视觉页面。
           </p>
         </div>
 
         <div class="hero-panel">
           <div>
-            <span class="panel-number">24</span>
-            <p>Selected Works</p>
+            <span class="panel-number">10</span>
+            <p>Years Experience</p>
           </div>
           <div>
-            <span class="panel-number">08</span>
-            <p>Brand Systems</p>
+            <span class="panel-number">2D</span>
+            <p>Graphic / E-commerce</p>
           </div>
           <div>
             <span class="panel-number">3D</span>
-            <p>Product Visuals</p>
+            <p>Rendering / AIGC</p>
           </div>
         </div>
       </div>
@@ -93,7 +95,7 @@
             <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">作品归档</h2>
           </div>
           <p class="max-w-md text-sm leading-7 text-slate-500">
-            通过大类与子类快速查看作品方向，作品卡片支持悬停预览与点击查看项目详情。
+            已按 PDF 作品集拆分为平面设计与渲染/三维方向；每个项目使用真实作品图作为封面，点击可查看长详情图。
           </p>
         </div>
 
@@ -101,13 +103,49 @@
           <div class="filter-row" aria-label="作品大类筛选">
             <button class="filter-chip active" data-main-filter="all" type="button">全部</button>
             <button class="filter-chip" data-main-filter="2d" type="button">平面设计</button>
-            <button class="filter-chip" data-main-filter="3d" type="button">三维设计</button>
+            <button class="filter-chip" data-main-filter="3d" type="button">渲染作品</button>
           </div>
 
           <div id="subFilters" class="filter-row" aria-label="作品子类筛选"></div>
         </div>
 
         <div id="worksGrid" class="works-grid mt-10"></div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <p class="eyebrow">Resume</p>
+          <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">公司履历</h2>
+          <p class="mt-7 max-w-xl text-base leading-8 text-slate-500">
+            2015-2025 年持续从事视觉设计相关工作，项目覆盖首页、详情页、海报 KV、产品渲染、包装渲染与 AIGC 摄影等商业视觉场景。
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span>2024-2025</span>
+            <h3>视觉设计师 / 3D 与电商视觉方向</h3>
+            <p>负责产品渲染、详情页视觉、活动 KV、包装展示与多平台推广素材，兼顾平面表达与渲染落地。</p>
+          </div>
+          <div class="timeline-item">
+            <span>2021-2024</span>
+            <h3>资深电商视觉设计</h3>
+            <p>围绕消费品、个护、食品礼盒等品类输出首页、详情页、促销页面与品牌规范，提升页面完整度与转化表达。</p>
+          </div>
+          <div class="timeline-item">
+            <span>2018-2021</span>
+            <h3>平面 / 包装 / 品牌视觉设计</h3>
+            <p>参与包装系统、品牌物料、海报与线上传播设计，建立统一的视觉语言和版式规范。</p>
+          </div>
+          <div class="timeline-item">
+            <span>2015-2018</span>
+            <h3>视觉设计执行</h3>
+            <p>从详情页、活动图、产品修图和基础页面搭建开始，积累电商视觉和商业设计执行经验。</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -118,35 +156,34 @@
           <p class="eyebrow">About / Contact</p>
           <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">关于我</h2>
           <p class="mt-7 max-w-xl text-base leading-8 text-slate-500">
-            我是一名专注商业视觉表达的设计师，擅长将品牌定位转译为可执行的视觉系统，并通过 2D 版式、包装设计与 3D 产品渲染提升产品的沟通效率。
+            我是黄敏，视觉设计师。擅长电商页面、平面 KV、包装视觉与 3D 渲染整合输出，能够从产品卖点、用户场景与平台展示需求出发，完成从创意到落地的完整视觉交付。
           </p>
           <div class="mt-9 flex flex-wrap gap-4">
-            <a class="contact-button" href="mailto:hello@visualatelier.com">hello@visualatelier.com</a>
-            <a class="contact-button" href="#" aria-label="Behance">Behance</a>
-            <a class="contact-button" href="#" aria-label="Instagram">Instagram</a>
+            <a class="contact-button" href="mailto:17576026960@163.com">17576026960@163.com</a>
+            <a class="contact-button" href="tel:17576026960">175-7602-6960</a>
           </div>
         </div>
 
         <div class="skills-grid">
           <div class="skill-card">
             <span>01</span>
-            <h3>Brand Identity</h3>
-            <p>品牌视觉系统、Logo 延展、包装识别、图形语言。</p>
+            <h3>E-commerce Visual</h3>
+            <p>首页、详情页、活动页、平台投放图与产品卖点页面。</p>
           </div>
           <div class="skill-card">
             <span>02</span>
             <h3>Graphic Design</h3>
-            <p>电商视觉、海报版式、母婴与居家产品视觉包装。</p>
+            <p>平面海报、节日 KV、包装延展、品牌物料与版式系统。</p>
           </div>
           <div class="skill-card">
             <span>03</span>
             <h3>3D Visualization</h3>
-            <p>产品建模、材质灯光、场景搭建、白模与通道图输出。</p>
+            <p>产品渲染、包装渲染、场景搭建、材质灯光与展示图。</p>
           </div>
           <div class="skill-card">
             <span>04</span>
-            <h3>Art Direction</h3>
-            <p>项目视觉策略、拍摄指导、跨媒介风格统一。</p>
+            <h3>AIGC Photography</h3>
+            <p>AIGC 图像辅助、视觉提案、场景氛围与创意素材生成。</p>
           </div>
         </div>
       </div>
@@ -154,7 +191,7 @@
   </main>
 
   <footer class="border-t border-slate-200 px-5 py-8 text-center text-xs uppercase tracking-[0.22em] text-slate-400">
-    © 2026 Visual Atelier. Portfolio Website.
+    © 2026 Huang Min. Visual Design Portfolio.
   </footer>
 
   <!-- 作品详情弹窗 -->
@@ -168,6 +205,7 @@
         <h2 id="modalTitle"></h2>
         <p id="modalDescription"></p>
         <div id="modalTags" class="modal-tags"></div>
+        <div id="modalGallery" class="modal-gallery"></div>
       </div>
     </article>
   </div>

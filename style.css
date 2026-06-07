@@ -337,9 +337,9 @@ body {
   z-index: 1;
   overflow: hidden;
   width: min(1080px, 100%);
-  max-height: min(86vh, 900px);
+  max-height: min(88vh, 920px);
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: 0.9fr 1.1fr;
   background: #fff;
   box-shadow: 0 28px 90px rgba(15, 23, 42, 0.28);
   animation: modalIn 240ms ease both;
@@ -385,6 +385,52 @@ body {
   padding: 7px 12px;
   color: var(--muted);
   font-size: 12px;
+}
+
+.modal-gallery {
+  display: grid;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.modal-gallery img {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  object-fit: contain;
+}
+
+/* 履历时间线 */
+.timeline {
+  border-top: 1px solid var(--line);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+  padding: 28px 0;
+}
+
+.timeline-item span {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.timeline-item h3 {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.timeline-item p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
 }
 
 .modal-close {
@@ -478,6 +524,11 @@ body {
 
   .modal-content {
     padding: 28px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
