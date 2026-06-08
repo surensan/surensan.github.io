@@ -99,11 +99,11 @@ const categoryLabels = {
   animation: "动画展示",
   practice: "练习作品",
   detail: "详情页",
-  mainVisual: "主图",
+  mainVisual: "电商主图",
   visualSystem: "视觉规范",
   aiPoster: "AI 海报",
   composite: "合成海报",
-  icon: "icon",
+  icon: "电商 icon",
   handdrawn: "手绘",
   other: "其他"
 };
@@ -121,6 +121,7 @@ const subFilterMap = {
   "work-composite": [],
   "work-aigc": [],
   "work-handdrawn": [],
+  "work-motion-render": [],
   "work-other": [],
   featured: [],
   "2d": [
@@ -145,10 +146,10 @@ const worksCategoryMeta = {
     empty: "首页视觉分类会放电商首页、页面视觉规范和首页模块类项目。"
   },
   "work-main": {
-    empty: "主图分类会放平台主图、产品主视觉和一屏成交图。"
+    empty: "电商主图分类会放平台主图、产品主视觉和一屏成交图。"
   },
   "work-icon": {
-    empty: "当前作品文件里还没有明确的 icon 项目；后续可用文件夹或项目名标注后自动加入。"
+    empty: "当前作品文件里还没有明确的电商 icon 项目；后续可用文件夹或项目名标注后自动加入。"
   },
   "work-selling-render": {
     empty: "卖点渲染会放用于详情页、功能说明和产品卖点表达的三维图。"
@@ -164,6 +165,9 @@ const worksCategoryMeta = {
   },
   "work-handdrawn": {
     empty: "当前作品文件里还没有明确的手绘项目；后续可用文件夹或项目名标注后自动加入。"
+  },
+  "work-motion-render": {
+    empty: "动态渲染分类会放产品动画、旋转展示和三维运动镜头。"
   },
   "work-other": {
     empty: "其他分类会收纳暂时不适合放入前面分类的项目。"
@@ -323,9 +327,12 @@ function getWorksCategoryProjects(category) {
     return projects.filter((projectItem) => projectItem.subCategory === "handdrawn");
   }
 
+  if (category === "work-motion-render") {
+    return projects.filter((projectItem) => projectItem.subCategory === "animation");
+  }
+
   if (category === "work-other") {
     return projects.filter((projectItem) => {
-      if (projectItem.type === "video") return true;
       return !knownProject(projectItem);
     });
   }
