@@ -17,7 +17,7 @@ const projects = [
   imageProject(11, "精密零件产品渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["渲染", "金属", "零件"], "展示金属零件的结构、比例和反射控制，突出工业产品的精密感。"),
 
   ...singleFrameProjects(12, [
-    ["p12-img01.jpg", "耳机详情首屏渲染"], ["p12-img02.jpg", "6DOF 功能图形"], ["p12-img03.jpg", "产品包装单帧"], ["p12-img04.jpg", "手柄卖点海报"],
+    ["p12-img01.jpg", "耳机详情首屏渲染"], ["p12-img03.jpg", "产品包装单帧"], ["p12-img04.jpg", "手柄卖点海报"],
     ["p12-img05.jpg", "耳机产品卖点图"], ["p12-img06.jpg", "功能说明版式"], ["p12-img07.jpg", "耳机氛围海报"], ["p12-img08.jpg", "居家产品场景图"],
     ["p12-img09.jpg", "产品场景渲染"], ["p12-img10.jpg", "游戏化场景海报"], ["p12-img11.jpg", "冰雪氛围海报"], ["p12-img12.jpg", "产品角色图"],
     ["p12-img13.jpg", "滑板场景渲染"], ["p12-img14.jpg", "童车空间渲染"]
@@ -65,6 +65,9 @@ const projects = [
 
 projects.push(...(window.extraPortfolioProjects || []));
 
+const featuredProjectIds = [17, 19, 2426, 2302, 1311];
+const wideProjectIds = new Set([10, 1311, 2302, 2426]);
+
 projects.forEach((projectItem) => {
   if (projectItem.subCategory === "detail" && !projectItem.updatedAt) {
     projectItem.updatedAt = "2026-06";
@@ -76,6 +79,10 @@ projects.forEach((projectItem) => {
 
   if (!projectItem.statement) {
     projectItem.statement = createStatement(projectItem);
+  }
+
+  if (wideProjectIds.has(projectItem.id)) {
+    projectItem.cardSize = "wide";
   }
 });
 
@@ -94,9 +101,8 @@ const categoryLabels = {
 };
 
 const subFilterMap = {
-  all: [{ label: "全部", value: "all" }],
+  featured: [],
   "2d": [
-    { label: "全部", value: "all" },
     { label: "详情页", value: "detail" },
     { label: "主图", value: "mainVisual" },
     { label: "视觉规范", value: "visualSystem" },
@@ -104,20 +110,17 @@ const subFilterMap = {
     { label: "合成海报", value: "composite" }
   ],
   "3d": [
-    { label: "全部", value: "all" },
-    { label: "详情页卖点渲染", value: "detailRender" },
     { label: "产品渲染", value: "product3d" },
-    { label: "动画", value: "animation" },
+    { label: "详情页卖点渲染", value: "detailRender" },
     { label: "练习作品", value: "practice" }
   ]
 };
 
 const state = {
-  main: "all",
-  sub: "all"
+  main: "featured",
+  sub: ""
 };
 
-const featuredGrid = document.querySelector("#featuredGrid");
 const worksGrid = document.querySelector("#worksGrid");
 const subFilters = document.querySelector("#subFilters");
 const modal = document.querySelector("#projectModal");
@@ -159,6 +162,7 @@ function singleFrameProjects(pageNumber, items) {
 function createProjectCard(projectItem) {
   const card = document.createElement("article");
   card.className = `project-card ${projectItem.type === "video" ? "video-card" : ""}`;
+  if (projectItem.cardSize === "wide") card.classList.add("wide-card");
   card.tabIndex = 0;
   card.dataset.projectId = projectItem.id;
 
@@ -184,15 +188,15 @@ function createProjectCard(projectItem) {
   return card;
 }
 
-function renderFeaturedWorks() {
-  const featuredIds = [17, 19, 3001, 2426];
-  const featuredProjects = featuredIds.map((id) => projects.find((item) => item.id === id)).filter(Boolean);
-  featuredGrid.innerHTML = "";
-  featuredProjects.forEach((projectItem) => featuredGrid.appendChild(createProjectCard(projectItem)));
-}
-
 function getFilteredProjects() {
+  if (state.main === "featured") {
+    return featuredProjectIds
+      .map((id) => projects.find((item) => item.id === id))
+      .filter(Boolean);
+  }
+
   return projects.filter((projectItem) => {
+    if (projectItem.type === "video") return false;
     const matchesMain = state.main === "all" || projectItem.mainCategory === state.main;
     const matchesSub = state.sub === "all" || projectItem.subCategory === state.sub;
     return matchesMain && matchesSub;
@@ -218,6 +222,13 @@ function renderSubFilters() {
   const filters = subFilterMap[state.main];
   subFilters.innerHTML = "";
 
+  if (!filters || filters.length === 0) {
+    subFilters.hidden = true;
+    return;
+  }
+
+  subFilters.hidden = false;
+
   filters.forEach((filter) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -239,7 +250,7 @@ function bindMainFilters() {
   document.querySelectorAll("[data-main-filter]").forEach((button) => {
     button.addEventListener("click", () => {
       state.main = button.dataset.mainFilter;
-      state.sub = "all";
+      state.sub = getDefaultSubFilter(state.main);
 
       document.querySelectorAll("[data-main-filter]").forEach((item) => {
         item.classList.toggle("active", item.dataset.mainFilter === state.main);
@@ -249,6 +260,10 @@ function bindMainFilters() {
       renderWorks();
     });
   });
+}
+
+function getDefaultSubFilter(mainCategory) {
+  return subFilterMap[mainCategory]?.[0]?.value || "";
 }
 
 function bindNavFilters() {
@@ -371,7 +386,7 @@ function bindMobileMenu() {
 }
 
 function initPortfolio() {
-  renderFeaturedWorks();
+  state.sub = getDefaultSubFilter(state.main);
   renderSubFilters();
   renderWorks();
   bindMainFilters();
