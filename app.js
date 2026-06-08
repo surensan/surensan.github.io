@@ -102,13 +102,26 @@ const categoryLabels = {
   mainVisual: "主图",
   visualSystem: "视觉规范",
   aiPoster: "AI 海报",
-  composite: "合成海报"
+  composite: "合成海报",
+  icon: "icon",
+  handdrawn: "手绘",
+  other: "其他"
 };
 
 const subFilterMap = {
   "home-graphic": [],
   "home-static": [],
   "home-motion": [],
+  "work-detail": [],
+  "work-home": [],
+  "work-main": [],
+  "work-icon": [],
+  "work-selling-render": [],
+  "work-kv-render": [],
+  "work-composite": [],
+  "work-aigc": [],
+  "work-handdrawn": [],
+  "work-other": [],
   featured: [],
   "2d": [
     { label: "详情页", value: "detail" },
@@ -124,9 +137,42 @@ const subFilterMap = {
   ]
 };
 
+const worksCategoryMeta = {
+  "work-detail": {
+    empty: "详情页目前固定展示 5 个完整项目：儿童手拍鼓、紫外线消毒包、儿童自行车、免洗洗手液、绿鼻子儿童口罩。"
+  },
+  "work-home": {
+    empty: "首页视觉分类会放电商首页、页面视觉规范和首页模块类项目。"
+  },
+  "work-main": {
+    empty: "主图分类会放平台主图、产品主视觉和一屏成交图。"
+  },
+  "work-icon": {
+    empty: "当前作品文件里还没有明确的 icon 项目；后续可用文件夹或项目名标注后自动加入。"
+  },
+  "work-selling-render": {
+    empty: "卖点渲染会放用于详情页、功能说明和产品卖点表达的三维图。"
+  },
+  "work-kv-render": {
+    empty: "KV 渲染会放更偏主视觉、氛围图和产品场景表达的三维图。"
+  },
+  "work-composite": {
+    empty: "合成分类会放海报合成、代言人主图和节日活动类视觉。"
+  },
+  "work-aigc": {
+    empty: "AIGC 分类会放 AI 辅助生成或 AI 参与创作的视觉项目。"
+  },
+  "work-handdrawn": {
+    empty: "当前作品文件里还没有明确的手绘项目；后续可用文件夹或项目名标注后自动加入。"
+  },
+  "work-other": {
+    empty: "其他分类会收纳暂时不适合放入前面分类的项目。"
+  }
+};
+
 const pageMode = document.body.dataset.page || "works";
 const state = {
-  main: pageMode === "home" ? "home-graphic" : "featured",
+  main: pageMode === "home" ? "home-graphic" : "work-detail",
   sub: ""
 };
 
@@ -204,6 +250,10 @@ function getFilteredProjects() {
       .filter(Boolean);
   }
 
+  if (pageMode === "works") {
+    return getWorksCategoryProjects(state.main);
+  }
+
   if (state.main === "featured") {
     return featuredProjectIds
       .map((id) => projects.find((item) => item.id === id))
@@ -218,13 +268,89 @@ function getFilteredProjects() {
   });
 }
 
+function getWorksCategoryProjects(category) {
+  const isPageProject = (projectItem) => projectItem.type !== "video";
+  const knownProject = (projectItem) => {
+    return [
+      "detail",
+      "visualSystem",
+      "mainVisual",
+      "detailRender",
+      "product3d",
+      "practice",
+      "aiPoster",
+      "composite",
+      "animation"
+    ].includes(projectItem.subCategory);
+  };
+
+  if (category === "work-detail") {
+    return projects.filter((projectItem) => projectItem.subCategory === "detail").slice(0, 5);
+  }
+
+  if (category === "work-home") {
+    return projects.filter((projectItem) => projectItem.subCategory === "visualSystem");
+  }
+
+  if (category === "work-main") {
+    return projects.filter((projectItem) => projectItem.subCategory === "mainVisual");
+  }
+
+  if (category === "work-icon") {
+    return projects.filter((projectItem) => projectItem.subCategory === "icon");
+  }
+
+  if (category === "work-selling-render") {
+    return projects.filter((projectItem) => projectItem.subCategory === "detailRender");
+  }
+
+  if (category === "work-kv-render") {
+    return projects.filter((projectItem) => {
+      if (!isPageProject(projectItem)) return false;
+      return projectItem.mainCategory === "3d" && ["product3d", "practice"].includes(projectItem.subCategory);
+    });
+  }
+
+  if (category === "work-composite") {
+    return projects.filter((projectItem) => projectItem.subCategory === "composite");
+  }
+
+  if (category === "work-aigc") {
+    return projects.filter((projectItem) => projectItem.subCategory === "aiPoster");
+  }
+
+  if (category === "work-handdrawn") {
+    return projects.filter((projectItem) => projectItem.subCategory === "handdrawn");
+  }
+
+  if (category === "work-other") {
+    return projects.filter((projectItem) => {
+      if (projectItem.type === "video") return true;
+      return !knownProject(projectItem);
+    });
+  }
+
+  return [];
+}
+
 function renderWorks() {
   const currentCards = [...worksGrid.children];
   currentCards.forEach((card) => card.classList.add("is-hiding"));
 
   window.setTimeout(() => {
     worksGrid.innerHTML = "";
-    getFilteredProjects().forEach((projectItem) => {
+    const projectsToRender = getFilteredProjects();
+
+    if (projectsToRender.length === 0) {
+      worksGrid.innerHTML = `
+        <div class="empty-state">
+          ${worksCategoryMeta[state.main]?.empty || "这个分类暂时还没有明确作品。"}
+        </div>
+      `;
+      return;
+    }
+
+    projectsToRender.forEach((projectItem) => {
       const card = createProjectCard(projectItem);
       card.classList.add("is-hiding");
       worksGrid.appendChild(card);

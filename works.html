@@ -7,7 +7,7 @@
   <title>作品 | 黄敏视觉设计师作品集</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css?v=20260608-grid" />
+  <link rel="stylesheet" href="style.css?v=20260608-works" />
 </head>
 <body class="bg-white text-slate-900 antialiased" data-page="works">
   <header class="site-header">
@@ -45,23 +45,20 @@
   </header>
 
   <main>
-    <section id="works" class="border-b border-slate-200 bg-slate-50">
-      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Works</p>
-            <h1 class="mt-3 text-4xl font-semibold text-slate-950 md:text-6xl">全部作品</h1>
-            <p class="mt-6 max-w-2xl text-sm leading-7 text-slate-500">
-              这里作为完整作品库使用，后续会继续整理为平面、品牌、三维静态、动态与其他五个方向。首页保留代表作，这里承载更完整的项目记录。
-            </p>
-          </div>
-        </div>
-
-        <div class="mt-12 space-y-5">
+    <section id="works" class="works-library border-b border-slate-200 bg-slate-50">
+      <div class="works-library-inner">
+        <div class="space-y-5">
           <div class="filter-row" aria-label="作品大类筛选">
-            <button class="filter-chip active" data-main-filter="featured" type="button">精选</button>
-            <button class="filter-chip" data-main-filter="2d" type="button">平面 / 品牌</button>
-            <button class="filter-chip" data-main-filter="3d" type="button">三维静态</button>
+            <button class="filter-chip active" data-main-filter="work-detail" type="button">详情页</button>
+            <button class="filter-chip" data-main-filter="work-home" type="button">首页视觉</button>
+            <button class="filter-chip" data-main-filter="work-main" type="button">主图</button>
+            <button class="filter-chip" data-main-filter="work-icon" type="button">icon</button>
+            <button class="filter-chip" data-main-filter="work-selling-render" type="button">卖点渲染</button>
+            <button class="filter-chip" data-main-filter="work-kv-render" type="button">KV 渲染</button>
+            <button class="filter-chip" data-main-filter="work-composite" type="button">合成</button>
+            <button class="filter-chip" data-main-filter="work-aigc" type="button">AIGC</button>
+            <button class="filter-chip" data-main-filter="work-handdrawn" type="button">手绘</button>
+            <button class="filter-chip" data-main-filter="work-other" type="button">其他</button>
           </div>
 
           <div id="subFilters" class="filter-row" aria-label="作品子类筛选"></div>
@@ -94,7 +91,7 @@
     </article>
   </div>
 
-  <script src="extra-projects.js?v=20260608-grid"></script>
-  <script src="app.js?v=20260608-grid"></script>
+  <script src="extra-projects.js?v=20260608-works"></script>
+  <script src="app.js?v=20260608-works"></script>
 </body>
 </html>
