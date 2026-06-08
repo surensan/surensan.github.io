@@ -259,8 +259,7 @@ function bindNavFilters() {
 
 function openModal(projectItem) {
   const modalCard = modal.querySelector(".modal-card");
-  const mediaOnly = projectItem.mainCategory === "3d";
-  modalCard.className = `modal-card ${mediaOnly ? "media-modal" : "detail-modal"}`;
+  modalCard.className = "modal-card project-modal";
   modalImage.src = projectItem.coverImage;
   modalImage.alt = projectItem.title;
   modalCategory.textContent = `${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}`;

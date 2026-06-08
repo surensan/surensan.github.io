@@ -330,20 +330,85 @@ body {
 
 .contact-button {
   display: inline-flex;
-  min-height: 44px;
+  min-height: 58px;
   align-items: center;
   justify-content: center;
+  gap: 18px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 0 18px;
+  padding: 0 18px 0 20px;
   color: var(--ink);
   font-size: 14px;
-  transition: border-color 180ms ease, background 180ms ease;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.contact-button span {
+  display: grid;
+  gap: 2px;
+}
+
+.contact-button small {
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-button b {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .contact-button:hover {
   border-color: var(--ink);
   background: var(--soft);
+  transform: translateY(-2px);
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 540px;
+  margin-top: 26px;
+}
+
+.qr-card {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 14px;
+  background: #fff;
+}
+
+.qr-card img {
+  width: 92px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 1px solid #f1f5f9;
+}
+
+.qr-card span {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.qr-card p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 /* 模态框 */
@@ -380,66 +445,46 @@ body {
   animation: modalIn 240ms ease both;
 }
 
-.modal-card.media-modal {
-  width: min(96vw, 1600px);
-  max-height: 92vh;
-  grid-template-columns: 1fr;
-  background: #020617;
-}
-
-.modal-card.media-modal .modal-image,
-.modal-card.media-modal .modal-info {
-  display: none;
-}
-
-.modal-card.media-modal .modal-content {
-  max-height: 92vh;
-  padding: 0;
-  background: #020617;
-}
-
-.modal-card.media-modal .modal-gallery {
-  display: grid;
-  min-height: min(86vh, 900px);
-  place-items: center;
-  margin: 0;
-  padding: 18px;
-}
-
-.modal-card.media-modal .modal-gallery img {
-  width: auto;
-  max-width: 100%;
-  max-height: 86vh;
-  border: 0;
-  background: transparent;
-  object-fit: contain;
-}
-
-.modal-card.media-modal .modal-video {
-  width: min(100%, 1500px);
-  aspect-ratio: 16 / 9;
-  max-height: 86vh;
-  border: 0;
-}
-
-.modal-card.detail-modal {
-  width: min(1180px, 100%);
+.modal-card.project-modal {
+  width: min(1240px, 100%);
   grid-template-columns: 1fr;
 }
 
-.modal-card.detail-modal .modal-image {
+.modal-card.project-modal .modal-image {
   display: none;
 }
 
-.modal-card.detail-modal .modal-content {
+.modal-card.project-modal .modal-content {
   display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
+  grid-template-columns: 0.66fr 1.34fr;
   gap: 34px;
   max-height: 88vh;
+  overflow: hidden;
 }
 
-.modal-card.detail-modal .modal-gallery {
+.modal-card.project-modal .modal-info {
+  align-self: start;
+  position: sticky;
+  top: 0;
+}
+
+.modal-card.project-modal .modal-gallery {
+  overflow-y: auto;
+  max-height: calc(88vh - 88px);
   margin-top: 0;
+  padding-right: 6px;
+}
+
+.modal-card.project-modal .modal-gallery img {
+  width: auto;
+  max-width: 100%;
+  max-height: none;
+  margin: 0 auto;
+}
+
+.modal-card.project-modal .modal-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .modal-image {
@@ -659,24 +704,24 @@ body {
     padding: 28px;
   }
 
-  .modal-card.media-modal {
-    width: 100%;
-    height: 100%;
-    max-height: none;
-  }
-
-  .modal-card.media-modal .modal-content {
-    max-height: none;
-  }
-
-  .modal-card.media-modal .modal-gallery {
-    min-height: 100vh;
-    padding: 12px;
-  }
-
-  .modal-card.detail-modal .modal-content {
+  .modal-card.project-modal .modal-content {
     grid-template-columns: 1fr;
     gap: 24px;
+    overflow-y: auto;
+  }
+
+  .modal-card.project-modal .modal-info {
+    position: static;
+  }
+
+  .modal-card.project-modal .modal-gallery {
+    overflow: visible;
+    max-height: none;
+    padding-right: 0;
+  }
+
+  .qr-grid {
+    grid-template-columns: 1fr;
   }
 
   .modal-gallery-grid {
