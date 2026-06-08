@@ -73,6 +73,10 @@ projects.forEach((projectItem) => {
   if (projectItem.subCategory === "detail" && !projectItem.updateMonths) {
     projectItem.updateMonths = projectItem.updatedAt ? [projectItem.updatedAt] : [];
   }
+
+  if (!projectItem.statement) {
+    projectItem.statement = createStatement(projectItem);
+  }
 });
 
 const categoryLabels = {
@@ -159,7 +163,7 @@ function createProjectCard(projectItem) {
   card.dataset.projectId = projectItem.id;
 
   const media = projectItem.type === "video"
-    ? `<video class="card-video" src="${projectItem.videoSrc}" muted playsinline preload="metadata"></video>`
+    ? `<video class="card-video" src="${projectItem.videoSrc}" autoplay muted loop playsinline preload="metadata"></video>`
     : `<img src="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy">`;
 
   card.innerHTML = `
@@ -168,6 +172,7 @@ function createProjectCard(projectItem) {
     <div class="project-overlay">
       <p>${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}</p>
       <h3>${projectItem.title}</h3>
+      <small>${projectItem.statement}</small>
     </div>
   `;
 
@@ -299,6 +304,39 @@ function renderHistory(projectItem) {
   `;
 }
 
+function createStatement(projectItem) {
+  if (projectItem.subCategory === "detail") return "把产品卖点组织成一条清晰的购买路径。";
+  if (projectItem.subCategory === "animation") return "让产品在运动中显露结构与场景。";
+  if (projectItem.subCategory === "product3d") return "用光影和材质提前建立产品现场感。";
+  if (projectItem.subCategory === "practice") return "在单帧中练习材质、空间和视觉秩序。";
+  if (projectItem.subCategory === "visualSystem") return "让页面元素拥有统一的视觉规则。";
+  if (projectItem.subCategory === "mainVisual") return "用主图快速抓住产品的第一眼印象。";
+  return "以视觉秩序提高作品的识别与沟通效率。";
+}
+
+function bindSideTimeline() {
+  const links = [...document.querySelectorAll("[data-section-link]")];
+  if (!links.length) return;
+
+  const sections = links
+    .map((link) => document.querySelector(`#${link.dataset.sectionLink}`))
+    .filter(Boolean);
+
+  const updateActiveLink = () => {
+    const current = sections.reduce((active, section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.top <= window.innerHeight * 0.48 ? section : active;
+    }, sections[0]);
+
+    links.forEach((link) => {
+      link.classList.toggle("active", link.dataset.sectionLink === current.id);
+    });
+  };
+
+  updateActiveLink();
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
+}
+
 function closeModal() {
   modal.querySelectorAll("video").forEach((item) => item.pause());
   modal.classList.remove("open");
@@ -340,6 +378,7 @@ function initPortfolio() {
   bindNavFilters();
   bindModalEvents();
   bindMobileMenu();
+  bindSideTimeline();
 }
 
 initPortfolio();
