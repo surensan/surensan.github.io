@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="黄敏视觉设计师的设计笔记、项目复盘与视觉方法整理。" />
+  <title>设计笔记 | 黄敏视觉设计师作品集</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white text-slate-900 antialiased">
+  <header class="site-header">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+      <a href="index.html#home" class="group flex items-center gap-3" aria-label="返回首页">
+        <span class="logo-mark">HM</span>
+        <span class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900">Huang Min</span>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm text-slate-500 md:flex">
+        <a class="nav-link" href="index.html#home">首页</a>
+        <a class="nav-link" href="index.html#works">作品</a>
+        <a class="nav-link" href="index.html#motion">动画</a>
+        <a class="nav-link" href="notes.html">设计笔记</a>
+        <a class="nav-link" href="index.html#about">关于我</a>
+      </div>
+
+      <button id="mobileMenuBtn" class="menu-button md:hidden" type="button" aria-label="打开菜单" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="mobile-menu md:hidden">
+      <a href="index.html#home">首页</a>
+      <a href="index.html#works">作品</a>
+      <a href="index.html#motion">动画</a>
+      <a href="notes.html">设计笔记</a>
+      <a href="index.html#about">关于我</a>
+    </div>
+  </header>
+
+  <main class="notes-page">
+    <section class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+      <div class="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+        <div>
+          <p class="eyebrow">Design Notes</p>
+          <h1 class="mt-3 text-4xl font-semibold text-slate-950 md:text-6xl">设计笔记</h1>
+          <p class="mt-7 max-w-xl text-base leading-8 text-slate-500">
+            这里用于整理项目复盘、视觉方法和日常观察。完整笔记可以保留在语雀与幕布，作品站里只放最适合 HR 快速理解设计思考的精选内容。
+          </p>
+
+          <div class="note-links">
+            <a class="note-link-card" href="#" aria-label="语雀笔记链接待添加">
+              <div>
+                <span>语雀笔记</span>
+                <small>待添加链接，可放完整长文与项目复盘</small>
+              </div>
+              <b>↗</b>
+            </a>
+            <a class="note-link-card" href="#" aria-label="幕布笔记链接待添加">
+              <div>
+                <span>幕布笔记</span>
+                <small>待添加链接，可放结构化大纲与知识树</small>
+              </div>
+              <b>↗</b>
+            </a>
+          </div>
+        </div>
+
+        <div class="notes-list">
+          <p>产品卖点需要被看见，而不是被读完。</p>
+          <p>详情页是购买路径，也是一条视觉叙事。</p>
+          <p>渲染不是炫技，是让产品提前拥有现场感。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 px-5 py-8 text-center text-xs uppercase tracking-[0.22em] text-slate-400">
+    © 2026 Huang Min. Visual Design Portfolio.
+  </footer>
+
+  <script>
+    const mobileMenuBtn = document.querySelector("#mobileMenuBtn");
+    const mobileMenu = document.querySelector("#mobileMenu");
+
+    mobileMenuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+  </script>
+</body>
+</html>

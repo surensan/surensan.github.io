@@ -14,6 +14,10 @@ body {
   font-family: Inter, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 
+section[id] {
+  scroll-margin-top: 86px;
+}
+
 /* 顶部导航 */
 .site-header {
   position: sticky;
@@ -122,7 +126,7 @@ body {
   min-height: 100vh;
   place-items: center;
   overflow: hidden;
-  background: #020617;
+  background: #d9d9d9;
 }
 
 .hero-bg {
@@ -136,12 +140,75 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.hero-splash {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--ink);
+  animation: splashOut 2.5s ease both;
+}
+
+.hero-splash p {
+  font-size: clamp(1.1rem, 2.2vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.hero-collage {
+  position: absolute;
+  inset: -8vh -12vw;
+  display: grid;
+  align-content: center;
+  gap: 7vh;
+  opacity: 0;
+  transform: scale(1.04);
+  animation: collageIn 1.2s ease 1.75s both;
+}
+
+.hero-row {
+  display: flex;
+  width: max-content;
+  gap: 7vw;
+  will-change: transform;
+}
+
+.hero-row img {
+  width: clamp(260px, 33vw, 680px);
+  height: clamp(170px, 22vw, 430px);
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+}
+
+.hero-row img:nth-child(2n) {
+  width: clamp(190px, 20vw, 360px);
+}
+
+.hero-row-a {
+  animation: flowLeft 30s linear infinite;
+}
+
+.hero-row-b {
+  margin-left: -18vw;
+  animation: flowRight 34s linear infinite;
+}
+
+.hero-row-c {
+  margin-left: -8vw;
+  animation: flowLeft 38s linear infinite;
+}
+
 .hero-shade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.52)),
-    linear-gradient(90deg, rgba(2, 6, 23, 0.36), rgba(2, 6, 23, 0) 34%, rgba(2, 6, 23, 0.18));
+    linear-gradient(180deg, rgba(217, 217, 217, 0) 42%, rgba(2, 6, 23, 0.72) 100%),
+    linear-gradient(90deg, rgba(217, 217, 217, 0.1), rgba(217, 217, 217, 0) 30%, rgba(217, 217, 217, 0.74) 100%);
+  opacity: 0;
+  animation: collageIn 1.2s ease 1.9s both;
 }
 
 .hero-inner {
@@ -154,14 +221,16 @@ body {
   margin: 0 auto;
   padding: 42px;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0;
+  animation: heroTextIn 0.9s ease 2.35s both;
 }
 
 .hero-inner h1 {
   margin-top: 14px;
-  font-size: clamp(4.6rem, 11vw, 9rem);
+  max-width: 12em;
+  font-size: clamp(2.4rem, 5vw, 5rem);
   font-weight: 600;
-  line-height: 0.86;
+  line-height: 1.08;
 }
 
 .hero-title-block p:not(.eyebrow) {
@@ -188,6 +257,86 @@ body {
   letter-spacing: 0.16em;
   text-align: right;
   text-transform: uppercase;
+}
+
+.hero-year-rail {
+  position: absolute;
+  right: 36px;
+  top: 26%;
+  bottom: 14%;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  opacity: 0;
+  animation: heroTextIn 0.9s ease 2.45s both;
+}
+
+.hero-year-rail::before {
+  width: 1px;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.72);
+  content: "";
+}
+
+.hero-year-rail span {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  border: 1px solid rgba(15, 23, 42, 0.76);
+  border-radius: 999px;
+  padding: 5px 14px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 18px;
+}
+
+@keyframes splashOut {
+  0%,
+  62% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes collageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flowLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-22vw);
+  }
+}
+
+@keyframes flowRight {
+  from {
+    transform: translateX(-22vw);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .side-timeline {
@@ -459,6 +608,57 @@ body {
   line-height: 1.16;
 }
 
+.notes-page {
+  min-height: calc(100vh - 130px);
+}
+
+.note-links {
+  display: grid;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.note-link-card {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.note-link-card span {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.note-link-card small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.note-link-card b {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--ink);
+  font-weight: 500;
+}
+
+.note-link-card:hover {
+  border-color: var(--ink);
+  background: var(--soft);
+  transform: translateY(-2px);
+}
+
 /* 筛选按钮 */
 .filter-row {
   display: flex;
@@ -517,6 +717,20 @@ body {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.8;
+}
+
+.about-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
+  gap: 58px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: 42px;
+}
+
+.about-contact {
+  display: grid;
+  justify-items: start;
 }
 
 .contact-button {
@@ -829,8 +1043,7 @@ body {
 .hero-copy,
 .hero-panel,
 .featured-grid,
-.works-grid,
-.skills-grid {
+.works-grid {
   animation: fadeUp 720ms ease both;
 }
 
@@ -884,7 +1097,7 @@ body {
   }
 
   .hero-panel,
-  .skills-grid,
+  .about-panel,
   .modal-card {
     grid-template-columns: 1fr;
   }

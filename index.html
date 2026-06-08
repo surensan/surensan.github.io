@@ -25,6 +25,7 @@
         <a class="nav-link" href="#home">首页</a>
         <a class="nav-link" href="#works" data-nav-filter="2d">平面设计</a>
         <a class="nav-link" href="#works" data-nav-filter="3d">渲染作品</a>
+        <a class="nav-link" href="notes.html">设计笔记</a>
         <a class="nav-link" href="#experience">履历</a>
         <a class="nav-link" href="#about">关于我</a>
       </div>
@@ -40,6 +41,7 @@
       <a href="#home">首页</a>
       <a href="#works" data-nav-filter="2d">平面设计</a>
       <a href="#works" data-nav-filter="3d">渲染作品</a>
+      <a href="notes.html">设计笔记</a>
       <a href="#experience">履历</a>
       <a href="#about">关于我</a>
     </div>
@@ -48,19 +50,50 @@
   <main id="home">
     <!-- Hero / Featured Works -->
     <section id="intro" class="hero-full">
-      <img class="hero-bg" src="assets/hero/portfolio-cover-blue.jpg" alt="黄敏视觉设计作品集封面视觉" />
+      <div class="hero-splash">
+        <p>欢迎来到设计师三三个人网站</p>
+      </div>
+      <div class="hero-collage" aria-hidden="true">
+        <div class="hero-row hero-row-a">
+          <img src="assets/extracted/p04-img01.jpg" alt="">
+          <img src="assets/extracted/p12-img05.jpg" alt="">
+          <img src="assets/extracted/p20-img01.jpg" alt="">
+          <img src="assets/extracted/p23-img15.jpg" alt="">
+          <img src="assets/extracted/p13-img10.jpg" alt="">
+          <img src="assets/extracted/p17-img03.jpg" alt="">
+        </div>
+        <div class="hero-row hero-row-b">
+          <img src="assets/extracted/p15-img01.jpg" alt="">
+          <img src="assets/extracted/p13-img07.jpg" alt="">
+          <img src="assets/extracted/p21-img01.jpg" alt="">
+          <img src="assets/extracted/p24-img01.jpg" alt="">
+          <img src="assets/extracted/p10-img01.jpg" alt="">
+          <img src="assets/extracted/p19-img02.jpg" alt="">
+        </div>
+        <div class="hero-row hero-row-c">
+          <img src="assets/extracted/p22-img01.jpg" alt="">
+          <img src="assets/extracted/p25-img02.jpg" alt="">
+          <img src="assets/extracted/p09-img01.jpg" alt="">
+          <img src="assets/extracted/p16-img02.jpg" alt="">
+          <img src="assets/extracted/p13-img11.jpg" alt="">
+          <img src="assets/extracted/p23-img06.jpg" alt="">
+        </div>
+      </div>
       <div class="hero-shade"></div>
       <div class="hero-inner">
         <div class="hero-title-block">
           <p class="eyebrow hero-eyebrow">Visual Portfolio</p>
-          <h1>黄敏</h1>
-          <p>Visual Designer</p>
+          <h1>把产品的声与空气设计出来。</h1>
+          <p>设计师三三 / 黄敏 / Visual Designer</p>
         </div>
         <div class="hero-meta">
           <span>2015-2025</span>
           <span>2D Graphic</span>
           <span>3D Rendering</span>
         </div>
+      </div>
+      <div class="hero-year-rail" aria-hidden="true">
+        <span>2025</span>
       </div>
     </section>
 
@@ -69,7 +102,6 @@
       <a href="#featured" data-section-link="featured">Featured</a>
       <a href="#works" data-section-link="works">Works</a>
       <a href="#motion" data-section-link="motion">Motion</a>
-      <a href="#notes" data-section-link="notes">Notes</a>
       <a href="#about" data-section-link="about">About</a>
     </nav>
 
@@ -84,37 +116,6 @@
       </div>
 
       <div id="featuredGrid" class="featured-grid mt-8"></div>
-    </section>
-
-    <!-- Motion / Animation -->
-    <section id="motion" class="motion-section">
-      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-        <div class="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p class="eyebrow">Motion</p>
-            <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">动画展示</h2>
-          </div>
-          <p class="max-w-md text-sm leading-7 text-slate-500">
-            三维动画直接在页面中静音播放，用动态方式展示产品结构、材质和使用场景。
-          </p>
-        </div>
-        <div class="motion-grid">
-          <article class="motion-card">
-            <video src="assets/videos/mask-animation.mp4" autoplay muted loop playsinline preload="metadata"></video>
-            <div>
-              <span>Animation 01</span>
-              <h3>绿鼻子口罩三维动画</h3>
-            </div>
-          </article>
-          <article class="motion-card">
-            <video src="assets/videos/mosquito-net-animation.mp4" autoplay muted loop playsinline preload="metadata"></video>
-            <div>
-              <span>Animation 02</span>
-              <h3>美朵嘉蚊帐旋转动画</h3>
-            </div>
-          </article>
-        </div>
-      </div>
     </section>
 
     <!-- Works / Filter -->
@@ -144,17 +145,33 @@
       </div>
     </section>
 
-    <!-- Design Notes -->
-    <section id="notes" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-      <div class="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
-        <div>
-          <p class="eyebrow">Design Notes</p>
-          <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">设计笔记</h2>
+    <!-- Motion / Animation -->
+    <section id="motion" class="motion-section">
+      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+        <div class="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="eyebrow">Motion</p>
+            <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">动画展示</h2>
+          </div>
+          <p class="max-w-md text-sm leading-7 text-slate-500">
+            三维动画直接在页面中静音播放，用动态方式展示产品结构、材质和使用场景。
+          </p>
         </div>
-        <div class="notes-list">
-          <p>产品卖点需要被看见，而不是被读完。</p>
-          <p>详情页是购买路径，也是一条视觉叙事。</p>
-          <p>渲染不是炫技，是让产品提前拥有现场感。</p>
+        <div class="motion-grid">
+          <article class="motion-card">
+            <video src="assets/videos/mask-animation.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div>
+              <span>Animation 01</span>
+              <h3>绿鼻子口罩三维动画</h3>
+            </div>
+          </article>
+          <article class="motion-card">
+            <video src="assets/videos/mosquito-net-animation.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div>
+              <span>Animation 02</span>
+              <h3>美朵嘉蚊帐旋转动画</h3>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -197,13 +214,16 @@
 
     <!-- About / Contact -->
     <section id="about" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-      <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
+      <div class="about-panel">
+        <div class="about-copy">
           <p class="eyebrow">About / Contact</p>
           <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">关于我</h2>
           <p class="mt-7 max-w-xl text-base leading-8 text-slate-500">
             我是黄敏，视觉设计师。擅长电商页面、平面 KV、包装视觉与 3D 渲染整合输出，能够从产品卖点、用户场景与平台展示需求出发，完成从创意到落地的完整视觉交付。
           </p>
+        </div>
+
+        <div class="about-contact">
           <div class="mt-9 flex flex-wrap gap-4">
             <a class="contact-button" href="mailto:17576026960@163.com">
               <span>
@@ -236,29 +256,6 @@
                 <p>扫码添加微信沟通</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-card">
-            <span>01</span>
-            <h3>E-commerce Visual</h3>
-            <p>首页、详情页、活动页、平台投放图与产品卖点页面。</p>
-          </div>
-          <div class="skill-card">
-            <span>02</span>
-            <h3>Graphic Design</h3>
-            <p>平面海报、节日 KV、包装延展、品牌物料与版式系统。</p>
-          </div>
-          <div class="skill-card">
-            <span>03</span>
-            <h3>3D Visualization</h3>
-            <p>产品渲染、包装渲染、场景搭建、材质灯光与展示图。</p>
-          </div>
-          <div class="skill-card">
-            <span>04</span>
-            <h3>AIGC Photography</h3>
-            <p>AIGC 图像辅助、视觉提案、场景氛围与创意素材生成。</p>
           </div>
         </div>
       </div>
