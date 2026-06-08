@@ -120,49 +120,74 @@ body {
   position: relative;
   display: grid;
   min-height: 100vh;
-  place-items: end start;
+  place-items: center;
   overflow: hidden;
-  background: #0f172a;
+  background: #020617;
 }
 
 .hero-bg {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  top: 50%;
+  left: 50%;
+  width: min(100vw, 1920px);
+  height: auto;
+  max-height: min(100vh, 1080px);
+  object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
 .hero-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(15, 23, 42, 0.58), rgba(15, 23, 42, 0.08) 62%, rgba(15, 23, 42, 0.36));
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.52)),
+    linear-gradient(90deg, rgba(2, 6, 23, 0.36), rgba(2, 6, 23, 0) 34%, rgba(2, 6, 23, 0.18));
 }
 
 .hero-inner {
   position: relative;
   z-index: 1;
-  width: min(100%, 1280px);
+  display: grid;
+  width: min(100% - 40px, 1280px);
+  min-height: min(78vh, 760px);
+  align-items: end;
   margin: 0 auto;
-  padding: 0 20px 12vh;
+  padding: 42px;
   color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .hero-inner h1 {
-  margin-top: 18px;
-  font-size: clamp(4rem, 12vw, 10rem);
+  margin-top: 14px;
+  font-size: clamp(4.6rem, 11vw, 9rem);
   font-weight: 600;
-  line-height: 0.9;
+  line-height: 0.86;
 }
 
-.hero-inner p:not(.eyebrow) {
-  margin-top: 22px;
+.hero-title-block p:not(.eyebrow) {
+  margin-top: 18px;
   color: rgba(255, 255, 255, 0.78);
-  font-size: clamp(1.1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero-eyebrow {
   color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-meta {
+  position: absolute;
+  right: 42px;
+  bottom: 42px;
+  display: grid;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-align: right;
+  text-transform: uppercase;
 }
 
 .side-timeline {
@@ -839,7 +864,19 @@ body {
   }
 
   .hero-inner {
-    padding-bottom: 9vh;
+    width: calc(100% - 28px);
+    min-height: 68vh;
+    padding: 26px;
+  }
+
+  .hero-inner h1 {
+    font-size: clamp(4rem, 24vw, 7rem);
+  }
+
+  .hero-meta {
+    position: static;
+    margin-top: 34px;
+    text-align: left;
   }
 
   .side-timeline {
