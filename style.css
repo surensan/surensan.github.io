@@ -189,17 +189,17 @@ section[id] {
 }
 
 .hero-row-a {
-  animation: flowLeft 86s linear infinite;
+  animation: flowLeft 180s linear infinite;
 }
 
 .hero-row-b {
   margin-left: -18vw;
-  animation: flowRight 96s linear infinite;
+  animation: flowRight 210s linear infinite;
 }
 
 .hero-row-c {
   margin-left: -8vw;
-  animation: flowLeft 106s linear infinite;
+  animation: flowLeft 240s linear infinite;
 }
 
 .hero-shade {
@@ -1121,6 +1121,18 @@ section[id] {
   .hero-row img:nth-child(2n) {
     width: clamp(110px, 26vw, 180px);
     height: clamp(84px, 21vw, 145px);
+  }
+
+  .hero-row-a {
+    animation-duration: 86s;
+  }
+
+  .hero-row-b {
+    animation-duration: 96s;
+  }
+
+  .hero-row-c {
+    animation-duration: 106s;
   }
 
   .side-timeline {
