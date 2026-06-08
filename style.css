@@ -189,17 +189,17 @@ section[id] {
 }
 
 .hero-row-a {
-  animation: flowLeft 30s linear infinite;
+  animation: flowLeft 86s linear infinite;
 }
 
 .hero-row-b {
   margin-left: -18vw;
-  animation: flowRight 34s linear infinite;
+  animation: flowRight 96s linear infinite;
 }
 
 .hero-row-c {
   margin-left: -8vw;
-  animation: flowLeft 38s linear infinite;
+  animation: flowLeft 106s linear infinite;
 }
 
 .hero-shade {
