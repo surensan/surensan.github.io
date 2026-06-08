@@ -1,77 +1,66 @@
-// 作品数据按 PDF 页码重新整理：
-// 3-11 页单图展示；12-13 页拆为单帧渲染；15-19 页合成长详情页。
+// 作品数据按 PDF 页码与真实素材重新整理。
+// 图片来自 assets/extracted，详情页合成图来自 assets/combined，视频来自 assets/videos。
 const page = (name) => `assets/extracted/${name}`;
+const detail = (name) => `assets/combined/${name}`;
+const cover = (name) => `assets/covers/${name}`;
+const video = (name) => `assets/videos/${name}`;
 
 const projects = [
-  project(3, "Job Poster 场景视觉", "3d", "single3d", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "单页展示", "场景视觉"], "PDF 第 3 页作品，适合作为单张海报或场景主视觉展示。"),
-  project(4, "礼盒暗场包装渲染", "3d", "single3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "包装", "暗场灯光"], "PDF 第 4 页作品，以暗场灯光突出礼盒层次和产品质感。"),
-  project(5, "礼盒陈列包装渲染", "3d", "single3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "包装", "陈列"], "PDF 第 5 页作品，展示礼盒组合陈列和不同画面版本。"),
-  project(6, "服装产品单帧渲染", "3d", "single3d", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "服装", "单帧"], "PDF 第 6 页作品，突出服装产品结构和材质质感。"),
-  project(7, "天空场景单帧渲染", "3d", "single3d", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "场景", "氛围"], "PDF 第 7 页作品，以轻盈自然的画面氛围作为单帧视觉。"),
-  project(8, "抽象球体单帧渲染", "3d", "single3d", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "抽象", "材质"], "PDF 第 8 页作品，展示抽象材质、光影和空间控制。"),
-  project(9, "口罩产品单帧渲染", "3d", "single3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["渲染", "产品", "材质"], "PDF 第 9 页作品，展示产品阵列、色彩和柔和材质表现。"),
-  project(10, "VR 产品单帧渲染", "3d", "single3d", page("p10-img01.jpg"), [page("p10-img01.jpg")], ["渲染", "3C数码", "产品"], "PDF 第 10 页作品，以干净背景突出 VR 产品主体。"),
-  project(11, "精密零件产品渲染", "3d", "single3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["渲染", "产品", "金属材质"], "PDF 第 11 页作品，展示精密零件的材质和结构。"),
+  imageProject(3, "Job Poster 场景视觉", "3d", "single3d", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "单页展示", "场景视觉"], "单页场景视觉，以完整页面形式展示画面氛围、主体关系和商业海报版式。"),
+  imageProject(4, "礼盒暗场包装渲染", "3d", "single3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "包装", "暗场灯光"], "通过低照度背景和暖色灯光突出礼盒质感，适合礼赠类产品活动主视觉与详情页头图。"),
+  imageProject(5, "礼盒陈列包装渲染", "3d", "single3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "包装", "陈列"], "以多盒型陈列呈现产品组合关系，强调包装正面信息、货架层次和促销场景感。"),
+  imageProject(6, "服装产品单帧渲染", "3d", "single3d", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "服装", "单帧"], "突出服装结构、材质和内部视觉焦点，用单帧方式快速传达产品功能与卖点。"),
+  imageProject(7, "天空场景单帧渲染", "3d", "single3d", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "场景", "氛围"], "以蓝天和轻盈物体营造自然、轻量、舒适的视觉氛围，可作为产品概念或活动背景图。"),
+  imageProject(8, "抽象球体材质渲染", "3d", "single3d", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "抽象", "材质"], "通过球体、雾面空间和高对比光影展示材质控制与抽象视觉表达能力。"),
+  imageProject(9, "口罩产品阵列渲染", "3d", "product3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["渲染", "口罩", "产品阵列"], "多色口罩产品阵列展示，强调柔和材质、颜色区分和消费品主图的干净质感。"),
+  imageProject(10, "VR 产品单帧渲染", "3d", "product3d", page("p10-img01.jpg"), [page("p10-img01.jpg")], ["渲染", "3C数码", "产品"], "以白底和干净投影突出 VR 产品主体，适合 3C 产品主图和详情页核心卖点展示。"),
+  imageProject(11, "精密零件产品渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["渲染", "金属", "零件"], "展示金属零件的结构、比例和反射控制，突出工业产品的精密感。"),
 
   ...singleFrameProjects(12, [
-    ["p12-img01.jpg", "耳机详情首屏渲染", "product3d"],
-    ["p12-img02.jpg", "6DOF 功能图形", "product3d"],
-    ["p12-img03.jpg", "产品包装单帧", "product3d"],
-    ["p12-img04.jpg", "手柄卖点海报", "product3d"],
-    ["p12-img05.jpg", "耳机产品卖点图", "product3d"],
-    ["p12-img06.jpg", "功能说明版式", "product3d"],
-    ["p12-img07.jpg", "耳机氛围海报", "product3d"],
-    ["p12-img08.jpg", "居家产品场景图", "product3d"],
-    ["p12-img09.jpg", "产品场景渲染", "product3d"],
-    ["p12-img10.jpg", "游戏化场景海报", "product3d"],
-    ["p12-img11.jpg", "冰雪氛围海报", "product3d"],
-    ["p12-img12.jpg", "产品角色图", "product3d"],
-    ["p12-img13.jpg", "滑板场景渲染", "product3d"],
-    ["p12-img14.jpg", "童车空间渲染", "product3d"]
+    ["p12-img01.jpg", "耳机详情首屏渲染"], ["p12-img02.jpg", "6DOF 功能图形"], ["p12-img03.jpg", "产品包装单帧"], ["p12-img04.jpg", "手柄卖点海报"],
+    ["p12-img05.jpg", "耳机产品卖点图"], ["p12-img06.jpg", "功能说明版式"], ["p12-img07.jpg", "耳机氛围海报"], ["p12-img08.jpg", "居家产品场景图"],
+    ["p12-img09.jpg", "产品场景渲染"], ["p12-img10.jpg", "游戏化场景海报"], ["p12-img11.jpg", "冰雪氛围海报"], ["p12-img12.jpg", "产品角色图"],
+    ["p12-img13.jpg", "滑板场景渲染"], ["p12-img14.jpg", "童车空间渲染"]
   ]),
   ...singleFrameProjects(13, [
-    ["p13-img01.jpg", "户外产品氛围图", "product3d"],
-    ["p13-img02.jpg", "个护产品场景渲染", "product3d"],
-    ["p13-img03.jpg", "智能设备场景渲染", "product3d"],
-    ["p13-img04.jpg", "IP 角色单帧 01", "single3d"],
-    ["p13-img05.jpg", "IP 角色单帧 02", "single3d"],
-    ["p13-img06.jpg", "IP 角色单帧 03", "single3d"],
-    ["p13-img07.jpg", "IP 角色单帧 04", "single3d"],
-    ["p13-img08.jpg", "卡带产品单帧", "product3d"],
-    ["p13-img09.jpg", "角色场景单帧", "single3d"],
-    ["p13-img10.jpg", "居家空间渲染", "product3d"],
-    ["p13-img11.jpg", "汽车产品单帧", "product3d"]
+    ["p13-img01.jpg", "户外产品氛围图"], ["p13-img02.jpg", "个护产品场景渲染"], ["p13-img03.jpg", "智能设备场景渲染"], ["p13-img04.jpg", "IP 角色单帧 01"],
+    ["p13-img05.jpg", "IP 角色单帧 02"], ["p13-img06.jpg", "IP 角色单帧 03"], ["p13-img07.jpg", "IP 角色单帧 04"], ["p13-img08.jpg", "卡带产品单帧"],
+    ["p13-img09.jpg", "角色场景单帧"], ["p13-img10.jpg", "居家空间渲染"], ["p13-img11.jpg", "汽车产品单帧"]
   ]),
-  project(140, "第 14 页渲染合集", "3d", "renderSet", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "合集", "包装视觉"], "PDF 第 14 页为渲染合集，保留整页作为作品展示。"),
+  imageProject(140, "第 14 页渲染合集", "3d", "renderSet", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "合集", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
+
+  imageProject(15, "儿童手拍鼓详情页", "2d", "detail", cover("detail-page-15.jpg"), [detail("detail-page-15.jpg")], ["详情页", "儿童产品", "玩具"], "儿童手拍鼓产品详情页。围绕趣味互动、亲子陪伴、材质安全和产品结构展开，以活泼插画色彩和模块化卖点组织完整购买路径。"),
+  imageProject(16, "紫外线消毒包详情页", "2d", "detail", cover("detail-page-16.jpg"), [detail("detail-page-16.jpg")], ["详情页", "消毒包", "母婴个护"], "紫外线消毒包详情页。重点提取消毒杀菌、便携收纳、适用多场景和安心护理等卖点，用蓝白科技感视觉强化专业度。"),
+  imageProject(17, "儿童自行车详情页", "2d", "detail", cover("detail-page-17.jpg"), [detail("detail-page-17.jpg")], ["详情页", "儿童自行车", "电商页面"], "儿童自行车详情页。围绕骑行安全、车身结构、轻便操控和儿童成长场景展开，页面节奏从氛围首屏过渡到结构、细节和参数说明。"),
+  imageProject(18, "免洗洗手液详情页", "2d", "detail", cover("detail-page-18.jpg"), [detail("detail-page-18.jpg")], ["详情页", "免洗洗手液", "清洁护理"], "免洗洗手液详情页。提炼便携清洁、温和护理、随时使用和家庭场景等卖点，以清爽色调和留白强化干净、安心的产品感受。"),
+  imageProject(19, "绿鼻子儿童口罩详情页", "2d", "detail", cover("detail-page-19.jpg"), [detail("detail-page-19.jpg")], ["详情页", "儿童口罩", "防护用品"], "绿鼻子儿童口罩详情页。围绕儿童防护、亲肤舒适、透气结构和多场景佩戴展开，采用清新绿色系统强化安全与健康感。"),
 
   {
-    ...project(1519, "电商长详情页 15-19", "2d", "detail", "assets/covers/detail-15-19.jpg", ["assets/combined/ecommerce-detail-15-19.jpg"], ["平面", "详情页", "电商页面"], "PDF 第 15-19 页按从左至右、从上到下顺序拼接为完整长详情页，封面取自详情页第一屏。"),
-    galleryLayout: "single"
-  },
-  {
-    ...project(20, "红豆居家主图系列", "2d", "mainVisual", page("p20-img01.jpg"), [
+    ...imageProject(20, "红豆居家主图系列", "2d", "mainVisual", page("p20-img01.jpg"), [
       page("p20-img01.jpg"), page("p20-img02.jpg"), page("p20-img03.jpg"), page("p20-img04.jpg"),
       page("p20-img05.jpg"), page("p20-img06.jpg"), page("p20-img07.jpg"), page("p20-img08.jpg"),
       page("p20-img09.jpg"), page("p20-img10.jpg"), page("p20-img11.jpg"), page("p20-img12.jpg"),
       page("p20-img13.jpg"), page("p20-img14.jpg")
-    ], ["平面", "主图", "电商视觉"], "PDF 第 20 页主图系列，采用两列宫格展示，更适合快速浏览多张方图。"),
+    ], ["主图", "服饰个护", "电商视觉"], "第 20 页主图系列。方图适合平台主图和社媒投放，两列展示能更快比较不同构图、产品卖点和模特场景。"),
     galleryLayout: "grid"
   },
-  project(21, "电商首页视觉规范 01", "2d", "visualSystem", page("p21-img01.jpg"), [page("p21-img01.jpg")], ["平面", "首页视觉", "规范"], "PDF 第 21 页，展示电商首页视觉规范、信息层级和元素延展。"),
-  project(22, "电商首页视觉规范 02", "2d", "visualSystem", page("p22-img01.jpg"), [page("p22-img01.jpg")], ["平面", "首页视觉", "规范"], "PDF 第 22 页，展示另一套电商首页视觉规范与模块系统。"),
+  imageProject(21, "电商首页视觉规范 01", "2d", "visualSystem", page("p21-img01.jpg"), [page("p21-img01.jpg")], ["首页视觉", "规范", "元素"], "电商首页视觉规范项目，展示色彩、标题、元素和页面模块的统一规则。"),
+  imageProject(22, "电商首页视觉规范 02", "2d", "visualSystem", page("p22-img01.jpg"), [page("p22-img01.jpg")], ["首页视觉", "规范", "元素"], "第二套电商首页视觉规范，关注活动页面的信息层级、物料延展和统一视觉系统。"),
   {
-    ...project(2301, "AI 节气海报", "2d", "aiPoster", page("p23-img06.jpg"), [page("p23-img06.jpg"), page("p23-img07.jpg")], ["AI", "节气海报", "平面"], "PDF 第 23 页中的 2 张 AI 节气海报，单独归类展示。"),
+    ...imageProject(2301, "AI 节气海报", "2d", "aiPoster", page("p23-img06.jpg"), [page("p23-img06.jpg"), page("p23-img07.jpg")], ["AI", "节气海报", "平面"], "第 23 页中的两张 AI 节气海报，单独与渲染作品分开展示。"),
     galleryLayout: "grid"
   },
-  project(2302, "第 23 页礼盒渲染组", "3d", "renderSet", page("p23-img15.jpg"), [
-    page("p23-img04.jpg"), page("p23-img10.jpg"), page("p23-img11.jpg"),
-    page("p23-img12.jpg"), page("p23-img13.jpg"), page("p23-img15.jpg")
-  ], ["渲染", "礼盒", "节日营销"], "PDF 第 23 页中除 AI 节气海报外的 6 张渲染图，按渲染作品单独归类。"),
-  project(2426, "新年海报与代言人主图", "2d", "composite", page("p25-img02.jpg"), [
+  imageProject(2302, "第 23 页礼盒渲染组", "3d", "renderSet", page("p23-img15.jpg"), [
+    page("p23-img04.jpg"), page("p23-img10.jpg"), page("p23-img11.jpg"), page("p23-img12.jpg"), page("p23-img13.jpg"), page("p23-img15.jpg")
+  ], ["渲染", "礼盒", "节日营销"], "第 23 页中除 AI 节气海报外的渲染图，集中展示礼盒、电商场景和节日营销氛围。"),
+  imageProject(2426, "新年海报与代言人主图", "2d", "composite", page("p25-img02.jpg"), [
     page("p24-img01.jpg"), page("p24-img02.jpg"), page("p24-img03.jpg"),
     page("p25-img01.jpg"), page("p25-img02.jpg"), page("p25-img03.jpg"),
     page("p26-img01.jpg"), page("p26-img02.jpg")
-  ], ["合成", "过年海报", "代言人主图"], "PDF 第 24 页过年海报、25 页代言人主图和 26 页手幅合并为一个完整营销视觉项目。")
+  ], ["合成", "过年海报", "代言人主图"], "第 24 页过年海报、25 页代言人主图和 26 页手幅合并为一个完整营销视觉项目。"),
+
+  videoProject(3001, "绿鼻子口罩三维动画", "3d", "animation", page("p09-img01.jpg"), video("mask-animation.mp4"), ["动画", "口罩", "产品展示"], "口罩产品三维动画，用动态方式展示产品外观、结构和轻量化视觉氛围。"),
+  videoProject(3002, "美朵嘉蚊帐旋转动画", "3d", "animation", page("p13-img10.jpg"), video("mosquito-net-animation.mp4"), ["动画", "蚊帐", "旋转展示"], "蚊帐产品旋转动画，通过动态视角展示空间结构、产品形态和使用场景。")
 ];
 
 const categoryLabels = {
@@ -80,6 +69,7 @@ const categoryLabels = {
   single3d: "单图渲染",
   product3d: "产品渲染",
   renderSet: "渲染合集",
+  animation: "动画展示",
   detail: "详情页",
   mainVisual: "主图",
   visualSystem: "视觉规范",
@@ -101,7 +91,8 @@ const subFilterMap = {
     { label: "全部", value: "all" },
     { label: "单图渲染", value: "single3d" },
     { label: "产品渲染", value: "product3d" },
-    { label: "渲染合集", value: "renderSet" }
+    { label: "渲染合集", value: "renderSet" },
+    { label: "动画展示", value: "animation" }
   ]
 };
 
@@ -123,18 +114,22 @@ const modalGallery = document.querySelector("#modalGallery");
 const mobileMenuBtn = document.querySelector("#mobileMenuBtn");
 const mobileMenu = document.querySelector("#mobileMenu");
 
-function project(id, title, mainCategory, subCategory, coverImage, detailImages, tags, description) {
-  return { id, title, mainCategory, subCategory, coverImage, detailImages, tags, description };
+function imageProject(id, title, mainCategory, subCategory, coverImage, detailImages, tags, description) {
+  return { id, type: "image", title, mainCategory, subCategory, coverImage, detailImages, tags, description };
+}
+
+function videoProject(id, title, mainCategory, subCategory, coverImage, videoSrc, tags, description) {
+  return { id, type: "video", title, mainCategory, subCategory, coverImage, videoSrc, detailImages: [], tags, description };
 }
 
 function singleFrameProjects(pageNumber, items) {
-  return items.map(([file, title, subCategory], index) => {
+  return items.map(([file, title], index) => {
     const image = page(file);
-    return project(
+    return imageProject(
       pageNumber * 100 + index + 1,
       title,
       "3d",
-      subCategory,
+      "product3d",
       image,
       [image],
       ["渲染", `PDF 第 ${pageNumber} 页`, "单帧"],
@@ -151,6 +146,7 @@ function createProjectCard(projectItem) {
 
   card.innerHTML = `
     <img src="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy">
+    ${projectItem.type === "video" ? '<span class="play-badge">Play</span>' : ""}
     <div class="project-overlay">
       <p>${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}</p>
       <h3>${projectItem.title}</h3>
@@ -166,7 +162,7 @@ function createProjectCard(projectItem) {
 }
 
 function renderFeaturedWorks() {
-  const featuredIds = [1519, 20, 2302, 2426];
+  const featuredIds = [17, 19, 3001, 2426];
   const featuredProjects = featuredIds.map((id) => projects.find((item) => item.id === id)).filter(Boolean);
   featuredGrid.innerHTML = "";
   featuredProjects.forEach((projectItem) => featuredGrid.appendChild(createProjectCard(projectItem)));
@@ -251,9 +247,16 @@ function openModal(projectItem) {
   modalDescription.textContent = projectItem.description;
   modalTags.innerHTML = projectItem.tags.map((tag) => `<span>${tag}</span>`).join("");
   modalGallery.className = `modal-gallery ${projectItem.galleryLayout === "grid" ? "modal-gallery-grid" : ""}`;
-  modalGallery.innerHTML = projectItem.detailImages
-    .map((image, index) => `<img src="${image}" alt="${projectItem.title} 详情图 ${index + 1}" loading="lazy">`)
-    .join("");
+
+  if (projectItem.type === "video") {
+    modalGallery.innerHTML = `
+      <video class="modal-video" src="${projectItem.videoSrc}" controls playsinline preload="metadata" poster="${projectItem.coverImage}"></video>
+    `;
+  } else {
+    modalGallery.innerHTML = projectItem.detailImages
+      .map((image, index) => `<img src="${image}" alt="${projectItem.title} 详情图 ${index + 1}" loading="lazy">`)
+      .join("");
+  }
 
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
@@ -262,6 +265,7 @@ function openModal(projectItem) {
 }
 
 function closeModal() {
+  modal.querySelectorAll("video").forEach((item) => item.pause());
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";

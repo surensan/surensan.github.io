@@ -233,6 +233,26 @@ body {
   font-size: 13px;
 }
 
+.play-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(15, 23, 42, 0.42);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
 /* 筛选按钮 */
 .filter-row {
   display: flex;
@@ -404,6 +424,12 @@ body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.modal-video {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #020617;
+}
+
 /* 履历时间线 */
 .timeline {
   border-top: 1px solid var(--line);
@@ -522,11 +548,11 @@ body {
   }
 
   .modal-image {
-    min-height: 300px;
-    max-height: 46vh;
+    display: none;
   }
 
   .modal-content {
+    max-height: 88vh;
     padding: 28px;
   }
 
