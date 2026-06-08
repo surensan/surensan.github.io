@@ -6,12 +6,12 @@ const cover = (name) => `assets/covers/${name}`;
 const video = (name) => `assets/videos/${name}`;
 
 const projects = [
-  imageProject(3, "Job Poster 场景视觉", "3d", "single3d", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "单页展示", "场景视觉"], "单页场景视觉，以完整页面形式展示画面氛围、主体关系和商业海报版式。"),
-  imageProject(4, "礼盒暗场包装渲染", "3d", "single3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "包装", "暗场灯光"], "通过低照度背景和暖色灯光突出礼盒质感，适合礼赠类产品活动主视觉与详情页头图。"),
-  imageProject(5, "礼盒陈列包装渲染", "3d", "single3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "包装", "陈列"], "以多盒型陈列呈现产品组合关系，强调包装正面信息、货架层次和促销场景感。"),
-  imageProject(6, "服装产品单帧渲染", "3d", "single3d", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "服装", "单帧"], "突出服装结构、材质和内部视觉焦点，用单帧方式快速传达产品功能与卖点。"),
-  imageProject(7, "天空场景单帧渲染", "3d", "single3d", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "场景", "氛围"], "以蓝天和轻盈物体营造自然、轻量、舒适的视觉氛围，可作为产品概念或活动背景图。"),
-  imageProject(8, "抽象球体材质渲染", "3d", "single3d", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "抽象", "材质"], "通过球体、雾面空间和高对比光影展示材质控制与抽象视觉表达能力。"),
+  imageProject(3, "Job Poster 场景视觉", "3d", "practice", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "练习作品", "场景视觉"], "单页场景视觉，以完整页面形式展示画面氛围、主体关系和商业海报版式。"),
+  imageProject(4, "礼盒暗场包装渲染", "3d", "product3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "产品渲染", "暗场灯光"], "通过低照度背景和暖色灯光突出礼盒质感，适合礼赠类产品活动主视觉与详情页头图。"),
+  imageProject(5, "礼盒陈列包装渲染", "3d", "product3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "产品渲染", "陈列"], "以多盒型陈列呈现产品组合关系，强调包装正面信息、货架层次和促销场景感。"),
+  imageProject(6, "服装产品单帧渲染", "3d", "practice", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "练习作品", "单帧"], "突出服装结构、材质和内部视觉焦点，用单帧方式快速传达产品功能与卖点。"),
+  imageProject(7, "天空场景单帧渲染", "3d", "practice", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "练习作品", "氛围"], "以蓝天和轻盈物体营造自然、轻量、舒适的视觉氛围，可作为产品概念或活动背景图。"),
+  imageProject(8, "抽象球体材质渲染", "3d", "practice", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "练习作品", "材质"], "通过球体、雾面空间和高对比光影展示材质控制与抽象视觉表达能力。"),
   imageProject(9, "口罩产品阵列渲染", "3d", "product3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["渲染", "口罩", "产品阵列"], "多色口罩产品阵列展示，强调柔和材质、颜色区分和消费品主图的干净质感。"),
   imageProject(10, "VR 产品单帧渲染", "3d", "product3d", page("p10-img01.jpg"), [page("p10-img01.jpg")], ["渲染", "3C数码", "产品"], "以白底和干净投影突出 VR 产品主体，适合 3C 产品主图和详情页核心卖点展示。"),
   imageProject(11, "精密零件产品渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["渲染", "金属", "零件"], "展示金属零件的结构、比例和反射控制，突出工业产品的精密感。"),
@@ -27,7 +27,7 @@ const projects = [
     ["p13-img05.jpg", "IP 角色单帧 02"], ["p13-img06.jpg", "IP 角色单帧 03"], ["p13-img07.jpg", "IP 角色单帧 04"], ["p13-img08.jpg", "卡带产品单帧"],
     ["p13-img09.jpg", "角色场景单帧"], ["p13-img10.jpg", "居家空间渲染"], ["p13-img11.jpg", "汽车产品单帧"]
   ]),
-  imageProject(140, "第 14 页渲染合集", "3d", "renderSet", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "合集", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
+  imageProject(140, "第 14 页渲染合集", "3d", "practice", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "练习作品", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
 
   imageProject(15, "儿童手拍鼓详情页", "2d", "detail", cover("detail-page-15.jpg"), [detail("detail-page-15.jpg")], ["详情页", "儿童产品", "玩具"], "儿童手拍鼓产品详情页。围绕趣味互动、亲子陪伴、材质安全和产品结构展开，以活泼插画色彩和模块化卖点组织完整购买路径。"),
   imageProject(16, "紫外线消毒包详情页", "2d", "detail", cover("detail-page-16.jpg"), [detail("detail-page-16.jpg")], ["详情页", "消毒包", "母婴个护"], "紫外线消毒包详情页。重点提取消毒杀菌、便携收纳、适用多场景和安心护理等卖点，用蓝白科技感视觉强化专业度。"),
@@ -50,7 +50,7 @@ const projects = [
     ...imageProject(2301, "AI 节气海报", "2d", "aiPoster", page("p23-img06.jpg"), [page("p23-img06.jpg"), page("p23-img07.jpg")], ["AI", "节气海报", "平面"], "第 23 页中的两张 AI 节气海报，单独与渲染作品分开展示。"),
     galleryLayout: "grid"
   },
-  imageProject(2302, "第 23 页礼盒渲染组", "3d", "renderSet", page("p23-img15.jpg"), [
+  imageProject(2302, "第 23 页礼盒渲染组", "3d", "product3d", page("p23-img15.jpg"), [
     page("p23-img04.jpg"), page("p23-img10.jpg"), page("p23-img11.jpg"), page("p23-img12.jpg"), page("p23-img13.jpg"), page("p23-img15.jpg")
   ], ["渲染", "礼盒", "节日营销"], "第 23 页中除 AI 节气海报外的渲染图，集中展示礼盒、电商场景和节日营销氛围。"),
   imageProject(2426, "新年海报与代言人主图", "2d", "composite", page("p25-img02.jpg"), [
@@ -63,13 +63,25 @@ const projects = [
   videoProject(3002, "美朵嘉蚊帐旋转动画", "3d", "animation", page("p13-img10.jpg"), video("mosquito-net-animation.mp4"), ["动画", "蚊帐", "旋转展示"], "蚊帐产品旋转动画，通过动态视角展示空间结构、产品形态和使用场景。")
 ];
 
+projects.push(...(window.extraPortfolioProjects || []));
+
+projects.forEach((projectItem) => {
+  if (projectItem.subCategory === "detail" && !projectItem.updatedAt) {
+    projectItem.updatedAt = "2026-06";
+  }
+
+  if (projectItem.subCategory === "detail" && !projectItem.updateMonths) {
+    projectItem.updateMonths = projectItem.updatedAt ? [projectItem.updatedAt] : [];
+  }
+});
+
 const categoryLabels = {
   "2d": "平面设计",
   "3d": "渲染作品",
-  single3d: "单图渲染",
+  detailRender: "详情页卖点渲染",
   product3d: "产品渲染",
-  renderSet: "渲染合集",
   animation: "动画展示",
+  practice: "练习作品",
   detail: "详情页",
   mainVisual: "主图",
   visualSystem: "视觉规范",
@@ -89,10 +101,10 @@ const subFilterMap = {
   ],
   "3d": [
     { label: "全部", value: "all" },
-    { label: "单图渲染", value: "single3d" },
+    { label: "详情页卖点渲染", value: "detailRender" },
     { label: "产品渲染", value: "product3d" },
-    { label: "渲染合集", value: "renderSet" },
-    { label: "动画展示", value: "animation" }
+    { label: "动画", value: "animation" },
+    { label: "练习作品", value: "practice" }
   ]
 };
 
@@ -110,6 +122,7 @@ const modalCategory = document.querySelector("#modalCategory");
 const modalTitle = document.querySelector("#modalTitle");
 const modalDescription = document.querySelector("#modalDescription");
 const modalTags = document.querySelector("#modalTags");
+const modalHistory = document.querySelector("#modalHistory");
 const modalGallery = document.querySelector("#modalGallery");
 const mobileMenuBtn = document.querySelector("#mobileMenuBtn");
 const mobileMenu = document.querySelector("#mobileMenu");
@@ -125,11 +138,12 @@ function videoProject(id, title, mainCategory, subCategory, coverImage, videoSrc
 function singleFrameProjects(pageNumber, items) {
   return items.map(([file, title], index) => {
     const image = page(file);
+    const subCategory = pageNumber === 12 ? "detailRender" : "practice";
     return imageProject(
       pageNumber * 100 + index + 1,
       title,
       "3d",
-      "product3d",
+      subCategory,
       image,
       [image],
       ["渲染", `PDF 第 ${pageNumber} 页`, "单帧"],
@@ -140,12 +154,16 @@ function singleFrameProjects(pageNumber, items) {
 
 function createProjectCard(projectItem) {
   const card = document.createElement("article");
-  card.className = "project-card";
+  card.className = `project-card ${projectItem.type === "video" ? "video-card" : ""}`;
   card.tabIndex = 0;
   card.dataset.projectId = projectItem.id;
 
+  const media = projectItem.type === "video"
+    ? `<video class="card-video" src="${projectItem.videoSrc}" muted playsinline preload="metadata"></video>`
+    : `<img src="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy">`;
+
   card.innerHTML = `
-    <img src="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy">
+    ${media}
     ${projectItem.type === "video" ? '<span class="play-badge">Play</span>' : ""}
     <div class="project-overlay">
       <p>${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}</p>
@@ -240,17 +258,21 @@ function bindNavFilters() {
 }
 
 function openModal(projectItem) {
+  const modalCard = modal.querySelector(".modal-card");
+  const mediaOnly = projectItem.mainCategory === "3d";
+  modalCard.className = `modal-card ${mediaOnly ? "media-modal" : "detail-modal"}`;
   modalImage.src = projectItem.coverImage;
   modalImage.alt = projectItem.title;
   modalCategory.textContent = `${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}`;
   modalTitle.textContent = projectItem.title;
   modalDescription.textContent = projectItem.description;
   modalTags.innerHTML = projectItem.tags.map((tag) => `<span>${tag}</span>`).join("");
+  modalHistory.innerHTML = renderHistory(projectItem);
   modalGallery.className = `modal-gallery ${projectItem.galleryLayout === "grid" ? "modal-gallery-grid" : ""}`;
 
   if (projectItem.type === "video") {
     modalGallery.innerHTML = `
-      <video class="modal-video" src="${projectItem.videoSrc}" controls playsinline preload="metadata" poster="${projectItem.coverImage}"></video>
+      <video class="modal-video" src="${projectItem.videoSrc}" controls playsinline preload="metadata"></video>
     `;
   } else {
     modalGallery.innerHTML = projectItem.detailImages
@@ -262,6 +284,20 @@ function openModal(projectItem) {
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
   modal.querySelector(".modal-content").scrollTop = 0;
+}
+
+function renderHistory(projectItem) {
+  if (projectItem.mainCategory === "3d") return "";
+
+  const months = projectItem.updateMonths || [];
+  const limit = Number(projectItem.historyLimit || 12);
+  const visibleMonths = months.slice(0, limit);
+
+  if (visibleMonths.length === 0) return "";
+
+  return `
+    <div class="history-meta">修改记录 ${visibleMonths.join(" / ")}</div>
+  `;
 }
 
 function closeModal() {
