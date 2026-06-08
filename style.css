@@ -400,6 +400,10 @@ body {
   object-fit: contain;
 }
 
+.modal-gallery-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 /* 履历时间线 */
 .timeline {
   border-top: 1px solid var(--line);
@@ -524,6 +528,10 @@ body {
 
   .modal-content {
     padding: 28px;
+  }
+
+  .modal-gallery-grid {
+    grid-template-columns: 1fr;
   }
 
   .timeline-item {

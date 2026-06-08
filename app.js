@@ -1,206 +1,90 @@
-// 作品数据来自简历 PDF 中提取的图片素材。
-// coverImage 用作卡片封面，detailImages 用作点击后的长详情展示。
+// 作品数据按 PDF 页码重新整理：
+// 3-11 页单图展示；12-13 页拆为单帧渲染；15-19 页合成长详情页。
+const page = (name) => `assets/extracted/${name}`;
+
 const projects = [
+  project(3, "Job Poster 场景视觉", "3d", "single3d", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "单页展示", "场景视觉"], "PDF 第 3 页作品，适合作为单张海报或场景主视觉展示。"),
+  project(4, "礼盒暗场包装渲染", "3d", "single3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "包装", "暗场灯光"], "PDF 第 4 页作品，以暗场灯光突出礼盒层次和产品质感。"),
+  project(5, "礼盒陈列包装渲染", "3d", "single3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "包装", "陈列"], "PDF 第 5 页作品，展示礼盒组合陈列和不同画面版本。"),
+  project(6, "服装产品单帧渲染", "3d", "single3d", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "服装", "单帧"], "PDF 第 6 页作品，突出服装产品结构和材质质感。"),
+  project(7, "天空场景单帧渲染", "3d", "single3d", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "场景", "氛围"], "PDF 第 7 页作品，以轻盈自然的画面氛围作为单帧视觉。"),
+  project(8, "抽象球体单帧渲染", "3d", "single3d", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "抽象", "材质"], "PDF 第 8 页作品，展示抽象材质、光影和空间控制。"),
+  project(9, "口罩产品单帧渲染", "3d", "single3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["渲染", "产品", "材质"], "PDF 第 9 页作品，展示产品阵列、色彩和柔和材质表现。"),
+  project(10, "VR 产品单帧渲染", "3d", "single3d", page("p10-img01.jpg"), [page("p10-img01.jpg")], ["渲染", "3C数码", "产品"], "PDF 第 10 页作品，以干净背景突出 VR 产品主体。"),
+  project(11, "精密零件产品渲染", "3d", "single3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["渲染", "产品", "金属材质"], "PDF 第 11 页作品，展示精密零件的材质和结构。"),
+
+  ...singleFrameProjects(12, [
+    ["p12-img01.jpg", "耳机详情首屏渲染", "product3d"],
+    ["p12-img02.jpg", "6DOF 功能图形", "product3d"],
+    ["p12-img03.jpg", "产品包装单帧", "product3d"],
+    ["p12-img04.jpg", "手柄卖点海报", "product3d"],
+    ["p12-img05.jpg", "耳机产品卖点图", "product3d"],
+    ["p12-img06.jpg", "功能说明版式", "product3d"],
+    ["p12-img07.jpg", "耳机氛围海报", "product3d"],
+    ["p12-img08.jpg", "居家产品场景图", "product3d"],
+    ["p12-img09.jpg", "产品场景渲染", "product3d"],
+    ["p12-img10.jpg", "游戏化场景海报", "product3d"],
+    ["p12-img11.jpg", "冰雪氛围海报", "product3d"],
+    ["p12-img12.jpg", "产品角色图", "product3d"],
+    ["p12-img13.jpg", "滑板场景渲染", "product3d"],
+    ["p12-img14.jpg", "童车空间渲染", "product3d"]
+  ]),
+  ...singleFrameProjects(13, [
+    ["p13-img01.jpg", "户外产品氛围图", "product3d"],
+    ["p13-img02.jpg", "个护产品场景渲染", "product3d"],
+    ["p13-img03.jpg", "智能设备场景渲染", "product3d"],
+    ["p13-img04.jpg", "IP 角色单帧 01", "single3d"],
+    ["p13-img05.jpg", "IP 角色单帧 02", "single3d"],
+    ["p13-img06.jpg", "IP 角色单帧 03", "single3d"],
+    ["p13-img07.jpg", "IP 角色单帧 04", "single3d"],
+    ["p13-img08.jpg", "卡带产品单帧", "product3d"],
+    ["p13-img09.jpg", "角色场景单帧", "single3d"],
+    ["p13-img10.jpg", "居家空间渲染", "product3d"],
+    ["p13-img11.jpg", "汽车产品单帧", "product3d"]
+  ]),
+  project(140, "第 14 页渲染合集", "3d", "renderSet", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "合集", "包装视觉"], "PDF 第 14 页为渲染合集，保留整页作为作品展示。"),
+
   {
-    id: 1,
-    title: "零食礼盒包装渲染",
-    mainCategory: "3d",
-    subCategory: "packaging3d",
-    coverImage: "assets/covers/project-01.jpg",
-    detailImages: [
-      "assets/extracted/p04-img01.jpg",
-      "assets/extracted/p05-img01.jpg",
-      "assets/extracted/p05-img02.jpg"
-    ],
-    tags: ["渲染", "包装渲染", "礼盒场景"],
-    description: "以深色棚拍氛围突出礼盒质感，通过产品摆放、主次层级和暖色灯光建立节日礼赠场景，适合电商主图、活动 KV 与详情页头图使用。"
+    ...project(1519, "电商长详情页 15-19", "2d", "detail", "assets/covers/detail-15-19.jpg", ["assets/combined/ecommerce-detail-15-19.jpg"], ["平面", "详情页", "电商页面"], "PDF 第 15-19 页按从左至右、从上到下顺序拼接为完整长详情页，封面取自详情页第一屏。"),
+    galleryLayout: "single"
   },
   {
-    id: 2,
-    title: "智能设备与消费电子渲染",
-    mainCategory: "3d",
-    subCategory: "product3d",
-    coverImage: "assets/covers/project-02.jpg",
-    detailImages: [
-      "assets/extracted/p09-img01.jpg",
-      "assets/extracted/p10-img01.jpg",
-      "assets/extracted/p11-img01.jpg"
-    ],
-    tags: ["渲染", "3C数码", "产品表现"],
-    description: "覆盖可穿戴、VR 设备与金属零件等不同材质产品，通过干净背景、产品角度和高光控制强化科技感与精密感。"
+    ...project(20, "红豆居家主图系列", "2d", "mainVisual", page("p20-img01.jpg"), [
+      page("p20-img01.jpg"), page("p20-img02.jpg"), page("p20-img03.jpg"), page("p20-img04.jpg"),
+      page("p20-img05.jpg"), page("p20-img06.jpg"), page("p20-img07.jpg"), page("p20-img08.jpg"),
+      page("p20-img09.jpg"), page("p20-img10.jpg"), page("p20-img11.jpg"), page("p20-img12.jpg"),
+      page("p20-img13.jpg"), page("p20-img14.jpg")
+    ], ["平面", "主图", "电商视觉"], "PDF 第 20 页主图系列，采用两列宫格展示，更适合快速浏览多张方图。"),
+    galleryLayout: "grid"
   },
+  project(21, "电商首页视觉规范 01", "2d", "visualSystem", page("p21-img01.jpg"), [page("p21-img01.jpg")], ["平面", "首页视觉", "规范"], "PDF 第 21 页，展示电商首页视觉规范、信息层级和元素延展。"),
+  project(22, "电商首页视觉规范 02", "2d", "visualSystem", page("p22-img01.jpg"), [page("p22-img01.jpg")], ["平面", "首页视觉", "规范"], "PDF 第 22 页，展示另一套电商首页视觉规范与模块系统。"),
   {
-    id: 3,
-    title: "耳机产品详情页视觉",
-    mainCategory: "3d",
-    subCategory: "product3d",
-    coverImage: "assets/covers/project-03.jpg",
-    detailImages: [
-      "assets/extracted/p12-img01.jpg",
-      "assets/extracted/p12-img04.jpg",
-      "assets/extracted/p12-img05.jpg",
-      "assets/extracted/p12-img06.jpg",
-      "assets/extracted/p12-img07.jpg",
-      "assets/extracted/p12-img08.jpg",
-      "assets/extracted/p12-img09.jpg",
-      "assets/extracted/p12-img10.jpg",
-      "assets/extracted/p12-img11.jpg",
-      "assets/extracted/p12-img12.jpg",
-      "assets/extracted/p12-img13.jpg",
-      "assets/extracted/p12-img14.jpg"
-    ],
-    tags: ["渲染", "详情页", "3C数码"],
-    description: "围绕耳机产品的功能卖点与使用场景展开，结合产品渲染、场景合成、卖点版式与详情页模块，形成完整的电商页面表达。"
+    ...project(2301, "AI 节气海报", "2d", "aiPoster", page("p23-img06.jpg"), [page("p23-img06.jpg"), page("p23-img07.jpg")], ["AI", "节气海报", "平面"], "PDF 第 23 页中的 2 张 AI 节气海报，单独归类展示。"),
+    galleryLayout: "grid"
   },
-  {
-    id: 4,
-    title: "IP 角色与概念场景渲染",
-    mainCategory: "3d",
-    subCategory: "aigc",
-    coverImage: "assets/covers/project-04.jpg",
-    detailImages: [
-      "assets/extracted/p13-img04.jpg",
-      "assets/extracted/p13-img05.jpg",
-      "assets/extracted/p13-img06.jpg",
-      "assets/extracted/p13-img07.jpg",
-      "assets/extracted/p13-img08.jpg",
-      "assets/extracted/p13-img09.jpg",
-      "assets/extracted/p13-img10.jpg",
-      "assets/extracted/p13-img11.jpg"
-    ],
-    tags: ["渲染", "IP角色", "AIGC摄影"],
-    description: "展示角色、产品与空间氛围的多种视觉实验，适合用于创意提案、品牌活动延展和内容营销视觉资产。"
-  },
-  {
-    id: 5,
-    title: "自行车产品长详情页",
-    mainCategory: "2d",
-    subCategory: "detail",
-    coverImage: "assets/covers/project-05.jpg",
-    detailImages: [
-      "assets/extracted/p15-img01.jpg",
-      "assets/extracted/p15-img02.jpg",
-      "assets/extracted/p15-img03.jpg",
-      "assets/extracted/p16-img01.jpg",
-      "assets/extracted/p16-img02.jpg",
-      "assets/extracted/p16-img03.jpg",
-      "assets/extracted/p17-img01.jpg",
-      "assets/extracted/p17-img02.jpg",
-      "assets/extracted/p17-img03.jpg",
-      "assets/extracted/p17-img04.jpg",
-      "assets/extracted/p18-img01.jpg",
-      "assets/extracted/p18-img02.jpg",
-      "assets/extracted/p18-img03.jpg",
-      "assets/extracted/p19-img01.jpg",
-      "assets/extracted/p19-img02.jpg",
-      "assets/extracted/p19-img03.jpg"
-    ],
-    tags: ["平面", "详情页", "电商视觉"],
-    description: "一组完整电商长详情页项目，包含产品卖点、结构展示、场景氛围、参数模块与购买转化模块，重点体现长页面的信息组织能力。"
-  },
-  {
-    id: 6,
-    title: "红豆居家产品视觉",
-    mainCategory: "2d",
-    subCategory: "poster",
-    coverImage: "assets/covers/project-06.jpg",
-    detailImages: [
-      "assets/extracted/p20-img01.jpg",
-      "assets/extracted/p20-img02.jpg",
-      "assets/extracted/p20-img03.jpg",
-      "assets/extracted/p20-img04.jpg",
-      "assets/extracted/p20-img05.jpg",
-      "assets/extracted/p20-img06.jpg",
-      "assets/extracted/p20-img07.jpg",
-      "assets/extracted/p20-img08.jpg",
-      "assets/extracted/p20-img09.jpg",
-      "assets/extracted/p20-img10.jpg",
-      "assets/extracted/p20-img11.jpg",
-      "assets/extracted/p20-img12.jpg",
-      "assets/extracted/p20-img13.jpg",
-      "assets/extracted/p20-img14.jpg"
-    ],
-    tags: ["平面", "个护服饰", "社媒海报"],
-    description: "围绕抗菌、舒适与基础款卖点设计系列方图素材，使用柔和配色、模特图与产品图形成统一的品牌视觉节奏。"
-  },
-  {
-    id: 7,
-    title: "礼盒节日营销 KV",
-    mainCategory: "2d",
-    subCategory: "poster",
-    coverImage: "assets/covers/project-07.jpg",
-    detailImages: [
-      "assets/extracted/p23-img01.jpg",
-      "assets/extracted/p23-img04.jpg",
-      "assets/extracted/p23-img05.jpg",
-      "assets/extracted/p23-img06.jpg",
-      "assets/extracted/p23-img07.jpg",
-      "assets/extracted/p23-img15.jpg",
-      "assets/extracted/p24-img01.jpg",
-      "assets/extracted/p24-img02.jpg",
-      "assets/extracted/p24-img03.jpg",
-      "assets/extracted/p25-img01.jpg",
-      "assets/extracted/p25-img02.jpg",
-      "assets/extracted/p25-img03.jpg",
-      "assets/extracted/p26-img01.jpg",
-      "assets/extracted/p26-img02.jpg"
-    ],
-    tags: ["平面", "节日KV", "食品礼盒"],
-    description: "以高饱和红色和礼赠氛围为核心，延展活动主图、明星物料、门店打法、节气海报与横版 Banner，形成完整营销视觉包。"
-  },
-  {
-    id: 8,
-    title: "包装品牌视觉系统",
-    mainCategory: "2d",
-    subCategory: "packaging2d",
-    coverImage: "assets/covers/project-08.jpg",
-    detailImages: [
-      "assets/extracted/p14-img01.jpg",
-      "assets/extracted/p21-img01.jpg",
-      "assets/extracted/p22-img01.jpg"
-    ],
-    tags: ["平面", "包装规范", "品牌物料"],
-    description: "展示包装识别、促销信息层级与品牌物料延展，强调版式规范、色彩系统和多规格素材的一致性。"
-  },
-  {
-    id: 9,
-    title: "家电与生活方式视觉",
-    mainCategory: "3d",
-    subCategory: "product3d",
-    coverImage: "assets/covers/project-09.jpg",
-    detailImages: [
-      "assets/extracted/p08-img01.jpg",
-      "assets/extracted/p13-img02.jpg",
-      "assets/extracted/p13-img03.jpg",
-      "assets/extracted/p13-img10.jpg"
-    ],
-    tags: ["渲染", "生活方式", "场景合成"],
-    description: "从抽象场景、产品棚拍到居家空间合成，展示不同风格下的渲染和后期整合能力。"
-  },
-  {
-    id: 10,
-    title: "封面与视觉总览",
-    mainCategory: "3d",
-    subCategory: "aigc",
-    coverImage: "assets/covers/project-10.jpg",
-    detailImages: [
-      "assets/extracted/p01-img01.jpg",
-      "assets/extracted/p28-img01.jpg"
-    ],
-    tags: ["渲染", "作品集封面", "视觉总览"],
-    description: "作品集封面与结束页素材，概括了首页、详情页、海报 KV、3D 渲染、产品渲染、包装渲染与 AIGC 摄影等能力方向。"
-  }
+  project(2302, "第 23 页礼盒渲染组", "3d", "renderSet", page("p23-img15.jpg"), [
+    page("p23-img04.jpg"), page("p23-img10.jpg"), page("p23-img11.jpg"),
+    page("p23-img12.jpg"), page("p23-img13.jpg"), page("p23-img15.jpg")
+  ], ["渲染", "礼盒", "节日营销"], "PDF 第 23 页中除 AI 节气海报外的 6 张渲染图，按渲染作品单独归类。"),
+  project(2426, "新年海报与代言人主图", "2d", "composite", page("p25-img02.jpg"), [
+    page("p24-img01.jpg"), page("p24-img02.jpg"), page("p24-img03.jpg"),
+    page("p25-img01.jpg"), page("p25-img02.jpg"), page("p25-img03.jpg"),
+    page("p26-img01.jpg"), page("p26-img02.jpg")
+  ], ["合成", "过年海报", "代言人主图"], "PDF 第 24 页过年海报、25 页代言人主图和 26 页手幅合并为一个完整营销视觉项目。")
 ];
 
 const categoryLabels = {
   "2d": "平面设计",
-  "3d": "渲染 / 三维",
-  detail: "详情页",
-  poster: "海报 KV",
-  packaging2d: "包装物料",
+  "3d": "渲染作品",
+  single3d: "单图渲染",
   product3d: "产品渲染",
-  packaging3d: "包装渲染",
-  aigc: "AIGC / 场景"
+  renderSet: "渲染合集",
+  detail: "详情页",
+  mainVisual: "主图",
+  visualSystem: "视觉规范",
+  aiPoster: "AI 海报",
+  composite: "合成海报"
 };
 
 const subFilterMap = {
@@ -208,14 +92,16 @@ const subFilterMap = {
   "2d": [
     { label: "全部", value: "all" },
     { label: "详情页", value: "detail" },
-    { label: "海报 KV", value: "poster" },
-    { label: "包装物料", value: "packaging2d" }
+    { label: "主图", value: "mainVisual" },
+    { label: "视觉规范", value: "visualSystem" },
+    { label: "AI 海报", value: "aiPoster" },
+    { label: "合成海报", value: "composite" }
   ],
   "3d": [
     { label: "全部", value: "all" },
+    { label: "单图渲染", value: "single3d" },
     { label: "产品渲染", value: "product3d" },
-    { label: "包装渲染", value: "packaging3d" },
-    { label: "AIGC / 场景", value: "aigc" }
+    { label: "渲染合集", value: "renderSet" }
   ]
 };
 
@@ -237,54 +123,71 @@ const modalGallery = document.querySelector("#modalGallery");
 const mobileMenuBtn = document.querySelector("#mobileMenuBtn");
 const mobileMenu = document.querySelector("#mobileMenu");
 
-// 创建作品卡片：统一用于精选区与作品归档区。
-function createProjectCard(project) {
+function project(id, title, mainCategory, subCategory, coverImage, detailImages, tags, description) {
+  return { id, title, mainCategory, subCategory, coverImage, detailImages, tags, description };
+}
+
+function singleFrameProjects(pageNumber, items) {
+  return items.map(([file, title, subCategory], index) => {
+    const image = page(file);
+    return project(
+      pageNumber * 100 + index + 1,
+      title,
+      "3d",
+      subCategory,
+      image,
+      [image],
+      ["渲染", `PDF 第 ${pageNumber} 页`, "单帧"],
+      `PDF 第 ${pageNumber} 页单帧渲染图，已按独立作品拆分展示。`
+    );
+  });
+}
+
+function createProjectCard(projectItem) {
   const card = document.createElement("article");
   card.className = "project-card";
   card.tabIndex = 0;
-  card.dataset.projectId = project.id;
+  card.dataset.projectId = projectItem.id;
 
   card.innerHTML = `
-    <img src="${project.coverImage}" alt="${project.title}" loading="lazy">
+    <img src="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy">
     <div class="project-overlay">
-      <p>${categoryLabels[project.mainCategory]} / ${categoryLabels[project.subCategory]}</p>
-      <h3>${project.title}</h3>
+      <p>${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}</p>
+      <h3>${projectItem.title}</h3>
     </div>
   `;
 
-  card.addEventListener("click", () => openModal(project));
+  card.addEventListener("click", () => openModal(projectItem));
   card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") openModal(project);
+    if (event.key === "Enter") openModal(projectItem);
   });
 
   return card;
 }
 
-// 渲染精选作品：优先展示平面详情页、包装渲染、3C渲染和节日KV。
 function renderFeaturedWorks() {
-  const featuredProjects = [projects[4], projects[0], projects[2], projects[6]];
+  const featuredIds = [1519, 20, 2302, 2426];
+  const featuredProjects = featuredIds.map((id) => projects.find((item) => item.id === id)).filter(Boolean);
   featuredGrid.innerHTML = "";
-  featuredProjects.forEach((project) => featuredGrid.appendChild(createProjectCard(project)));
+  featuredProjects.forEach((projectItem) => featuredGrid.appendChild(createProjectCard(projectItem)));
 }
 
-// 根据当前筛选状态计算需要展示的项目。
 function getFilteredProjects() {
-  return projects.filter((project) => {
-    const matchesMain = state.main === "all" || project.mainCategory === state.main;
-    const matchesSub = state.sub === "all" || project.subCategory === state.sub;
+  return projects.filter((projectItem) => {
+    const matchesMain = state.main === "all" || projectItem.mainCategory === state.main;
+    const matchesSub = state.sub === "all" || projectItem.subCategory === state.sub;
     return matchesMain && matchesSub;
   });
 }
 
-// 渲染作品列表，并用短暂淡出淡入模拟平滑筛选过渡。
 function renderWorks() {
   const currentCards = [...worksGrid.children];
   currentCards.forEach((card) => card.classList.add("is-hiding"));
 
   window.setTimeout(() => {
     worksGrid.innerHTML = "";
-    getFilteredProjects().forEach((project) => {
-      const card = createProjectCard(project);
+    getFilteredProjects().forEach((projectItem) => {
+      const card = createProjectCard(projectItem);
       card.classList.add("is-hiding");
       worksGrid.appendChild(card);
       requestAnimationFrame(() => card.classList.remove("is-hiding"));
@@ -292,7 +195,6 @@ function renderWorks() {
   }, 180);
 }
 
-// 渲染联动子类筛选项。
 function renderSubFilters() {
   const filters = subFilterMap[state.main];
   subFilters.innerHTML = "";
@@ -314,7 +216,6 @@ function renderSubFilters() {
   });
 }
 
-// 绑定大类筛选，并在切换大类时重置子类为“全部”。
 function bindMainFilters() {
   document.querySelectorAll("[data-main-filter]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -331,7 +232,6 @@ function bindMainFilters() {
   });
 }
 
-// 导航中的“平面设计 / 三维设计”可以直接触发作品筛选。
 function bindNavFilters() {
   document.querySelectorAll("[data-nav-filter]").forEach((link) => {
     link.addEventListener("click", () => {
@@ -343,15 +243,16 @@ function bindNavFilters() {
   });
 }
 
-function openModal(project) {
-  modalImage.src = project.coverImage;
-  modalImage.alt = project.title;
-  modalCategory.textContent = `${categoryLabels[project.mainCategory]} / ${categoryLabels[project.subCategory]}`;
-  modalTitle.textContent = project.title;
-  modalDescription.textContent = project.description;
-  modalTags.innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
-  modalGallery.innerHTML = project.detailImages
-    .map((image, index) => `<img src="${image}" alt="${project.title} 详情图 ${index + 1}" loading="lazy">`)
+function openModal(projectItem) {
+  modalImage.src = projectItem.coverImage;
+  modalImage.alt = projectItem.title;
+  modalCategory.textContent = `${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}`;
+  modalTitle.textContent = projectItem.title;
+  modalDescription.textContent = projectItem.description;
+  modalTags.innerHTML = projectItem.tags.map((tag) => `<span>${tag}</span>`).join("");
+  modalGallery.className = `modal-gallery ${projectItem.galleryLayout === "grid" ? "modal-gallery-grid" : ""}`;
+  modalGallery.innerHTML = projectItem.detailImages
+    .map((image, index) => `<img src="${image}" alt="${projectItem.title} 详情图 ${index + 1}" loading="lazy">`)
     .join("");
 
   modal.classList.add("open");
@@ -392,7 +293,6 @@ function bindMobileMenu() {
   });
 }
 
-// 初始化页面。
 function initPortfolio() {
   renderFeaturedWorks();
   renderSubFilters();
