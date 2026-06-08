@@ -161,6 +161,20 @@ section[id] {
   max-width: 760px;
 }
 
+.section-heading.split-heading {
+  max-width: none;
+  grid-template-columns: minmax(0, 0.72fr) minmax(360px, 1fr);
+  gap: 64px;
+  align-items: end;
+}
+
+.section-description {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
 /* Hero 数据面板 */
 .hero-full {
   position: relative;
@@ -448,6 +462,27 @@ section[id] {
 
 .works-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-works .works-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.home-works .project-card {
+  grid-column: span 4;
+  min-height: 420px;
+}
+
+.home-works .project-card.wide-card {
+  grid-column: span 8;
+  aspect-ratio: 16 / 9;
+  min-height: auto;
+}
+
+.home-works .project-card.video-card {
+  grid-column: span 6;
+  aspect-ratio: 16 / 9;
+  min-height: auto;
 }
 
 .project-card {
@@ -1214,10 +1249,30 @@ section[id] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .section-heading.split-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .home-works .works-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .home-works .project-card {
+    grid-column: span 6;
+  }
+
   .featured-grid .project-card:nth-child(1),
   .featured-grid .project-card:nth-child(4),
-  .project-card.wide-card {
+  .project-card.wide-card,
+  .home-works .project-card.wide-card,
+  .home-works .project-card.video-card {
     grid-column: span 1;
+  }
+
+  .home-works .project-card.wide-card,
+  .home-works .project-card.video-card {
+    grid-column: span 12;
   }
 }
 
@@ -1302,6 +1357,10 @@ section[id] {
     grid-template-columns: 1fr;
   }
 
+  .home-works .works-grid {
+    grid-template-columns: 1fr;
+  }
+
   .project-card {
     min-height: 420px;
   }
@@ -1313,6 +1372,12 @@ section[id] {
   .project-card.wide-card {
     aspect-ratio: auto;
     min-height: 420px;
+  }
+
+  .home-works .project-card,
+  .home-works .project-card.wide-card,
+  .home-works .project-card.video-card {
+    grid-column: span 1;
   }
 
   .modal-card {

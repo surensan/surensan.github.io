@@ -10,9 +10,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- 自定义样式：用于画廊质感、动画、遮罩与模态框细节 -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260608-grid" />
 </head>
-<body class="bg-white text-slate-900 antialiased">
+<body class="bg-white text-slate-900 antialiased" data-page="home">
   <!-- 固定顶部导航 -->
   <header class="site-header">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
@@ -104,31 +104,24 @@
       </div>
     </section>
 
-    <nav class="side-timeline" aria-label="页面时间线导航">
-      <a href="#intro" data-section-link="intro">Intro</a>
-      <a href="#works" data-section-link="works">Works</a>
-      <a href="#motion" data-section-link="motion">Motion</a>
-      <a href="#about" data-section-link="about">About</a>
-    </nav>
-
     <!-- Works / Filter -->
-    <section id="works" class="border-y border-slate-200 bg-slate-50">
+    <section id="works" class="home-works border-y border-slate-200 bg-slate-50">
       <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-        <div class="section-heading">
+        <div class="section-heading split-heading">
           <div>
             <p class="eyebrow">Works</p>
-            <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">作品归档</h2>
-            <p class="mt-6 max-w-2xl text-sm leading-7 text-slate-500">
-              作品围绕电商视觉、产品卖点表达与三维渲染展开，关注画面秩序、品牌气质和商业落地。这里保留更能代表方向与完成度的项目，方便快速了解我的视觉判断和执行能力。
-            </p>
+            <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">作品展示</h2>
           </div>
+          <p class="section-description">
+            作品围绕电商视觉、产品卖点表达与三维渲染展开，关注画面秩序、品牌气质和商业落地。首页只保留更能代表方向与完成度的项目，完整作品库可进入二级作品页查看。
+          </p>
         </div>
 
         <div class="mt-12 space-y-5">
           <div class="filter-row" aria-label="作品大类筛选">
-            <button class="filter-chip active" data-main-filter="featured" type="button">精选</button>
-            <button class="filter-chip" data-main-filter="2d" type="button">平面设计</button>
-            <button class="filter-chip" data-main-filter="3d" type="button">渲染作品</button>
+            <button class="filter-chip active" data-main-filter="home-graphic" type="button">平面 / 品牌</button>
+            <button class="filter-chip" data-main-filter="home-static" type="button">三维静态</button>
+            <button class="filter-chip" data-main-filter="home-motion" type="button">三维动态</button>
           </div>
 
           <div id="subFilters" class="filter-row" aria-label="作品子类筛选"></div>
@@ -138,125 +131,33 @@
       </div>
     </section>
 
-    <!-- Motion / Animation -->
-    <section id="motion" class="motion-section">
-      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-        <div class="section-heading mb-10">
-          <div>
-            <p class="eyebrow">Motion</p>
-            <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">动画展示</h2>
-            <p class="mt-6 max-w-2xl text-sm leading-7 text-slate-500">
-              动画用于补足静帧无法呈现的结构、节奏与使用场景，让产品在运动中建立更完整的质感和记忆点。
-            </p>
-          </div>
-        </div>
-        <div class="motion-grid">
-          <article class="motion-card">
-            <video src="assets/videos/mask-animation.mp4" autoplay muted loop playsinline preload="metadata"></video>
-            <div>
-              <span>2022.05</span>
-              <h3>绿鼻子口罩三维动画</h3>
-            </div>
-          </article>
-          <article class="motion-card">
-            <video src="assets/videos/mosquito-net-animation.mp4" autoplay muted loop playsinline preload="metadata"></video>
-            <div>
-              <span>2023.06</span>
-              <h3>美朵嘉蚊帐旋转动画</h3>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-        <div>
-          <p class="eyebrow">Resume</p>
-          <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">公司履历</h2>
-          <p class="mt-7 max-w-xl text-base leading-8 text-slate-500">
-            2015 至今持续从事视觉设计相关工作，项目覆盖首页、详情页、海报 KV、产品渲染、包装渲染与 AIGC 摄影等商业视觉场景。
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <span>2024-2025</span>
-            <div>
-              <h3>视觉设计师 / 3D 与电商视觉方向</h3>
-              <p>负责产品渲染、详情页视觉、活动 KV、包装展示与多平台推广素材，兼顾平面表达与渲染落地。</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <span>2021-2024</span>
-            <div>
-              <h3>资深电商视觉设计</h3>
-              <p>围绕消费品、个护、食品礼盒等品类输出首页、详情页、促销页面与品牌规范，提升页面完整度与转化表达。</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <span>2018-2021</span>
-            <div>
-              <h3>平面 / 包装 / 品牌视觉设计</h3>
-              <p>参与包装系统、品牌物料、海报与线上传播设计，建立统一的视觉语言和版式规范。</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <span>2015-2018</span>
-            <div>
-              <h3>视觉设计执行</h3>
-              <p>从详情页、活动图、产品修图和基础页面搭建开始，积累电商视觉和商业设计执行经验。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- About / Contact -->
     <section id="about" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-      <div class="about-panel">
+      <div class="about-panel contact-cta">
         <div class="about-copy">
-          <p class="eyebrow">About / Contact</p>
-          <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">关于我</h2>
+          <p class="eyebrow">Contact</p>
+          <h2 class="mt-3 text-3xl font-semibold text-slate-950 md:text-5xl">欢迎联系我</h2>
           <p class="mt-7 max-w-xl text-base leading-8 text-slate-500">
-            一位从业十年的视觉设计师，长期围绕电商页面、平面 KV、包装视觉与 3D 渲染进行整合输出。习惯从产品卖点、用户场景和平台展示需求出发，把创意、画面秩序和落地执行串成完整的视觉交付。
+            如果你想快速了解我的完整经历，可以进入关于我页面；如果有岗位或合作沟通，也可以直接进入联系页留言或添加微信。
           </p>
         </div>
 
         <div class="about-contact">
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a class="contact-button" href="mailto:17576026960@163.com">
+          <div class="flex flex-wrap gap-4">
+            <a class="contact-button" href="about.html">
               <span>
-                <small>Email</small>
-                17576026960@163.com
+                <small>Profile</small>
+                查看关于我
               </span>
               <b>↗</b>
             </a>
-            <a class="contact-button" href="tel:17576026960">
+            <a class="contact-button" href="contact.html">
               <span>
-                <small>Tel</small>
-                175-7602-6960
+                <small>Contact</small>
+                进入联系页
               </span>
               <b>↗</b>
             </a>
-          </div>
-
-          <div class="qr-grid">
-            <div class="qr-card">
-              <img src="assets/contact/zcool-qr.jpg" alt="站酷主页二维码" loading="lazy">
-              <div>
-                <span>站酷主页</span>
-                <p>扫码查看线上作品与主页</p>
-              </div>
-            </div>
-            <div class="qr-card">
-              <img src="assets/contact/wechat-qr.jpg" alt="个人微信二维码" loading="lazy">
-              <div>
-                <span>个人微信</span>
-                <p>扫码添加微信沟通</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -286,7 +187,7 @@
     </article>
   </div>
 
-  <script src="extra-projects.js"></script>
-  <script src="app.js"></script>
+  <script src="extra-projects.js?v=20260608-grid"></script>
+  <script src="app.js?v=20260608-grid"></script>
 </body>
 </html>

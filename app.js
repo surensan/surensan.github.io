@@ -66,6 +66,11 @@ const projects = [
 projects.push(...(window.extraPortfolioProjects || []));
 
 const featuredProjectIds = [17, 19, 2426, 2302, 1311];
+const homeProjectMap = {
+  "home-graphic": [17, 19, 2426, 20, 21, 22],
+  "home-static": [4, 5, 9, 10, 11, 2302],
+  "home-motion": [3001, 3002]
+};
 const wideProjectIds = new Set([10, 1311, 2302, 2426]);
 
 projects.forEach((projectItem) => {
@@ -101,6 +106,9 @@ const categoryLabels = {
 };
 
 const subFilterMap = {
+  "home-graphic": [],
+  "home-static": [],
+  "home-motion": [],
   featured: [],
   "2d": [
     { label: "详情页", value: "detail" },
@@ -116,8 +124,9 @@ const subFilterMap = {
   ]
 };
 
+const pageMode = document.body.dataset.page || "works";
 const state = {
-  main: "featured",
+  main: pageMode === "home" ? "home-graphic" : "featured",
   sub: ""
 };
 
@@ -189,6 +198,12 @@ function createProjectCard(projectItem) {
 }
 
 function getFilteredProjects() {
+  if (pageMode === "home" && homeProjectMap[state.main]) {
+    return homeProjectMap[state.main]
+      .map((id) => projects.find((item) => item.id === id))
+      .filter(Boolean);
+  }
+
   if (state.main === "featured") {
     return featuredProjectIds
       .map((id) => projects.find((item) => item.id === id))
