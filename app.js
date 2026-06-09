@@ -59,7 +59,10 @@ const projects = [
     ], ["主图", "服饰个护", "电商视觉"], "第 20 页主图系列。方图适合平台主图和社媒投放，两列展示能更快比较不同构图、产品卖点和模特场景。"),
     galleryLayout: "grid"
   },
-  imageProject(21, "电商首页视觉规范 01", "2d", "visualSystem", page("p21-img01.jpg"), [page("p21-img01.jpg")], ["首页视觉", "规范", "元素"], "电商首页视觉规范项目，展示色彩、标题、元素和页面模块的统一规则。"),
+  Object.assign(
+    imageProject(21, "甘源天猫双十一活动首页规范模板", "2d", "visualSystem", page("p21-img01.jpg"), [page("p21-img01.jpg")], ["首页活动规范", "甘源", "双十一"], "电商首页活动规范项目，展示色彩、标题、元素和页面模块的统一规则。"),
+    { client: "甘源", displayCategory: "电商首页活动规范" }
+  ),
   imageProject(22, "电商首页视觉规范 02", "2d", "visualSystem", page("p22-img01.jpg"), [page("p22-img01.jpg")], ["首页视觉", "规范", "元素"], "第二套电商首页视觉规范，关注活动页面的信息层级、物料延展和统一视觉系统。"),
   {
     ...imageProject(2301, "AI 节气海报", "2d", "aiPoster", page("p23-img06.jpg"), [page("p23-img06.jpg"), page("p23-img07.jpg")], ["AI", "节气海报", "平面"], "第 23 页中的两张 AI 节气海报，单独与渲染作品分开展示。"),
@@ -533,19 +536,27 @@ function getGalleryClass(projectItem) {
 }
 
 function modalInfoAsBrief(projectItem) {
-  const service = getServiceLabel(projectItem);
+  const client = getClientLabel(projectItem);
   const englishDescription = getEnglishDescription(projectItem);
 
-  modalCategory.textContent = categoryLabels[projectItem.subCategory] || categoryLabels[projectItem.mainCategory] || "作品";
+  modalCategory.textContent = projectItem.displayCategory || categoryLabels[projectItem.subCategory] || categoryLabels[projectItem.mainCategory] || "作品";
   modalTitle.textContent = projectItem.title;
   modalDescription.innerHTML = `
     <span>${projectItem.description}</span>
     <span>${englishDescription}</span>
   `;
   modalTags.innerHTML = `
-    <span>服务对象 ${service}</span>
-    <span>Service ${service}</span>
+    <span>服务对象 ${client}</span>
   `;
+}
+
+function getClientLabel(projectItem) {
+  const clientMap = {
+    21: "甘源",
+    22: "甘源"
+  };
+
+  return projectItem.client || clientMap[projectItem.id] || "品牌方";
 }
 
 function getServiceLabel(projectItem) {
@@ -560,8 +571,40 @@ function getServiceLabel(projectItem) {
 }
 
 function getEnglishDescription(projectItem) {
-  const service = getServiceLabel(projectItem);
-  return `A visual design project for ${service}, focused on clear product presentation, structured visual rhythm, and practical commercial communication.`;
+  const service = getEnglishServiceLabel(projectItem);
+  const client = getEnglishClientLabel(projectItem);
+
+  if (projectItem.id === 21) {
+    return "A Tmall Double 11 campaign homepage guideline template for Ganyuan, defining color, headline, module, and component rules for consistent campaign execution.";
+  }
+
+  if (projectItem.id === 22) {
+    return "An e-commerce campaign homepage guideline for Ganyuan, organizing promotional modules, visual hierarchy, and reusable page components into one consistent system.";
+  }
+
+  return `A ${service} project for ${client}, focused on clear product presentation, structured visual rhythm, and practical commercial communication.`;
+}
+
+function getEnglishServiceLabel(projectItem) {
+  if (projectItem.subCategory === "detail") return "e-commerce detail page";
+  if (projectItem.subCategory === "mainVisual") return "e-commerce hero image";
+  if (projectItem.subCategory === "visualSystem") return "e-commerce visual guideline";
+  if (projectItem.subCategory === "product3d" || projectItem.subCategory === "detailRender") return "product rendering";
+  if (projectItem.subCategory === "animation") return "motion rendering";
+  if (projectItem.subCategory === "composite") return "composite campaign visual";
+  if (projectItem.subCategory === "aiPoster") return "AIGC visual";
+  if (projectItem.subCategory === "ppt") return "presentation";
+  return "visual design";
+}
+
+function getEnglishClientLabel(projectItem) {
+  const client = getClientLabel(projectItem);
+  const clientMap = {
+    "甘源": "Ganyuan",
+    "品牌方": "the client"
+  };
+
+  return clientMap[client] || "the client";
 }
 
 function renderHistory(projectItem) {
