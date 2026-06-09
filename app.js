@@ -140,7 +140,7 @@ const subFilterMap = {
 
 const worksCategoryMeta = {
   "work-detail": {
-    empty: "详情页目前固定展示 5 个完整项目：儿童手拍鼓、紫外线消毒包、儿童自行车、免洗洗手液、绿鼻子儿童口罩。"
+    empty: "详情页分类会放完整电商详情页项目。"
   },
   "work-home": {
     empty: "首页视觉分类会放电商首页、页面视觉规范和首页模块类项目。"
@@ -235,7 +235,6 @@ function createProjectCard(projectItem) {
     <div class="project-overlay">
       <p>${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}</p>
       <h3>${projectItem.title}</h3>
-      <small>${projectItem.statement}</small>
     </div>
   `;
 
@@ -289,7 +288,7 @@ function getWorksCategoryProjects(category) {
   };
 
   if (category === "work-detail") {
-    return projects.filter((projectItem) => projectItem.subCategory === "detail").slice(0, 5);
+    return projects.filter((projectItem) => projectItem.subCategory === "detail");
   }
 
   if (category === "work-home") {
@@ -438,6 +437,7 @@ function openModal(projectItem) {
   modalTags.innerHTML = projectItem.tags.map((tag) => `<span>${tag}</span>`).join("");
   modalHistory.innerHTML = renderHistory(projectItem);
   modalGallery.className = `modal-gallery ${projectItem.galleryLayout === "grid" ? "modal-gallery-grid" : ""}`;
+  modalInfoAsBrief(projectItem);
 
   if (projectItem.type === "video") {
     modalGallery.innerHTML = `
@@ -445,7 +445,7 @@ function openModal(projectItem) {
     `;
   } else {
     modalGallery.innerHTML = projectItem.detailImages
-      .map((image, index) => `<img src="${image}" alt="${projectItem.title} 详情图 ${index + 1}" loading="lazy">`)
+      .map((image, index) => `<img src="${image}" alt="${projectItem.title} 详情图 ${index + 1}">`)
       .join("");
   }
 
@@ -453,6 +453,37 @@ function openModal(projectItem) {
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
   modal.querySelector(".modal-content").scrollTop = 0;
+}
+
+function modalInfoAsBrief(projectItem) {
+  const service = getServiceLabel(projectItem);
+  const englishDescription = getEnglishDescription(projectItem);
+
+  modalCategory.textContent = categoryLabels[projectItem.subCategory] || categoryLabels[projectItem.mainCategory] || "作品";
+  modalTitle.textContent = projectItem.title;
+  modalDescription.innerHTML = `
+    <span>${projectItem.description}</span>
+    <span>${englishDescription}</span>
+  `;
+  modalTags.innerHTML = `
+    <span>服务对象 ${service}</span>
+    <span>Service ${service}</span>
+  `;
+}
+
+function getServiceLabel(projectItem) {
+  if (projectItem.subCategory === "detail") return projectItem.tags[1] || "电商详情页";
+  if (projectItem.subCategory === "mainVisual") return "电商主图";
+  if (projectItem.subCategory === "product3d" || projectItem.subCategory === "detailRender") return "产品渲染";
+  if (projectItem.subCategory === "animation") return "动态渲染";
+  if (projectItem.subCategory === "composite") return "营销合成视觉";
+  if (projectItem.subCategory === "aiPoster") return "AIGC 视觉";
+  return projectItem.tags[1] || "视觉设计项目";
+}
+
+function getEnglishDescription(projectItem) {
+  const service = getServiceLabel(projectItem);
+  return `A visual design project for ${service}, focused on clear product presentation, structured visual rhythm, and practical commercial communication.`;
 }
 
 function renderHistory(projectItem) {

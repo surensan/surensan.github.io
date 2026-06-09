@@ -171,9 +171,9 @@ section[id] {
 
 .section-heading.split-heading {
   max-width: none;
-  grid-template-columns: minmax(0, 0.8fr) minmax(360px, 0.92fr);
-  gap: 40px;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: start;
 }
 
 .section-description {
@@ -511,17 +511,17 @@ section[id] {
 }
 
 .works-library .works-grid {
-  display: block;
-  columns: 320px;
-  column-gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
 }
 
 .works-library .project-card,
 .works-library .project-card.wide-card,
 .works-library .project-card.video-card {
-  display: inline-block;
+  display: block;
   width: 100%;
-  margin: 0 0 18px;
+  margin: 0;
   break-inside: avoid;
   aspect-ratio: auto;
   min-height: auto;
@@ -953,7 +953,7 @@ section[id] {
 }
 
 .home-contact-section {
-  width: min(calc(100% - 56px), 1440px);
+  width: min(calc(100% - 56px), 1740px);
   margin: 0 auto;
 }
 
@@ -1284,7 +1284,7 @@ section[id] {
 }
 
 .modal-card.project-modal {
-  width: min(92vw, 1680px);
+  width: min(96vw, 2048px);
   max-height: 88vh;
   grid-template-columns: 1fr;
 }
@@ -1295,23 +1295,35 @@ section[id] {
 
 .modal-card.project-modal .modal-content {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
-  gap: 34px;
+  grid-template-columns: 1fr;
+  gap: 28px;
   max-height: 88vh;
-  overflow: hidden;
+  overflow-y: auto;
+  background: #f8fafc;
 }
 
 .modal-card.project-modal .modal-info {
   align-self: start;
-  position: sticky;
-  top: 0;
+  position: static;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(28px, 5vw, 88px);
+  width: 100%;
+  max-width: 2048px;
+  margin: 0 auto;
+  border-radius: 0;
+  padding: clamp(34px, 5vw, 86px);
+  background: #fff;
 }
 
 .modal-card.project-modal .modal-gallery {
-  overflow-y: auto;
-  max-height: calc(88vh - 88px);
+  overflow: visible;
+  max-height: none;
   margin-top: 0;
-  padding-right: 6px;
+  padding-right: 0;
+  display: grid;
+  gap: 28px;
+  justify-items: center;
 }
 
 .modal-card.project-modal .modal-gallery img {
@@ -1337,13 +1349,13 @@ section[id] {
 }
 
 .modal-card.media-modal .modal-info {
-  display: none;
+  display: block;
 }
 
 .modal-card.media-modal .modal-gallery {
   display: grid;
-  max-height: calc(88vh - 64px);
-  overflow: hidden;
+  max-height: none;
+  overflow: visible;
   place-items: center;
   padding-right: 0;
 }
@@ -1351,16 +1363,16 @@ section[id] {
 .modal-card.media-modal .modal-gallery img {
   width: auto;
   max-width: 100%;
-  max-height: calc(88vh - 64px);
+  max-height: none;
   border: 0;
   border-radius: 10px;
   object-fit: contain;
 }
 
 .modal-card.media-modal .modal-gallery-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   align-items: center;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 .modal-card.media-modal .modal-gallery-grid img {
@@ -1400,6 +1412,41 @@ section[id] {
   color: var(--muted);
   font-size: 15px;
   line-height: 1.9;
+}
+
+.modal-card.project-modal .modal-content h2 {
+  margin-top: 14px;
+  font-size: clamp(2.4rem, 5vw, 6rem);
+  line-height: 0.95;
+}
+
+.modal-card.project-modal .modal-content p:not(.eyebrow) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 72px);
+  margin-top: 0;
+  color: var(--ink);
+  font-size: clamp(0.95rem, 1.12vw, 1.25rem);
+  line-height: 1.85;
+}
+
+.modal-card.project-modal .modal-tags {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.modal-card.project-modal .modal-tags span {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.modal-card.project-modal .modal-history {
+  display: none;
 }
 
 .modal-tags {
@@ -1744,6 +1791,18 @@ section[id] {
 
   .modal-card.project-modal .modal-info {
     position: static;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px;
+  }
+
+  .modal-card.project-modal .modal-content h2 {
+    font-size: clamp(2rem, 13vw, 4rem);
+  }
+
+  .modal-card.project-modal .modal-content p:not(.eyebrow) {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .modal-card.project-modal .modal-gallery {
