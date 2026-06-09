@@ -6,15 +6,15 @@ const cover = (name) => `assets/covers/${name}`;
 const video = (name) => `assets/videos/${name}`;
 
 const projects = [
-  imageProject(3, "Job Poster 场景视觉", "3d", "practice", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "练习作品", "场景视觉"], "单页场景视觉，以完整页面形式展示画面氛围、主体关系和商业海报版式。"),
-  imageProject(4, "礼盒暗场包装渲染", "3d", "product3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "产品渲染", "暗场灯光"], "通过低照度背景和暖色灯光突出礼盒质感，适合礼赠类产品活动主视觉与详情页头图。"),
-  imageProject(5, "礼盒陈列包装渲染", "3d", "product3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "产品渲染", "陈列"], "以多盒型陈列呈现产品组合关系，强调包装正面信息、货架层次和促销场景感。"),
-  imageProject(6, "服装产品单帧渲染", "3d", "practice", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "练习作品", "单帧"], "突出服装结构、材质和内部视觉焦点，用单帧方式快速传达产品功能与卖点。"),
-  imageProject(7, "天空场景单帧渲染", "3d", "practice", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "练习作品", "氛围"], "以蓝天和轻盈物体营造自然、轻量、舒适的视觉氛围，可作为产品概念或活动背景图。"),
-  imageProject(8, "抽象球体材质渲染", "3d", "practice", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "练习作品", "材质"], "通过球体、雾面空间和高对比光影展示材质控制与抽象视觉表达能力。"),
-  imageProject(9, "口罩产品阵列渲染", "3d", "product3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["渲染", "口罩", "产品阵列"], "多色口罩产品阵列展示，强调柔和材质、颜色区分和消费品主图的干净质感。"),
-  imageProject(10, "VR 产品单帧渲染", "3d", "product3d", page("p10-img01.jpg"), [page("p10-img01.jpg")], ["渲染", "3C数码", "产品"], "以白底和干净投影突出 VR 产品主体，适合 3C 产品主图和详情页核心卖点展示。"),
-  imageProject(11, "精密零件产品渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["渲染", "金属", "零件"], "展示金属零件的结构、比例和反射控制，突出工业产品的精密感。"),
+  imageProject(3, "甘源谷物系列产品手册创意渲染", "3d", "practice", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "商业作品", "场景视觉"], "产品陈列场景视觉，创意展台展示产品，光影烘托画面氛围、主体关系。"),
+  imageProject(4, "果果黑巧包装产品手册创意场景渲染", "3d", "product3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "产品渲染", "暗场灯光"], "通过低照度背景和暖色灯光突出礼盒质感，创意产品手册图。"),
+  imageProject(5, "果果黑巧包装产品手册创意场景渲染", "3d", "product3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "产品渲染", "陈列"], "以多盒型陈列呈现产品组合关系，创意产品手册图。"),
+  imageProject(6, "黑金羽绒服卖点渲染", "3d", "practice", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "商业作品", "单帧"], "模拟立体羽绒服，突出服装材质和内部保暖卖点，持续保温可视化，快速传达产品功能与卖点。"),
+  imageProject(7, "黑金羽绒渲染", "3d", "practice", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "商业作品", "鸭绒"], "以蓝天营造自然、轻盈、舒适的视觉氛围，蓬松的羽毛作为视觉焦点和羽绒的可视化。"),
+  imageProject(8, "白翎概念渲染", "3d", "practice", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "商业作品", "写实材质"], "通过球体、雾面空间和高对比光影展示材质控制与抽象视觉表达能力。"),
+  imageProject(9, "率鼻子口罩产品阵列渲染", "3d", "product3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["渲染", "口罩", "产品阵列"], "多色口罩产品阵列展示，展示口罩多色，强调柔和材质的干净质感。"),
+  imageProject(10, "VR产品渲染", "3d", "product3d", page("p10-img01.jpg"), [page("p10-img01.jpg")], ["渲染", "3C数码", "产品"], "以白底和干净投影突出 VR 产品主体，适合 3C 产品主图和详情页核心卖点展示。"),
+  imageProject(11, "追觅吹风机5in1产品渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["金属渲染", "3C数码", "追觅"], "展示吹风机颜色/金属质感/结构。金属反射控制，突出工业产品的精密感。"),
 
   ...singleFrameProjects(12, [
     ["p12-img01.jpg", "耳机详情首屏渲染"], ["p12-img03.jpg", "产品包装单帧"], ["p12-img04.jpg", "手柄卖点海报"],
@@ -27,7 +27,7 @@ const projects = [
     ["p13-img05.jpg", "IP 角色单帧 02"], ["p13-img06.jpg", "IP 角色单帧 03"], ["p13-img07.jpg", "IP 角色单帧 04"], ["p13-img08.jpg", "卡带产品单帧"],
     ["p13-img09.jpg", "角色场景单帧"], ["p13-img10.jpg", "居家空间渲染"], ["p13-img11.jpg", "汽车产品单帧"]
   ]),
-  imageProject(140, "第 14 页渲染合集", "3d", "practice", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "练习作品", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
+  imageProject(140, "第 14 页渲染合集", "3d", "practice", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "商业作品", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
 
   {
     ...imageProject(15, "儿童手拍鼓详情页", "2d", "detail", cover("detail-page-15.jpg"), [page("p15-img01.jpg"), page("p15-img02.jpg"), page("p15-img03.jpg")], ["详情页", "儿童产品", "玩具"], "儿童手拍鼓产品详情页。围绕趣味互动、亲子陪伴、材质安全和产品结构展开，以活泼插画色彩和模块化卖点组织完整购买路径。"),
@@ -63,7 +63,7 @@ const projects = [
     imageProject(21, "甘源天猫双十一活动首页规范模板", "2d", "visualSystem", page("p21-img01.jpg"), [page("p21-img01.jpg")], ["首页活动规范", "甘源", "双十一"], "电商首页活动规范项目，展示色彩、标题、元素和页面模块的统一规则。"),
     { client: "甘源", displayCategory: "电商首页活动规范" }
   ),
-  imageProject(22, "电商首页视觉规范 02", "2d", "visualSystem", page("p22-img01.jpg"), [page("p22-img01.jpg")], ["首页视觉", "规范", "元素"], "第二套电商首页视觉规范，关注活动页面的信息层级、物料延展和统一视觉系统。"),
+  imageProject(22, "甘源双十二电商首页视觉规范模板", "2d", "visualSystem", page("p22-img01.jpg"), [page("p22-img01.jpg")], ["首页视觉", "规范", "元素"], "第二套电商首页视觉规范，关注活动页面的信息层级、物料延展和统一视觉系统。"),
   {
     ...imageProject(2301, "AI 节气海报", "2d", "aiPoster", page("p23-img06.jpg"), [page("p23-img06.jpg"), page("p23-img07.jpg")], ["AI", "节气海报", "平面"], "第 23 页中的两张 AI 节气海报，单独与渲染作品分开展示。"),
     galleryLayout: "grid"
@@ -294,9 +294,10 @@ function createProjectCard(projectItem) {
   card.tabIndex = 0;
   card.dataset.projectId = projectItem.id;
 
+  const cardImage = getThumbnailPath(projectItem.coverImage);
   const media = projectItem.type === "video"
     ? `<video class="card-video" src="${projectItem.videoSrc}" autoplay muted loop playsinline preload="metadata"></video>`
-    : `<img src="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy">`;
+    : `<img src="${cardImage}" data-full="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=this.dataset.full;">`;
 
   card.innerHTML = `
     ${media}
@@ -313,6 +314,13 @@ function createProjectCard(projectItem) {
   });
 
   return card;
+}
+
+function getThumbnailPath(imagePath) {
+  if (!imagePath || !imagePath.startsWith("assets/")) return imagePath;
+  return imagePath
+    .replace(/^assets\//, "assets/thumbs/")
+    .replace(/\.(jpe?g|png|webp)$/i, ".webp");
 }
 
 function getFilteredProjects() {

@@ -40,6 +40,10 @@ $subCategoryAliases["animation"] = "animation"
 $subCategoryAliases[(U "7EC3 4E60 4F5C 54C1")] = "practice"
 $subCategoryAliases[(U "7EC3 4E60")] = "practice"
 $subCategoryAliases["practice"] = "practice"
+$subCategoryAliases[(U "9996 9875 89C4 8303")] = "visualSystem"
+$subCategoryAliases[(U "7535 5546 9996 9875")] = "visualSystem"
+$subCategoryAliases["PPT"] = "ppt"
+$subCategoryAliases["ppt"] = "ppt"
 
 $keys = @{
   title = @((U "6807 9898"), "title")
@@ -53,6 +57,8 @@ $keys = @{
   cover = @((U "5C01 9762"), "cover")
   statement = @((U "5361 7247 8BF4 660E"), "statement")
   galleryLayout = @((U "8BE6 60C5 5E03 5C40"), "galleryLayout")
+  client = @((U "670D 52A1 5BF9 8C61"), "client")
+  displayCategory = @((U "663E 793A 5206 7C7B"), "displayCategory")
 }
 
 function ConvertTo-JsString {
@@ -155,9 +161,34 @@ foreach ($folder in $projectFolders) {
   $descriptionFile = Join-Path $folder.FullName "description.txt"
   $meta = Read-MetaFile $metaFile
 
-  $title = Get-MetaValue $meta $keys.title $folder.Name
-  $mainCategory = Resolve-Alias $mainCategoryAliases (Get-MetaValue $meta $keys.main) "2d" "main category" $folder.Name
-  $subCategory = Resolve-Alias $subCategoryAliases (Get-MetaValue $meta $keys.sub) "detail" "category" $folder.Name
+  $folderTitle = $folder.Name
+  $prefixSubCategory = ""
+  foreach ($separator in @("-", "_")) {
+    $separatorIndex = $folder.Name.IndexOf($separator)
+    if ($separatorIndex -gt 0) {
+      $prefix = $folder.Name.Substring(0, $separatorIndex).Trim()
+      if ($subCategoryAliases.ContainsKey($prefix)) {
+        $prefixSubCategory = $subCategoryAliases[$prefix]
+        $folderTitle = $folder.Name.Substring($separatorIndex + 1).Trim()
+        break
+      }
+    }
+  }
+  if ([string]::IsNullOrWhiteSpace($folderTitle)) {
+    $folderTitle = $folder.Name
+  }
+
+  $title = Get-MetaValue $meta $keys.title $folderTitle
+  $subCategory = Resolve-Alias $subCategoryAliases (Get-MetaValue $meta $keys.sub) $prefixSubCategory "category" $folder.Name
+  if ([string]::IsNullOrWhiteSpace($subCategory)) {
+    $subCategory = "detail"
+  }
+
+  $defaultMainCategory = "2d"
+  if ($subCategory -in @("product3d", "detailRender", "practice", "animation")) {
+    $defaultMainCategory = "3d"
+  }
+  $mainCategory = Resolve-Alias $mainCategoryAliases (Get-MetaValue $meta $keys.main) $defaultMainCategory "main category" $folder.Name
 
   $folderUrl = "assets/new-details/$($folder.Name)"
   $coverName = Get-MetaValue $meta $keys.cover
@@ -191,6 +222,8 @@ foreach ($folder in $projectFolders) {
   $updateMonths = Split-List (Get-MetaValue $meta $keys.updateMonths) @($updatedAt)
   $statement = Get-MetaValue $meta $keys.statement
   $galleryLayout = Get-MetaValue $meta $keys.galleryLayout
+  $client = Get-MetaValue $meta $keys.client
+  $displayCategory = Get-MetaValue $meta $keys.displayCategory
 
   $imageList = ($imagePaths | ForEach-Object { ConvertTo-JsString $_ }) -join ", "
   $tagList = ($tags | ForEach-Object { ConvertTo-JsString $_ }) -join ", "
@@ -202,6 +235,12 @@ foreach ($folder in $projectFolders) {
   }
   if (-not [string]::IsNullOrWhiteSpace($galleryLayout)) {
     $optionalLines += "    galleryLayout: $(ConvertTo-JsString $galleryLayout)"
+  }
+  if (-not [string]::IsNullOrWhiteSpace($client)) {
+    $optionalLines += "    client: $(ConvertTo-JsString $client)"
+  }
+  if (-not [string]::IsNullOrWhiteSpace($displayCategory)) {
+    $optionalLines += "    displayCategory: $(ConvertTo-JsString $displayCategory)"
   }
 
   $optionalBlock = ""
