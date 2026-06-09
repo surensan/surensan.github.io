@@ -29,11 +29,26 @@ const projects = [
   ]),
   imageProject(140, "第 14 页渲染合集", "3d", "practice", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "练习作品", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
 
-  imageProject(15, "儿童手拍鼓详情页", "2d", "detail", cover("detail-page-15.jpg"), [detail("detail-page-15.jpg")], ["详情页", "儿童产品", "玩具"], "儿童手拍鼓产品详情页。围绕趣味互动、亲子陪伴、材质安全和产品结构展开，以活泼插画色彩和模块化卖点组织完整购买路径。"),
-  imageProject(16, "紫外线消毒包详情页", "2d", "detail", cover("detail-page-16.jpg"), [detail("detail-page-16.jpg")], ["详情页", "消毒包", "母婴个护"], "紫外线消毒包详情页。重点提取消毒杀菌、便携收纳、适用多场景和安心护理等卖点，用蓝白科技感视觉强化专业度。"),
-  imageProject(17, "儿童自行车详情页", "2d", "detail", cover("detail-page-17.jpg"), [detail("detail-page-17.jpg")], ["详情页", "儿童自行车", "电商页面"], "儿童自行车详情页。围绕骑行安全、车身结构、轻便操控和儿童成长场景展开，页面节奏从氛围首屏过渡到结构、细节和参数说明。"),
-  imageProject(18, "免洗洗手液详情页", "2d", "detail", cover("detail-page-18.jpg"), [detail("detail-page-18.jpg")], ["详情页", "免洗洗手液", "清洁护理"], "免洗洗手液详情页。提炼便携清洁、温和护理、随时使用和家庭场景等卖点，以清爽色调和留白强化干净、安心的产品感受。"),
-  imageProject(19, "绿鼻子儿童口罩详情页", "2d", "detail", cover("detail-page-19.jpg"), [detail("detail-page-19.jpg")], ["详情页", "儿童口罩", "防护用品"], "绿鼻子儿童口罩详情页。围绕儿童防护、亲肤舒适、透气结构和多场景佩戴展开，采用清新绿色系统强化安全与健康感。"),
+  {
+    ...imageProject(15, "儿童手拍鼓详情页", "2d", "detail", cover("detail-page-15.jpg"), [page("p15-img01.jpg"), page("p15-img02.jpg"), page("p15-img03.jpg")], ["详情页", "儿童产品", "玩具"], "儿童手拍鼓产品详情页。围绕趣味互动、亲子陪伴、材质安全和产品结构展开，以活泼插画色彩和模块化卖点组织完整购买路径。"),
+    galleryLayout: "detailColumns"
+  },
+  {
+    ...imageProject(16, "紫外线消毒包详情页", "2d", "detail", cover("detail-page-16.jpg"), [page("p16-img01.jpg"), page("p16-img02.jpg"), page("p16-img03.jpg")], ["详情页", "消毒包", "母婴个护"], "紫外线消毒包详情页。重点提取消毒杀菌、便携收纳、适用多场景和安心护理等卖点，用蓝白科技感视觉强化专业度。"),
+    galleryLayout: "detailColumns"
+  },
+  {
+    ...imageProject(17, "儿童自行车详情页", "2d", "detail", cover("detail-page-17.jpg"), [page("p17-img01.jpg"), page("p17-img02.jpg"), page("p17-img03.jpg"), page("p17-img04.jpg")], ["详情页", "儿童自行车", "电商页面"], "儿童自行车详情页。围绕骑行安全、车身结构、轻便操控和儿童成长场景展开，页面节奏从氛围首屏过渡到结构、细节和参数说明。"),
+    galleryLayout: "detailColumns"
+  },
+  {
+    ...imageProject(18, "免洗洗手液详情页", "2d", "detail", cover("detail-page-18.jpg"), [page("p18-img01.jpg"), page("p18-img02.jpg"), page("p18-img03.jpg")], ["详情页", "免洗洗手液", "清洁护理"], "免洗洗手液详情页。提炼便携清洁、温和护理、随时使用和家庭场景等卖点，以清爽色调和留白强化干净、安心的产品感受。"),
+    galleryLayout: "detailColumns"
+  },
+  {
+    ...imageProject(19, "绿鼻子儿童口罩详情页", "2d", "detail", cover("detail-page-19.jpg"), ["assets/detail-slices/p19/p19-img01-01.jpg", "assets/detail-slices/p19/p19-img01-02.jpg", "assets/detail-slices/p19/p19-img01-03.jpg", page("p19-img02.jpg"), page("p19-img03.jpg")], ["详情页", "儿童口罩", "防护用品"], "绿鼻子儿童口罩详情页。围绕儿童防护、亲肤舒适、透气结构和多场景佩戴展开，采用清新绿色系统强化安全与健康感。"),
+    galleryLayout: "detailColumns"
+  },
 
   {
     ...imageProject(20, "红豆居家主图系列", "2d", "mainVisual", page("p20-img01.jpg"), [
@@ -122,6 +137,7 @@ const subFilterMap = {
   "work-aigc": [],
   "work-handdrawn": [],
   "work-motion-render": [],
+  "work-ppt": [],
   "work-other": [],
   featured: [],
   "2d": [
@@ -168,6 +184,9 @@ const worksCategoryMeta = {
   },
   "work-motion-render": {
     empty: "动态渲染分类会放产品动画、旋转展示和三维运动镜头。"
+  },
+  "work-ppt": {
+    empty: "PPT 展示会放演示稿作品。把 PPT 文件给我后，我会导出每一页，第一张作为封面，点开后按原比例逐页下滑展示。"
   },
   "work-other": {
     empty: "其他分类会收纳暂时不适合放入前面分类的项目。"
@@ -330,6 +349,10 @@ function getWorksCategoryProjects(category) {
     return projects.filter((projectItem) => projectItem.subCategory === "animation");
   }
 
+  if (category === "work-ppt") {
+    return projects.filter((projectItem) => projectItem.subCategory === "ppt");
+  }
+
   if (category === "work-other") {
     return projects.filter((projectItem) => {
       return !knownProject(projectItem);
@@ -436,7 +459,7 @@ function openModal(projectItem) {
   modalDescription.textContent = projectItem.description;
   modalTags.innerHTML = projectItem.tags.map((tag) => `<span>${tag}</span>`).join("");
   modalHistory.innerHTML = renderHistory(projectItem);
-  modalGallery.className = `modal-gallery ${projectItem.galleryLayout === "grid" ? "modal-gallery-grid" : ""}`;
+  modalGallery.className = `modal-gallery ${getGalleryClass(projectItem)}`;
   modalInfoAsBrief(projectItem);
 
   if (projectItem.type === "video") {
@@ -453,6 +476,13 @@ function openModal(projectItem) {
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
   modal.querySelector(".modal-content").scrollTop = 0;
+}
+
+function getGalleryClass(projectItem) {
+  if (projectItem.galleryLayout === "grid") return "modal-gallery-grid";
+  if (projectItem.galleryLayout === "detailColumns") return "modal-gallery-detail-columns";
+  if (projectItem.galleryLayout === "slides" || projectItem.subCategory === "ppt") return "modal-gallery-slides";
+  return "";
 }
 
 function modalInfoAsBrief(projectItem) {

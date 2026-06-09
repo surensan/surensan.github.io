@@ -1503,6 +1503,32 @@ section[id] {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.modal-gallery-detail-columns {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  width: min(100%, 2048px);
+  margin: 0 auto;
+}
+
+.modal-gallery-detail-columns img {
+  width: 100%;
+  max-width: none;
+  border-radius: 10px;
+}
+
+.modal-gallery-slides {
+  width: min(100%, 2560px);
+  margin: 0 auto;
+  gap: 32px;
+}
+
+.modal-gallery-slides img {
+  width: min(100%, 2560px);
+  max-width: 2560px;
+  border-radius: 10px;
+}
+
 .modal-video {
   width: 100%;
   border: 1px solid var(--line);
@@ -1816,6 +1842,10 @@ section[id] {
   }
 
   .modal-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-gallery-detail-columns {
     grid-template-columns: 1fr;
   }
 
