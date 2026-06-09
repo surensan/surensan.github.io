@@ -78,6 +78,33 @@ const projects = [
   videoProject(3002, "美朵嘉蚊帐旋转动画", "3d", "animation", page("p13-img10.jpg"), video("mosquito-net-animation.mp4"), ["动画", "蚊帐", "旋转展示"], "蚊帐产品旋转动画，通过动态视角展示空间结构、产品形态和使用场景。")
 ];
 
+projects.push(
+  pptProject(
+    6001,
+    "他家品牌视觉策略",
+    "assets/ppt-slides/tajia-brand-strategy",
+    35,
+    ["PPT", "品牌视觉策略", "视觉系统"],
+    "他家品牌视觉策略围绕品牌定位、视觉气质与落地表达展开，展示从策略到设计系统的梳理过程。"
+  ),
+  pptProject(
+    6002,
+    "梓晨官旗品牌手册",
+    "assets/ppt-slides/zichen-brand-manual",
+    20,
+    ["PPT", "品牌手册", "电商视觉"],
+    "梓晨官旗品牌手册整理品牌基础视觉、页面规范与电商场景应用，帮助品牌视觉保持一致。"
+  ),
+  pptProject(
+    6003,
+    "梓晨主图规范",
+    "assets/ppt-slides/zichen-main-image-guide",
+    8,
+    ["PPT", "主图规范", "电商视觉"],
+    "梓晨主图规范聚焦电商主图的构图、信息层级与情绪表达，服务于平台转化与品牌统一。"
+  )
+);
+
 projects.push(...(window.extraPortfolioProjects || []));
 
 const featuredProjectIds = [17, 19, 2426, 2302, 1311];
@@ -118,6 +145,7 @@ const categoryLabels = {
   visualSystem: "视觉规范",
   aiPoster: "AI 海报",
   composite: "合成海报",
+  ppt: "PPT 展示",
   icon: "电商 icon",
   handdrawn: "手绘",
   other: "其他"
@@ -186,7 +214,7 @@ const worksCategoryMeta = {
     empty: "动态渲染分类会放产品动画、旋转展示和三维运动镜头。"
   },
   "work-ppt": {
-    empty: "PPT 展示会放演示稿作品。把 PPT 文件给我后，我会导出每一页，第一张作为封面，点开后按原比例逐页下滑展示。"
+    empty: "PPT 展示包含品牌策略、品牌手册和主图规范等演示稿项目。"
   },
   "work-other": {
     empty: "其他分类会收纳暂时不适合放入前面分类的项目。"
@@ -218,6 +246,25 @@ function imageProject(id, title, mainCategory, subCategory, coverImage, detailIm
 
 function videoProject(id, title, mainCategory, subCategory, coverImage, videoSrc, tags, description) {
   return { id, type: "video", title, mainCategory, subCategory, coverImage, videoSrc, detailImages: [], tags, description };
+}
+
+function pptProject(id, title, folder, slideCount, tags, description) {
+  const slides = Array.from({ length: slideCount }, (_, index) => {
+    return `${folder}/${String(index + 1).padStart(2, "0")}.jpg`;
+  });
+
+  return {
+    id,
+    type: "image",
+    title,
+    mainCategory: "2d",
+    subCategory: "ppt",
+    coverImage: slides[0],
+    detailImages: slides,
+    tags,
+    description,
+    galleryLayout: "slides"
+  };
 }
 
 function singleFrameProjects(pageNumber, items) {
@@ -508,6 +555,7 @@ function getServiceLabel(projectItem) {
   if (projectItem.subCategory === "animation") return "动态渲染";
   if (projectItem.subCategory === "composite") return "营销合成视觉";
   if (projectItem.subCategory === "aiPoster") return "AIGC 视觉";
+  if (projectItem.subCategory === "ppt") return projectItem.tags[1] || "PPT 展示";
   return projectItem.tags[1] || "视觉设计项目";
 }
 
