@@ -111,7 +111,7 @@ projects.push(...(window.extraPortfolioProjects || []));
 
 const featuredProjectIds = [17, 19, 2426, 2302, 1311];
 const homeProjectMap = {
-  "home-graphic": [17, 19, 2426, 20, 21, 22],
+  "home-graphic": [17, 19, 2426, 20],
   "home-static": [3, 9, 10, 11, 2302, 1380],
   "home-motion": [3001, 3002]
 };
