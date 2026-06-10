@@ -545,17 +545,20 @@ function getGalleryClass(projectItem) {
 }
 
 function modalInfoAsBrief(projectItem) {
-  const client = getClientLabel(projectItem);
-  const englishDescription = getEnglishDescription(projectItem);
+  const client = projectItem.client || projectItem.tags?.[2] || projectItem.tags?.[1] || "品牌方";
+  const year = projectItem.year || "2019";
 
-  modalCategory.textContent = projectItem.displayCategory || categoryLabels[projectItem.subCategory] || categoryLabels[projectItem.mainCategory] || "作品";
+  modalCategory.textContent = "三十二哩";
   modalTitle.textContent = projectItem.title;
   modalDescription.innerHTML = `
+    <strong>简介</strong>
     <span>${projectItem.description}</span>
-    <span>${englishDescription}</span>
   `;
   modalTags.innerHTML = `
-    <span>服务对象 ${client}</span>
+    <span>Design：三三</span>
+    <span>Year：${year}</span>
+    <span>Client：${client}</span>
+    <span>作品仅做展示，版权归品牌方所有，不承担任何法律责任。</span>
   `;
 }
 
