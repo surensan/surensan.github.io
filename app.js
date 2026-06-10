@@ -299,7 +299,7 @@ function createProjectCard(projectItem) {
   const cardImage = getThumbnailPath(projectItem.coverImage);
   const media = projectItem.type === "video"
     ? `<video class="card-video" src="${projectItem.videoSrc}" autoplay muted loop playsinline preload="metadata"></video>`
-    : `<img src="${cardImage}" data-full="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=this.dataset.full;">`;
+    : `<img class="card-image" src="${cardImage}" data-full="${projectItem.coverImage}" alt="${projectItem.title}" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.onerror=null;this.src=this.dataset.full;">`;
 
   card.innerHTML = `
     ${media}

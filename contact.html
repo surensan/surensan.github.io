@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="联系黄敏视觉设计师，包含邮箱、电话、微信二维码、站酷链接与私密留言表单。" />
+  <meta name="description" content="联系黄敏视觉设计师，包含邮箱、电话、微信二维码与站酷主页。" />
   <title>联系 | 黄敏视觉设计师作品集</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css?v=20260609-ppt" />
+  <link rel="stylesheet" href="style.css?v=20260610162903" />
 </head>
 <body class="bg-white text-slate-900 antialiased">
   <header class="site-header">
@@ -44,101 +44,59 @@
     </div>
   </header>
 
-  <main>
-    <section class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+  <main class="page-main">
+    <section class="page-shell contact-hero-section">
       <div class="contact-page-grid">
-        <div>
-          <p class="eyebrow">联系</p>
-          <h1 class="mt-3 text-4xl font-semibold text-slate-950 md:text-6xl">联系我</h1>
-          <p class="mt-7 max-w-xl text-base leading-8 text-slate-500">
-            如果你对我的作品、合作机会或岗位沟通感兴趣，可以通过邮箱、电话、微信或下方留言表单联系我。留言内容不会公开展示，会以邮件草稿的方式发送给我。
-          </p>
+        <div class="page-title-block">
+          <p class="eyebrow">CONTACT</p>
+          <h1>联系我</h1>
+          <p>如果你正在寻找视觉设计、电商页面或三维渲染方向的合作与岗位沟通，可以通过电话、邮箱或微信联系我。</p>
+        </div>
 
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a class="contact-button" href="mailto:17576026960@163.com">
-              <span>
-                <small>邮箱</small>
-                17576026960@163.com
-              </span>
-              <b>↗</b>
-            </a>
-            <a class="contact-button" href="tel:17576026960">
-              <span>
-                <small>电话</small>
-                175-7602-6960
-              </span>
-              <b>↗</b>
-            </a>
-          </div>
-
-          <div class="qr-grid">
-            <div class="qr-card">
-              <img src="assets/contact/zcool-qr.jpg" alt="站酷主页二维码" loading="lazy">
-              <div>
-                <span>站酷主页</span>
-                <p>扫码查看线上作品与主页</p>
-              </div>
+        <div class="contact-panel-grid">
+          <a class="contact-info-card" href="tel:17576026960">
+            <small>电话</small>
+            <strong>175-7602-6960</strong>
+          </a>
+          <a class="contact-info-card" href="mailto:17576026960@163.com">
+            <small>邮箱</small>
+            <strong>17576026960@163.com</strong>
+          </a>
+          <div class="contact-qr-card">
+            <img src="assets/contact/wechat-qr.jpg" alt="个人微信二维码" loading="lazy" decoding="async">
+            <div>
+              <small>微信</small>
+              <strong>扫码添加微信</strong>
             </div>
-            <div class="qr-card">
-              <img src="assets/contact/wechat-qr.jpg" alt="个人微信二维码" loading="lazy">
-              <div>
-                <span>个人微信</span>
-                <p>扫码添加微信沟通</p>
-              </div>
+          </div>
+          <div class="contact-qr-card">
+            <img src="assets/contact/zcool-qr.jpg" alt="站酷主页二维码" loading="lazy" decoding="async">
+            <div>
+              <small>站酷</small>
+              <strong>查看线上作品</strong>
             </div>
           </div>
         </div>
-
-        <form id="messageForm" class="message-form">
-          <div>
-            <label for="messageName">称呼</label>
-            <input id="messageName" name="name" type="text" placeholder="你的名字 / 公司" autocomplete="name">
-          </div>
-          <div>
-            <label for="messageContact">联系方式</label>
-            <input id="messageContact" name="contact" type="text" placeholder="邮箱、电话或微信" autocomplete="email">
-          </div>
-          <div>
-            <label for="messageBody">留言</label>
-            <textarea id="messageBody" name="message" rows="8" placeholder="想沟通的项目、岗位或其他信息"></textarea>
-          </div>
-          <button class="message-submit" type="submit">发送留言</button>
-          <p class="form-note">提交后会打开你的邮件客户端，并自动生成一封发给我的邮件。</p>
-        </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    © 2026 黄敏视觉设计作品集
+    Copyright © 2026 San-San Visual Design. All rights reserved.
   </footer>
 
   <script>
     const mobileMenuBtn = document.querySelector("#mobileMenuBtn");
     const mobileMenu = document.querySelector("#mobileMenu");
-    const messageForm = document.querySelector("#messageForm");
 
     mobileMenuBtn.addEventListener("click", () => {
       const isOpen = mobileMenu.classList.toggle("open");
       mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
     });
-
-    messageForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const name = document.querySelector("#messageName").value.trim() || "未填写";
-      const contact = document.querySelector("#messageContact").value.trim() || "未填写";
-      const message = document.querySelector("#messageBody").value.trim();
-      const body = [
-        "称呼：" + name,
-        "联系方式：" + contact,
-        "",
-        "留言：",
-        message || "未填写"
-      ].join("\n");
-
-      window.location.href = "mailto:17576026960@163.com?subject=" + encodeURIComponent("来自作品集网站的留言") + "&body=" + encodeURIComponent(body);
-    });
   </script>
 </body>
 </html>
+
+
+
+
