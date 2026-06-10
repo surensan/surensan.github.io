@@ -7,6 +7,7 @@ ROOT = Path("assets")
 THUMB_ROOT = ROOT / "thumbs"
 EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_WIDTH = 760
+MAX_HEIGHT = 12000
 QUALITY = 76
 
 
@@ -27,20 +28,16 @@ def make_thumb(src: Path) -> tuple[int, int] | None:
       if image.mode not in ("RGB", "RGBA"):
           image = image.convert("RGB")
 
-      if image.width > MAX_WIDTH:
-          ratio = MAX_WIDTH / image.width
-          image = image.resize((MAX_WIDTH, max(1, int(image.height * ratio))), Image.Resampling.LANCZOS)
+      if image.width > MAX_WIDTH or image.height > MAX_HEIGHT:
+          ratio = min(MAX_WIDTH / image.width, MAX_HEIGHT / image.height)
+          image = image.resize((max(1, int(image.width * ratio)), max(1, int(image.height * ratio))), Image.Resampling.LANCZOS)
 
       if image.mode == "RGBA":
           background = Image.new("RGB", image.size, "#ffffff")
           background.paste(image, mask=image.getchannel("A"))
           image = background
 
-      try:
-          image.save(dst, "WEBP", quality=QUALITY, method=6)
-      except ValueError:
-          dst = dst.with_suffix(".jpg")
-          image.save(dst, "JPEG", quality=82, optimize=True)
+      image.save(dst, "WEBP", quality=QUALITY, method=6)
 
     return original_size, dst.stat().st_size
 

@@ -19,6 +19,11 @@ if not "%PYTHON_EXE%"=="" (
 )
 
 echo.
+echo Refreshing browser cache version...
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0update-cache-version.ps1"
+if errorlevel 1 pause & exit /b 1
+
+echo.
 echo Uploading to GitHub Pages...
 git add .
 git commit -m "Update portfolio works"

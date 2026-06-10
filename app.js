@@ -240,8 +240,10 @@ const modalDescription = document.querySelector("#modalDescription");
 const modalTags = document.querySelector("#modalTags");
 const modalHistory = document.querySelector("#modalHistory");
 const modalGallery = document.querySelector("#modalGallery");
+const modalNavButtons = [...document.querySelectorAll("[data-modal-nav]")];
 const mobileMenuBtn = document.querySelector("#mobileMenuBtn");
 const mobileMenu = document.querySelector("#mobileMenu");
+let activeModalProjectId = null;
 
 function imageProject(id, title, mainCategory, subCategory, coverImage, detailImages, tags, description) {
   return { id, type: "image", title, mainCategory, subCategory, coverImage, detailImages, tags, description };
@@ -506,6 +508,7 @@ function bindNavFilters() {
 }
 
 function openModal(projectItem) {
+  activeModalProjectId = projectItem.id;
   const modalCard = modal.querySelector(".modal-card");
   const isDetailPage = projectItem.subCategory === "detail";
   const isMediaOnly = !isDetailPage;
@@ -534,6 +537,29 @@ function openModal(projectItem) {
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
   modal.querySelector(".modal-content").scrollTop = 0;
+  updateModalNavState();
+}
+
+function getModalProjectList() {
+  return getFilteredProjects().filter(Boolean);
+}
+
+function switchModalProject(direction) {
+  const projectList = getModalProjectList();
+  if (projectList.length < 2 || activeModalProjectId === null) return;
+
+  const currentIndex = projectList.findIndex((projectItem) => projectItem.id === activeModalProjectId);
+  if (currentIndex < 0) return;
+
+  const nextIndex = (currentIndex + direction + projectList.length) % projectList.length;
+  openModal(projectList[nextIndex]);
+}
+
+function updateModalNavState() {
+  const hasMultipleProjects = getModalProjectList().length > 1;
+  modalNavButtons.forEach((button) => {
+    button.hidden = !hasMultipleProjects;
+  });
 }
 
 function getGalleryClass(projectItem) {
@@ -667,6 +693,7 @@ function closeModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
+  activeModalProjectId = null;
 }
 
 function closeMobileMenu() {
@@ -679,8 +706,23 @@ function bindModalEvents() {
     element.addEventListener("click", closeModal);
   });
 
+  modalNavButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      switchModalProject(button.dataset.modalNav === "next" ? 1 : -1);
+    });
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeModal();
+    if (!modal.classList.contains("open")) return;
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      switchModalProject(-1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      switchModalProject(1);
+    }
   });
 }
 
