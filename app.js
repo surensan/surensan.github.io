@@ -6,9 +6,7 @@ const cover = (name) => `assets/covers/${name}`;
 const video = (name) => `assets/videos/${name}`;
 
 const projects = [
-  imageProject(3, "甘源谷物系列产品手册创意渲染", "3d", "practice", page("p03-img01.jpg"), [page("p03-img01.jpg")], ["渲染", "商业作品", "场景视觉"], "产品陈列场景视觉，创意展台展示产品，光影烘托画面氛围、主体关系。"),
-  imageProject(4, "果果黑巧包装产品手册创意场景渲染", "3d", "product3d", page("p04-img01.jpg"), [page("p04-img01.jpg")], ["渲染", "产品渲染", "暗场灯光"], "通过低照度背景和暖色灯光突出礼盒质感，创意产品手册图。"),
-  imageProject(5, "果果黑巧包装产品手册创意场景渲染", "3d", "product3d", page("p05-img01.jpg"), [page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "产品渲染", "陈列"], "以多盒型陈列呈现产品组合关系，创意产品手册图。"),
+  imageProject(3, "甘源产品手册渲染系列", "3d", "product3d", page("p04-img01.jpg"), [page("p04-img01.jpg"), page("p03-img01.jpg"), page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "静态渲染", "甘源"], "甘源产品手册渲染系列，围绕产品陈列、包装质感和场景氛围展开。"),
   imageProject(6, "黑金羽绒服卖点渲染", "3d", "practice", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "商业作品", "单帧"], "模拟立体羽绒服，突出服装材质和内部保暖卖点，持续保温可视化，快速传达产品功能与卖点。"),
   imageProject(7, "黑金羽绒渲染", "3d", "practice", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "商业作品", "鸭绒"], "以蓝天营造自然、轻盈、舒适的视觉氛围，蓬松的羽毛作为视觉焦点和羽绒的可视化。"),
   imageProject(8, "白翎概念渲染", "3d", "practice", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "商业作品", "写实材质"], "通过球体、雾面空间和高对比光影展示材质控制与抽象视觉表达能力。"),
@@ -17,16 +15,17 @@ const projects = [
   imageProject(11, "追觅吹风机5in1产品渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["金属渲染", "3C数码", "追觅"], "展示吹风机颜色/金属质感/结构。金属反射控制，突出工业产品的精密感。"),
 
   ...singleFrameProjects(12, [
-    ["p12-img01.jpg", "耳机详情首屏渲染"], ["p12-img03.jpg", "产品包装单帧"], ["p12-img04.jpg", "手柄卖点海报"],
-    ["p12-img05.jpg", "耳机产品卖点图"], ["p12-img06.jpg", "功能说明版式"], ["p12-img07.jpg", "耳机氛围海报"], ["p12-img08.jpg", "居家产品场景图"],
-    ["p12-img09.jpg", "产品场景渲染"], ["p12-img10.jpg", "游戏化场景海报"], ["p12-img11.jpg", "冰雪氛围海报"], ["p12-img12.jpg", "产品角色图"],
-    ["p12-img13.jpg", "滑板场景渲染"], ["p12-img14.jpg", "童车空间渲染"]
+    ["p12-img01.jpg", "耳机详情首屏渲染"], ["p12-img03.jpg", "火鸡消毒柜产品渲染"], ["p12-img04.jpg", "追觅吹风机卖点渲染"],
+    ["p12-img05.jpg", "耳机产品卖点图"], ["p12-img06.jpg", "功能说明版式"], ["p12-img07.jpg", "耳机氛围海报"],
+    ["p12-img10.jpg", "游戏化场景海报"], ["p12-img11.jpg", "冰雪氛围海报"], ["p12-img12.jpg", "产品角色图"]
   ]),
+  imageProject(1280, "朴西拖鞋", "3d", "detailRender", page("p12-img08.jpg"), [page("p12-img08.jpg"), page("p12-img09.jpg")], ["渲染", "详情页卖点渲染", "朴西拖鞋"], "朴西拖鞋产品场景渲染，围绕居家穿着、柔软材质和轻松出行场景展开。"),
+  imageProject(1281, "babycare SKU 渲染图", "3d", "detailRender", page("p12-img13.jpg"), [page("p12-img13.jpg"), page("p12-img14.jpg")], ["渲染", "详情页卖点渲染", "babycare"], "babycare 童车 SKU 渲染图，展示产品结构、空间氛围和场景化卖点表达。"),
   ...singleFrameProjects(13, [
-    ["p13-img01.jpg", "户外产品氛围图"], ["p13-img02.jpg", "个护产品场景渲染"], ["p13-img03.jpg", "智能设备场景渲染"], ["p13-img04.jpg", "IP 角色单帧 01"],
-    ["p13-img05.jpg", "IP 角色单帧 02"], ["p13-img06.jpg", "IP 角色单帧 03"], ["p13-img07.jpg", "IP 角色单帧 04"], ["p13-img08.jpg", "卡带产品单帧"],
-    ["p13-img09.jpg", "角色场景单帧"], ["p13-img10.jpg", "居家空间渲染"], ["p13-img11.jpg", "汽车产品单帧"]
+    ["p13-img01.jpg", "材质练习"], ["p13-img02.jpg", "参赛作品，未获奖"], ["p13-img03.jpg", "智能设备场景渲染"],
+    ["p13-img10.jpg", "居家空间渲染"], ["p13-img11.jpg", "汽车产品单帧"]
   ]),
+  imageProject(1380, "练习作品", "3d", "practice", page("p13-img05.jpg"), [page("p13-img05.jpg"), page("p13-img06.jpg"), page("p13-img07.jpg"), page("p13-img04.jpg"), page("p13-img08.jpg"), page("p13-img09.jpg")], ["渲染", "练习作品", "建模雕刻"], "练习作品系列，主要用于熟悉建模、雕刻工具和角色形体表达。"),
   imageProject(140, "第 14 页渲染合集", "3d", "practice", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "商业作品", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
 
   {
@@ -113,7 +112,7 @@ projects.push(...(window.extraPortfolioProjects || []));
 const featuredProjectIds = [17, 19, 2426, 2302, 1311];
 const homeProjectMap = {
   "home-graphic": [17, 19, 2426, 20, 21, 22],
-  "home-static": [4, 5, 9, 10, 11, 2302],
+  "home-static": [3, 9, 10, 11, 2302, 1380],
   "home-motion": [3001, 3002]
 };
 const wideProjectIds = new Set([10, 1311, 2302, 2426]);
@@ -159,15 +158,12 @@ const subFilterMap = {
   "home-static": [],
   "home-motion": [],
   "work-detail": [],
+  "work-static-render": [],
+  "work-motion-render": [],
   "work-home": [],
   "work-main": [],
-  "work-icon": [],
-  "work-selling-render": [],
-  "work-kv-render": [],
-  "work-composite": [],
   "work-aigc": [],
   "work-handdrawn": [],
-  "work-motion-render": [],
   "work-ppt": [],
   "work-other": [],
   featured: [],
@@ -195,17 +191,8 @@ const worksCategoryMeta = {
   "work-main": {
     empty: "电商主图分类会放平台主图、产品主视觉和一屏成交图。"
   },
-  "work-icon": {
-    empty: "当前作品文件里还没有明确的电商 icon 项目；后续可用文件夹或项目名标注后自动加入。"
-  },
-  "work-selling-render": {
-    empty: "卖点渲染会放用于详情页、功能说明和产品卖点表达的三维图。"
-  },
-  "work-kv-render": {
-    empty: "KV 渲染会放更偏主视觉、氛围图和产品场景表达的三维图。"
-  },
-  "work-composite": {
-    empty: "合成分类会放海报合成、代言人主图和节日活动类视觉。"
+  "work-static-render": {
+    empty: "静态渲染会放产品渲染、卖点表达、KV 氛围和练习作品。"
   },
   "work-aigc": {
     empty: "AIGC 分类会放 AI 辅助生成或 AI 参与创作的视觉项目。"
@@ -378,23 +365,11 @@ function getWorksCategoryProjects(category) {
     return projects.filter((projectItem) => projectItem.subCategory === "mainVisual");
   }
 
-  if (category === "work-icon") {
-    return projects.filter((projectItem) => projectItem.subCategory === "icon");
-  }
-
-  if (category === "work-selling-render") {
-    return projects.filter((projectItem) => projectItem.subCategory === "detailRender");
-  }
-
-  if (category === "work-kv-render") {
+  if (category === "work-static-render") {
     return projects.filter((projectItem) => {
       if (!isPageProject(projectItem)) return false;
-      return projectItem.mainCategory === "3d" && ["product3d", "practice"].includes(projectItem.subCategory);
+      return projectItem.mainCategory === "3d" && ["detailRender", "product3d", "practice"].includes(projectItem.subCategory);
     });
-  }
-
-  if (category === "work-composite") {
-    return projects.filter((projectItem) => projectItem.subCategory === "composite");
   }
 
   if (category === "work-aigc") {
@@ -415,7 +390,7 @@ function getWorksCategoryProjects(category) {
 
   if (category === "work-other") {
     return projects.filter((projectItem) => {
-      return !knownProject(projectItem);
+      return projectItem.subCategory === "composite" || !knownProject(projectItem);
     });
   }
 
