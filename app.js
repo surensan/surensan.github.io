@@ -15,7 +15,7 @@ const projects = [
   imageProject(11, "追觅吹风机5in1渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["三维静态", "Dreame追觅", "2023"], ""),
 
   ...singleFrameProjects(12, [
-    ["p12-img01.jpg", "缇美妍彩妆卖点渲染"], ["p12-img03.jpg", "火鸡消毒柜渲染"], ["p12-img04.jpg", "Bruno吹风机卖点渲染"],
+    ["p12-img01.jpg", "Jumiya 绽美娅彩妆卖点渲染"], ["p12-img03.jpg", "火鸡消毒柜渲染"], ["p12-img04.jpg", "Bruno吹风机卖点渲染"],
     ["p12-img11.jpg", "凉感布料渲染"], ["p12-img12.jpg", "海马爸比监视器卖点渲染"]
   ]),
   imageProject(1280, "优调拖鞋卖点渲染", "3d", "detailRender", page("p12-img08.jpg"), [page("p12-img08.jpg"), page("p12-img09.jpg")], ["三维静态", "UTUNE 优调", "2021"], ""),
@@ -119,8 +119,47 @@ const homeProjectMap = {
   "home-motion": [3001, 3002]
 };
 const wideProjectIds = new Set([10, 2500, 2302, 2426]);
+const projectMetaById = {
+  3: { copyrightOwner: "甘源", year: "2024" },
+  6: { copyrightOwner: "高梵", year: "2024" },
+  7: { copyrightOwner: "高梵", year: "2024" },
+  8: { copyrightOwner: "白翎", year: "2024" },
+  9: { copyrightOwner: "Greennose 绿鼻子", year: "2024" },
+  10: { copyrightOwner: "蓝鲸", year: "2023" },
+  11: { copyrightOwner: "Dreame追觅", year: "2023" },
+  1201: { copyrightOwner: "Jumiya 绽美娅", year: "2021" },
+  1202: { copyrightOwner: "Fire Turkey 火鸡", year: "2021" },
+  1203: { copyrightOwner: "Bruno", year: "2023" },
+  1204: { copyrightOwner: "/", year: "2022" },
+  1205: { copyrightOwner: "海马爸比", year: "2023" },
+  1280: { copyrightOwner: "UTUNE 优调", year: "2021" },
+  1281: { copyrightOwner: "Babycare", year: "2020" },
+  1301: { copyrightOwner: "/", year: "2023" },
+  1302: { copyrightOwner: "颐莲", year: "2024" },
+  1303: { copyrightOwner: "海马爸比", year: "2023" },
+  1304: { copyrightOwner: "/", year: "2022" },
+  1380: { copyrightOwner: "/", year: "2022-2024" },
+  140: { copyrightOwner: "梓晨", year: "2021" },
+  15: { copyrightOwner: "Babycare", year: "2020" },
+  16: { copyrightOwner: "Babycare", year: "2020" },
+  17: { copyrightOwner: "Babycare", year: "2020" },
+  18: { copyrightOwner: "Babycare", year: "2019" },
+  19: { copyrightOwner: "Greennose 绿鼻子", year: "2022" },
+  20: { copyrightOwner: "红豆", year: "2023" },
+  21: { copyrightOwner: "甘源", year: "2024" },
+  22: { copyrightOwner: "甘源", year: "2024" },
+  2301: { copyrightOwner: "甘源", year: "2024" },
+  2302: { copyrightOwner: "甘源", year: "2024" },
+  2426: { copyrightOwner: "甘源", year: "2024" },
+  2500: { copyrightOwner: "甘源", year: "2024" },
+  2600: { copyrightOwner: "甘源", year: "2024" },
+  3001: { copyrightOwner: "Greennose 绿鼻子", year: "2024" },
+  3002: { copyrightOwner: "美朵嘉", year: "2024" }
+};
 
 projects.forEach((projectItem) => {
+  Object.assign(projectItem, projectMetaById[projectItem.id] || {});
+
   if (projectItem.subCategory === "detail" && !projectItem.updatedAt) {
     projectItem.updatedAt = "2026-06";
   }
@@ -374,6 +413,7 @@ function getWorksCategoryProjects(category) {
 
   if (category === "work-other") {
     return projects.filter((projectItem) => {
+      if (projectItem.subCategory === "ppt") return false;
       return ["aiPoster", "composite"].includes(projectItem.subCategory) || !knownProject(projectItem);
     });
   }

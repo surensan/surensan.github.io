@@ -560,6 +560,38 @@ section[id] {
   grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
 }
 
+.about-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.8fr);
+  gap: 28px;
+  align-items: stretch;
+  margin-top: 34px;
+}
+
+.about-intro-plain {
+  display: grid;
+  align-content: center;
+  min-height: 240px;
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  background: #fff;
+  padding: clamp(28px, 4vw, 56px);
+}
+
+.about-intro-plain p {
+  max-width: 980px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.9;
+}
+
+.about-skills-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-experience-section {
+  margin-top: 18px;
+}
+
 .experience-icon-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -859,6 +891,7 @@ section[id] {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 24px;
+  align-items: start;
 }
 
 .works-library .project-card,
@@ -930,6 +963,7 @@ section[id] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+  align-items: start;
 }
 
 .home-works-inner {
@@ -966,11 +1000,12 @@ section[id] {
 
 .project-card {
   position: relative;
+  align-self: start;
   overflow: hidden;
-  min-height: 360px;
+  min-height: 0;
   border: 1px solid rgba(226, 232, 240, 0.88);
   border-radius: 18px;
-  background: #fff;
+  background: transparent;
   cursor: pointer;
   isolation: isolate;
   opacity: 1;
@@ -1740,7 +1775,7 @@ section[id] {
   max-height: min(88vh, 920px);
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  border-radius: 18px;
+  border-radius: 0;
   background: #fff;
   box-shadow: 0 28px 90px rgba(15, 23, 42, 0.28);
   animation: modalIn 240ms ease both;
@@ -1795,7 +1830,7 @@ section[id] {
   max-width: 100%;
   max-height: none;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 .modal-card.project-modal .modal-video {
@@ -1829,7 +1864,7 @@ section[id] {
   max-width: 100%;
   max-height: none;
   border: 0;
-  border-radius: 10px;
+  border-radius: 0;
   object-fit: contain;
 }
 
@@ -2079,8 +2114,8 @@ section[id] {
   width: 40px;
   height: 40px;
   place-items: center;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
+  border-radius: 0;
+  background: transparent;
   color: var(--ink);
   font-size: 28px;
   line-height: 1;
@@ -2175,6 +2210,7 @@ section[id] {
 
   .about-info-grid,
   .about-intro-grid,
+  .about-overview,
   .experience-icon-grid,
   .tool-icon-grid,
   .contact-page-panel,
@@ -2298,7 +2334,15 @@ section[id] {
     grid-template-columns: 1fr;
   }
 
+  .about-skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .tool-icon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
