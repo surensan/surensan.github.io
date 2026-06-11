@@ -566,15 +566,15 @@ section[id] {
 
 .experience-timeline {
   display: grid;
-  gap: 20px;
+  gap: 0;
 }
 
 .experience-detail-card {
   display: grid;
-  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
-  gap: 34px;
+  grid-template-columns: minmax(260px, 0.3fr) minmax(0, 1fr);
+  gap: clamp(42px, 7vw, 92px);
   border-top: 3px solid var(--accent);
-  padding: 28px 0 34px;
+  padding: 24px 0 34px;
 }
 
 .experience-company {
@@ -585,16 +585,17 @@ section[id] {
 
 .experience-company small {
   color: var(--ink);
-  font-size: clamp(1rem, 1.35vw, 1.28rem);
+  font-size: clamp(1rem, 1.22vw, 1.18rem);
   font-weight: 700;
   letter-spacing: 0;
+  line-height: 1.2;
 }
 
 .experience-company h2 {
   color: var(--accent);
-  font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+  font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.08;
   letter-spacing: 0;
 }
 
@@ -605,46 +606,47 @@ section[id] {
 
 .experience-summary-list {
   display: grid;
-  gap: 22px;
+  gap: 30px;
 }
 
 .experience-summary-list section {
   display: grid;
-  grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(260px, 0.36fr) minmax(0, 1fr);
+  gap: clamp(28px, 4.5vw, 70px);
+  align-items: start;
 }
 
 .experience-summary-list h3 {
   position: relative;
   color: var(--ink);
-  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-size: clamp(1.05rem, 1.3vw, 1.22rem);
   font-weight: 700;
-  line-height: 1.38;
+  line-height: 1.35;
   letter-spacing: 0;
-  padding-left: 18px;
+  padding-left: 20px;
 }
 
 .experience-summary-list h3::before {
   content: "";
   position: absolute;
-  top: 0.75em;
+  top: 0.72em;
   left: 0;
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   border-radius: 999px;
   background: var(--ink);
 }
 
-.experience-summary-list p {
-  grid-column: 2;
-  color: var(--muted);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.72;
+.experience-copy {
+  display: grid;
+  gap: 2px;
 }
 
-.experience-summary-list p + p {
-  margin-top: 2px;
+.experience-copy p {
+  color: var(--muted);
+  font-size: clamp(0.94rem, 1.08vw, 1.04rem);
+  font-weight: 600;
+  line-height: 1.62;
 }
 
 .tool-icon-grid {
@@ -2180,7 +2182,7 @@ section[id] {
   }
 
   .experience-detail-card {
-    gap: 22px;
+    gap: 24px;
   }
 
   .experience-summary-list section {
@@ -2277,11 +2279,10 @@ section[id] {
   }
 
   .experience-summary-list {
-    gap: 18px;
+    gap: 22px;
   }
 
-  .experience-summary-list p {
-    grid-column: auto;
+  .experience-copy p {
     font-size: 14px;
   }
 
