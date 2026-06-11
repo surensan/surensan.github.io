@@ -340,7 +340,8 @@ function getWorksCategoryProjects(category) {
       "product3d",
       "practice",
       "composite",
-      "animation"
+      "animation",
+      "ppt"
     ].includes(projectItem.subCategory);
   };
 
@@ -531,7 +532,7 @@ function modalInfoAsBrief(projectItem) {
   const copyrightOwner = projectItem.copyrightOwner || projectItem.client || projectItem.tags?.[1] || "品牌方";
   const year = projectItem.year || "2019";
 
-  modalCategory.textContent = "三十二哩";
+  modalCategory.textContent = "";
   modalTitle.textContent = projectItem.title;
   modalDescription.innerHTML = "";
   modalTags.innerHTML = `
