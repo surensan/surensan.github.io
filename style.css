@@ -572,7 +572,7 @@ section[id] {
   display: grid;
   align-content: center;
   min-height: 240px;
-  border: 1px solid rgba(226, 232, 240, 0.92);
+  border: 0;
   border-radius: 14px;
   background: #fff;
   padding: clamp(28px, 4vw, 56px);
@@ -608,11 +608,11 @@ section[id] {
   display: grid;
   grid-template-columns: minmax(260px, 0.3fr) minmax(0, 1fr);
   gap: clamp(42px, 7vw, 92px);
-  border: 1px solid rgba(226, 232, 240, 0.92);
+  border: 0;
   border-radius: 14px;
   background: #fff;
   padding: clamp(24px, 3vw, 38px);
-  box-shadow: none;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.04);
 }
 
 .experience-company {
@@ -696,7 +696,7 @@ section[id] {
 .tool-card,
 .contact-intro-card,
 .contact-method-card {
-  border: 1px solid rgba(226, 232, 240, 0.92);
+  border: 0;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 18px 60px rgba(15, 23, 42, 0.04);
