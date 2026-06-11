@@ -59,7 +59,7 @@ $keys = @{
   cover = @((U "5C01 9762"), "cover")
   statement = @((U "5361 7247 8BF4 660E"), "statement")
   galleryLayout = @((U "8BE6 60C5 5E03 5C40"), "galleryLayout")
-  client = @((U "670D 52A1 5BF9 8C61"), "client")
+  copyrightOwner = @((U "7248 6743 65B9"), (U "670D 52A1 5BF9 8C61"), "copyrightOwner", "client")
   displayCategory = @((U "663E 793A 5206 7C7B"), "displayCategory")
 }
 
@@ -218,7 +218,7 @@ foreach ($folder in $projectFolders) {
   $updateMonths = Split-List (Get-MetaValue $meta $keys.updateMonths) @($updatedAt)
   $statement = Get-MetaValue $meta $keys.statement
   $galleryLayout = Get-MetaValue $meta $keys.galleryLayout
-  $client = Get-MetaValue $meta $keys.client
+  $copyrightOwner = Get-MetaValue $meta $keys.copyrightOwner
   $displayCategory = Get-MetaValue $meta $keys.displayCategory
 
   $imageList = ($imagePaths | ForEach-Object { ConvertTo-JsString $_ }) -join ", "
@@ -232,8 +232,8 @@ foreach ($folder in $projectFolders) {
   if (-not [string]::IsNullOrWhiteSpace($galleryLayout)) {
     $optionalLines += "    galleryLayout: $(ConvertTo-JsString $galleryLayout)"
   }
-  if (-not [string]::IsNullOrWhiteSpace($client)) {
-    $optionalLines += "    client: $(ConvertTo-JsString $client)"
+  if (-not [string]::IsNullOrWhiteSpace($copyrightOwner)) {
+    $optionalLines += "    copyrightOwner: $(ConvertTo-JsString $copyrightOwner)"
   }
   if (-not [string]::IsNullOrWhiteSpace($displayCategory)) {
     $optionalLines += "    displayCategory: $(ConvertTo-JsString $displayCategory)"

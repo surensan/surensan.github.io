@@ -856,9 +856,9 @@ section[id] {
 }
 
 .works-library .works-grid {
-  display: block;
-  columns: 5 300px;
-  column-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .works-library .project-card,
@@ -866,8 +866,7 @@ section[id] {
 .works-library .project-card.video-card {
   display: block;
   width: 100%;
-  margin: 0 0 24px;
-  break-inside: avoid;
+  margin: 0;
   aspect-ratio: auto;
   min-height: auto;
   border-color: rgba(226, 232, 240, 0.7);
@@ -928,9 +927,9 @@ section[id] {
 }
 
 .home-works .works-grid {
-  display: block;
-  columns: 3 330px;
-  column-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .home-works-inner {
@@ -939,10 +938,9 @@ section[id] {
 }
 
 .home-works .project-card {
-  display: inline-block;
+  display: block;
   width: 100%;
-  margin: 0 0 24px;
-  break-inside: avoid;
+  margin: 0;
   min-height: auto;
 }
 
@@ -2221,7 +2219,7 @@ section[id] {
   }
 
   .home-works .works-grid {
-    columns: 2 280px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .home-works .project-card {
@@ -2321,8 +2319,6 @@ section[id] {
   }
 
   .works-library .works-grid {
-    columns: 1;
-    column-gap: 16px;
     grid-template-columns: 1fr;
     gap: 16px;
   }
@@ -2424,7 +2420,6 @@ section[id] {
   }
 
   .home-works .works-grid {
-    columns: 1;
     grid-template-columns: 1fr;
   }
 

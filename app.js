@@ -59,7 +59,7 @@ const projects = [
   },
   Object.assign(
     imageProject(21, "甘源天猫双十一活动首页规范模板", "2d", "visualSystem", page("p21-img01.jpg"), [page("p21-img01.jpg")], ["首页活动规范", "甘源", "双十一"], "电商首页活动规范项目，展示色彩、标题、元素和页面模块的统一规则。"),
-    { client: "甘源", displayCategory: "电商首页活动规范" }
+    { copyrightOwner: "甘源", displayCategory: "电商首页活动规范" }
   ),
   imageProject(22, "甘源双十二电商首页视觉规范模板", "2d", "visualSystem", page("p22-img01.jpg"), [page("p22-img01.jpg")], ["首页视觉", "规范", "元素"], "第二套电商首页视觉规范，关注活动页面的信息层级、物料延展和统一视觉系统。"),
   {
@@ -528,7 +528,7 @@ function getGalleryClass(projectItem) {
 }
 
 function modalInfoAsBrief(projectItem) {
-  const client = projectItem.client || projectItem.tags?.[1] || "品牌方";
+  const copyrightOwner = projectItem.copyrightOwner || projectItem.client || projectItem.tags?.[1] || "品牌方";
   const year = projectItem.year || "2019";
 
   modalCategory.textContent = "三十二哩";
@@ -537,18 +537,18 @@ function modalInfoAsBrief(projectItem) {
   modalTags.innerHTML = `
     <span>Design：三三</span>
     <span>Year：${year}</span>
-    <span>Client：${client}</span>
+    <span>Copyright Owner：${copyrightOwner}</span>
     <span>作品仅做展示，版权归品牌方所有，不承担任何法律责任。</span>
   `;
 }
 
-function getClientLabel(projectItem) {
-  const clientMap = {
+function getCopyrightOwnerLabel(projectItem) {
+  const copyrightOwnerMap = {
     21: "甘源",
     22: "甘源"
   };
 
-  return projectItem.client || clientMap[projectItem.id] || "品牌方";
+  return projectItem.copyrightOwner || projectItem.client || copyrightOwnerMap[projectItem.id] || "品牌方";
 }
 
 function getServiceLabel(projectItem) {
@@ -564,7 +564,7 @@ function getServiceLabel(projectItem) {
 
 function getEnglishDescription(projectItem) {
   const service = getEnglishServiceLabel(projectItem);
-  const client = getEnglishClientLabel(projectItem);
+  const copyrightOwner = getEnglishCopyrightOwnerLabel(projectItem);
 
   if (projectItem.id === 21) {
     return "A Tmall Double 11 campaign homepage guideline template for Ganyuan, defining color, headline, module, and component rules for consistent campaign execution.";
@@ -574,7 +574,7 @@ function getEnglishDescription(projectItem) {
     return "An e-commerce campaign homepage guideline for Ganyuan, organizing promotional modules, visual hierarchy, and reusable page components into one consistent system.";
   }
 
-  return `A ${service} project for ${client}, focused on clear product presentation, structured visual rhythm, and practical commercial communication.`;
+  return `A ${service} project for ${copyrightOwner}, focused on clear product presentation, structured visual rhythm, and practical commercial communication.`;
 }
 
 function getEnglishServiceLabel(projectItem) {
@@ -589,14 +589,14 @@ function getEnglishServiceLabel(projectItem) {
   return "visual design";
 }
 
-function getEnglishClientLabel(projectItem) {
-  const client = getClientLabel(projectItem);
-  const clientMap = {
+function getEnglishCopyrightOwnerLabel(projectItem) {
+  const copyrightOwner = getCopyrightOwnerLabel(projectItem);
+  const copyrightOwnerMap = {
     "甘源": "Ganyuan",
-    "品牌方": "the client"
+    "品牌方": "the copyright owner"
   };
 
-  return clientMap[client] || "the client";
+  return copyrightOwnerMap[copyrightOwner] || "the copyright owner";
 }
 
 function renderHistory(projectItem) {
