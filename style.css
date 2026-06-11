@@ -564,6 +564,89 @@ section[id] {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.experience-timeline {
+  display: grid;
+  gap: 20px;
+}
+
+.experience-detail-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: 34px;
+  border-top: 3px solid var(--accent);
+  padding: 28px 0 34px;
+}
+
+.experience-company {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.experience-company small {
+  color: var(--ink);
+  font-size: clamp(1rem, 1.35vw, 1.28rem);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.experience-company h2 {
+  color: var(--accent);
+  font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.experience-company h2 span {
+  display: block;
+  font-size: 0.72em;
+}
+
+.experience-summary-list {
+  display: grid;
+  gap: 22px;
+}
+
+.experience-summary-list section {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1fr);
+  gap: 28px;
+}
+
+.experience-summary-list h3 {
+  position: relative;
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.38;
+  letter-spacing: 0;
+  padding-left: 18px;
+}
+
+.experience-summary-list h3::before {
+  content: "";
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--ink);
+}
+
+.experience-summary-list p {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.72;
+}
+
+.experience-summary-list p + p {
+  margin-top: 2px;
+}
+
 .tool-icon-grid {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -2091,6 +2174,19 @@ section[id] {
     grid-template-columns: 1fr;
   }
 
+  .experience-detail-card,
+  .experience-summary-list section {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-detail-card {
+    gap: 22px;
+  }
+
+  .experience-summary-list section {
+    gap: 10px;
+  }
+
   .contact-qr-grid {
     grid-column: auto;
   }
@@ -2174,6 +2270,19 @@ section[id] {
   .contact-method-card {
     min-height: 176px;
     padding: 20px;
+  }
+
+  .experience-detail-card {
+    padding: 22px 0 28px;
+  }
+
+  .experience-summary-list {
+    gap: 18px;
+  }
+
+  .experience-summary-list p {
+    grid-column: auto;
+    font-size: 14px;
   }
 
   .contact-card-grid,

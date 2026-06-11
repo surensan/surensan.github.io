@@ -45,7 +45,7 @@ const projects = [
     galleryLayout: "detailColumns"
   },
   {
-    ...imageProject(19, "绿鼻子儿童口罩详情页", "2d", "detail", cover("detail-page-19.jpg"), ["assets/detail-slices/p19/p19-img01-01.jpg", "assets/detail-slices/p19/p19-img01-02.jpg", "assets/detail-slices/p19/p19-img01-03.jpg", page("p19-img02.jpg"), page("p19-img03.jpg")], ["详情页", "儿童口罩", "防护用品"], "绿鼻子儿童口罩详情页。围绕儿童防护、亲肤舒适、透气结构和多场景佩戴展开，采用清新绿色系统强化安全与健康感。"),
+    ...imageProject(19, "绿鼻子儿童口罩详情页", "2d", "detail", cover("detail-page-19.jpg"), [page("p19-img01.jpg"), page("p19-img02.jpg"), page("p19-img03.jpg")], ["详情页", "儿童口罩", "防护用品"], "绿鼻子儿童口罩详情页。围绕儿童防护、亲肤舒适、透气结构和多场景佩戴展开，采用清新绿色系统强化安全与健康感。"),
     galleryLayout: "detailColumns"
   },
 
