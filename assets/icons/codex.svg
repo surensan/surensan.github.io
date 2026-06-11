@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Codex">
   <defs>
-    <linearGradient id="codexBlob" x1="16" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#c4b5fd"/>
-      <stop offset="0.45" stop-color="#8b5cf6"/>
-      <stop offset="1" stop-color="#2563eb"/>
+    <linearGradient id="codexCloud" x1="18" y1="16" x2="47" y2="49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bda7ff"/>
+      <stop offset="0.48" stop-color="#7c6cff"/>
+      <stop offset="1" stop-color="#315eea"/>
     </linearGradient>
   </defs>
-  <path fill="url(#codexBlob)" d="M21 47c-7 0-12-5-12-12 0-6 4-10 10-12 3-7 10-11 18-9 7 2 12 7 13 14 4 2 6 6 6 10 0 6-5 11-12 11H21Z"/>
-  <path d="m24 30-5 5 5 5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="m40 30 5 5-5 5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M30 42 35 28" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+  <path fill="url(#codexCloud)" d="M22 45c-7 0-12-5-12-11 0-5 4-10 10-11 3-6 9-10 16-8 6 1 11 6 12 12 4 1 7 5 7 9 0 5-5 9-11 9H22Z"/>
+  <path d="m25 30-5 5 5 5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m39 30 5 5-5 5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 41 34 29" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
 </svg>

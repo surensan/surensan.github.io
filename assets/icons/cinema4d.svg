@@ -1,15 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cinema 4D">
   <defs>
-    <radialGradient id="c4dBlue" cx="42%" cy="36%" r="68%">
-      <stop offset="0" stop-color="#dceaff"/>
-      <stop offset="0.32" stop-color="#4263eb"/>
-      <stop offset="0.74" stop-color="#121a58"/>
-      <stop offset="1" stop-color="#050716"/>
+    <radialGradient id="c4dShell" cx="34%" cy="28%" r="72%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#e7edf6"/>
+      <stop offset="1" stop-color="#9aa8ba"/>
+    </radialGradient>
+    <radialGradient id="c4dCore" cx="38%" cy="26%" r="74%">
+      <stop offset="0" stop-color="#f5f9ff"/>
+      <stop offset="0.2" stop-color="#74a2ff"/>
+      <stop offset="0.58" stop-color="#2442c4"/>
+      <stop offset="1" stop-color="#07113f"/>
     </radialGradient>
   </defs>
-  <circle cx="32" cy="32" r="24" fill="#e5e7eb"/>
-  <circle cx="34" cy="34" r="17" fill="url(#c4dBlue)"/>
-  <path d="M11 29c4-14 18-21 31-18 5 1 9 4 12 8-9-4-18-1-23 7-5 8-12 11-20 3Z" fill="#ffffff"/>
-  <path d="M21 49c10 7 25 4 31-8-10 6-20 6-28 1-4-3-6 4-3 7Z" fill="#cbd5e1"/>
-  <path d="M42 19c8 6 9 19 2 27 11-6 13-22 3-32l-5 5Z" fill="#111a58"/>
+  <circle cx="32" cy="32" r="25" fill="url(#c4dShell)"/>
+  <circle cx="35" cy="34" r="18" fill="url(#c4dCore)"/>
+  <path d="M12 31c4-14 18-22 32-18 5 1 9 4 12 8-11-4-20 1-26 11-5 7-12 8-18-1Z" fill="#ffffff"/>
+  <path d="M18 45c9 11 28 10 37-2-10 5-21 5-30 0-3-2-6-1-7 2Z" fill="#d8e0ea"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#8fa0b4" stroke-width="1.5"/>
 </svg>
