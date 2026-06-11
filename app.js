@@ -6,27 +6,26 @@ const cover = (name) => `assets/covers/${name}`;
 const video = (name) => `assets/videos/${name}`;
 
 const projects = [
-  imageProject(3, "甘源产品手册渲染系列", "3d", "product3d", page("p04-img01.jpg"), [page("p04-img01.jpg"), page("p03-img01.jpg"), page("p05-img01.jpg"), page("p05-img02.jpg")], ["渲染", "静态渲染", "甘源"], "甘源产品手册渲染系列，围绕产品陈列、包装质感和场景氛围展开。"),
-  imageProject(6, "黑金羽绒服卖点渲染", "3d", "practice", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["渲染", "商业作品", "单帧"], "模拟立体羽绒服，突出服装材质和内部保暖卖点，持续保温可视化，快速传达产品功能与卖点。"),
-  imageProject(7, "黑金羽绒渲染", "3d", "practice", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["渲染", "商业作品", "鸭绒"], "以蓝天营造自然、轻盈、舒适的视觉氛围，蓬松的羽毛作为视觉焦点和羽绒的可视化。"),
+  imageProject(3, "甘源产品手册创意场景渲染", "3d", "product3d", page("p04-img01.jpg"), [page("p03-img01.jpg"), page("p04-img01.jpg"), page("p05-img01.jpg")], ["三维静态", "甘源", "2024"], ""),
+  imageProject(6, "高梵黑金羽绒服渲染", "3d", "practice", page("p06-img01.jpg"), [page("p06-img01.jpg")], ["三维静态", "高梵", "2024"], ""),
+  imageProject(7, "高梵黑金鹅绒渲染", "3d", "practice", page("p07-img01.jpg"), [page("p07-img01.jpg")], ["三维静态", "高梵", "2024"], ""),
   imageProject(8, "白翎概念渲染", "3d", "practice", page("p08-img01.jpg"), [page("p08-img01.jpg")], ["渲染", "商业作品", "写实材质"], "通过球体、雾面空间和高对比光影展示材质控制与抽象视觉表达能力。"),
-  imageProject(9, "率鼻子口罩产品阵列渲染", "3d", "product3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["渲染", "口罩", "产品阵列"], "多色口罩产品阵列展示，展示口罩多色，强调柔和材质的干净质感。"),
-  imageProject(10, "VR产品渲染", "3d", "product3d", page("p10-img01.jpg"), [page("p10-img01.jpg")], ["渲染", "3C数码", "产品"], "以白底和干净投影突出 VR 产品主体，适合 3C 产品主图和详情页核心卖点展示。"),
-  imageProject(11, "追觅吹风机5in1产品渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["金属渲染", "3C数码", "追觅"], "展示吹风机颜色/金属质感/结构。金属反射控制，突出工业产品的精密感。"),
+  imageProject(9, "绿鼻子口罩渲染", "3d", "product3d", page("p09-img01.jpg"), [page("p09-img01.jpg")], ["三维静态", "Greennose 绿鼻子", "2024"], ""),
+  imageProject(10, "蓝鲸 VR眼镜产品渲染", "3d", "product3d", page("p10-img01.jpg"), [page("p12-img02.jpg"), page("p10-img01.jpg"), page("p12-img05.jpg")], ["三维静态", "蓝鲸", "2023"], ""),
+  imageProject(11, "追觅吹风机5in1渲染", "3d", "product3d", page("p11-img01.jpg"), [page("p11-img01.jpg")], ["三维静态", "Dreame追觅", "2023"], ""),
 
   ...singleFrameProjects(12, [
-    ["p12-img01.jpg", "耳机详情首屏渲染"], ["p12-img03.jpg", "火鸡消毒柜产品渲染"], ["p12-img04.jpg", "追觅吹风机卖点渲染"],
-    ["p12-img05.jpg", "耳机产品卖点图"], ["p12-img06.jpg", "功能说明版式"], ["p12-img07.jpg", "耳机氛围海报"],
-    ["p12-img10.jpg", "游戏化场景海报"], ["p12-img11.jpg", "冰雪氛围海报"], ["p12-img12.jpg", "产品角色图"]
+    ["p12-img01.jpg", "缇美妍彩妆卖点渲染"], ["p12-img03.jpg", "火鸡消毒柜渲染"], ["p12-img04.jpg", "Bruno吹风机卖点渲染"],
+    ["p12-img11.jpg", "凉感布料渲染"], ["p12-img12.jpg", "海马爸比监视器卖点渲染"]
   ]),
-  imageProject(1280, "朴西拖鞋", "3d", "detailRender", page("p12-img08.jpg"), [page("p12-img08.jpg"), page("p12-img09.jpg")], ["渲染", "详情页卖点渲染", "朴西拖鞋"], "朴西拖鞋产品场景渲染，围绕居家穿着、柔软材质和轻松出行场景展开。"),
-  imageProject(1281, "babycare SKU 渲染图", "3d", "detailRender", page("p12-img13.jpg"), [page("p12-img13.jpg"), page("p12-img14.jpg")], ["渲染", "详情页卖点渲染", "babycare"], "babycare 童车 SKU 渲染图，展示产品结构、空间氛围和场景化卖点表达。"),
+  imageProject(1280, "优调拖鞋卖点渲染", "3d", "detailRender", page("p12-img08.jpg"), [page("p12-img08.jpg"), page("p12-img09.jpg")], ["三维静态", "UTUNE 优调", "2021"], ""),
+  imageProject(1281, "Babycare手推车SKU渲染", "3d", "detailRender", page("p12-img13.jpg"), [page("p12-img13.jpg"), page("p12-img14.jpg")], ["三维静态", "Babycare", "2020"], ""),
   ...singleFrameProjects(13, [
-    ["p13-img01.jpg", "材质练习"], ["p13-img02.jpg", "参赛作品，未获奖"], ["p13-img03.jpg", "智能设备场景渲染"],
-    ["p13-img10.jpg", "居家空间渲染"], ["p13-img11.jpg", "汽车产品单帧"]
+    ["p13-img01.jpg", "植物写实渲染"], ["p13-img02.jpg", "颐莲活动比赛渲染"], ["p13-img03.jpg", "海马爸比卖点可视化渲染"],
+    ["p13-img11.jpg", "汽车打光渲染"]
   ]),
-  imageProject(1380, "练习作品", "3d", "practice", page("p13-img05.jpg"), [page("p13-img05.jpg"), page("p13-img06.jpg"), page("p13-img07.jpg"), page("p13-img04.jpg"), page("p13-img08.jpg"), page("p13-img09.jpg")], ["渲染", "练习作品", "建模雕刻"], "练习作品系列，主要用于熟悉建模、雕刻工具和角色形体表达。"),
-  imageProject(140, "第 14 页渲染合集", "3d", "practice", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["渲染", "商业作品", "包装视觉"], "整页渲染合集，集中展示包装视觉、品牌物料和产品陈列效果。"),
+  imageProject(1380, "IP类渲染/雕刻练习", "3d", "practice", page("p13-img05.jpg"), [page("p13-img04.jpg"), page("p13-img05.jpg"), page("p13-img06.jpg"), page("p13-img07.jpg"), page("p13-img09.jpg"), page("p13-img08.jpg")], ["三维静态", "练习", "2022-2024"], ""),
+  imageProject(140, "梓晨包装渲染", "3d", "practice", page("p14-img01.jpg"), [page("p14-img01.jpg")], ["三维静态", "梓晨", "2021"], ""),
 
   {
     ...imageProject(15, "儿童手拍鼓详情页", "2d", "detail", cover("detail-page-15.jpg"), [page("p15-img01.jpg"), page("p15-img02.jpg"), page("p15-img03.jpg")], ["详情页", "儿童产品", "玩具"], "儿童手拍鼓产品详情页。围绕趣味互动、亲子陪伴、材质安全和产品结构展开，以活泼插画色彩和模块化卖点组织完整购买路径。"),
@@ -67,17 +66,21 @@ const projects = [
     ...imageProject(2301, "AI 节气海报", "2d", "aiPoster", page("p23-img06.jpg"), [page("p23-img06.jpg"), page("p23-img07.jpg")], ["AI", "节气海报", "平面"], "第 23 页中的两张 AI 节气海报，单独与渲染作品分开展示。"),
     galleryLayout: "grid"
   },
-  imageProject(2302, "第 23 页礼盒渲染组", "3d", "product3d", page("p23-img15.jpg"), [
-    page("p23-img04.jpg"), page("p23-img10.jpg"), page("p23-img11.jpg"), page("p23-img12.jpg"), page("p23-img13.jpg"), page("p23-img15.jpg")
-  ], ["渲染", "礼盒", "节日营销"], "第 23 页中除 AI 节气海报外的渲染图，集中展示礼盒、电商场景和节日营销氛围。"),
-  imageProject(2426, "新年海报与代言人主图", "2d", "composite", page("p25-img02.jpg"), [
+  imageProject(2302, "详情页KV", "2d", "composite", page("p23-img15.jpg"), [
+    page("p23-img04.jpg"), page("p23-img15.jpg"), page("p23-img10.jpg")
+  ], ["其他", "甘源", "2024"], ""),
+  imageProject(2426, "过年拜年海报", "2d", "composite", page("p24-img01.jpg"), [
     page("p24-img01.jpg"), page("p24-img02.jpg"), page("p24-img03.jpg"),
-    page("p25-img01.jpg"), page("p25-img02.jpg"), page("p25-img03.jpg"),
+  ], ["其他", "甘源", "2024"], ""),
+  imageProject(2500, "果果嘿巧主图", "2d", "mainVisual", page("p25-img02.jpg"), [
+    page("p25-img01.jpg"), page("p25-img02.jpg"), page("p25-img03.jpg")
+  ], ["电商主图", "甘源", "2024"], ""),
+  imageProject(2600, "代言人活动手幅物料", "2d", "composite", page("p26-img01.jpg"), [
     page("p26-img01.jpg"), page("p26-img02.jpg")
-  ], ["合成", "过年海报", "代言人主图"], "第 24 页过年海报、25 页代言人主图和 26 页手幅合并为一个完整营销视觉项目。"),
+  ], ["其他", "甘源", "2024"], ""),
 
   videoProject(3001, "绿鼻子口罩三维动画", "3d", "animation", page("p09-img01.jpg"), video("mask-animation.mp4"), ["动画", "口罩", "产品展示"], "口罩产品三维动画，用动态方式展示产品外观、结构和轻量化视觉氛围。"),
-  videoProject(3002, "美朵嘉蚊帐旋转动画", "3d", "animation", page("p13-img10.jpg"), video("mosquito-net-animation.mp4"), ["动画", "蚊帐", "旋转展示"], "蚊帐产品旋转动画，通过动态视角展示空间结构、产品形态和使用场景。")
+  videoProject(3002, "美朵嘉蚊帐旋转动画", "3d", "animation", "", video("mosquito-net-animation.mp4"), ["三维动态", "蚊帐", "旋转展示"], "")
 ];
 
 projects.push(
@@ -109,13 +112,13 @@ projects.push(
 
 projects.push(...(window.extraPortfolioProjects || []));
 
-const featuredProjectIds = [17, 19, 2426, 2302, 1311];
+const featuredProjectIds = [19, 17, 15, 16, 3, 9, 1303, 1280, 1281, 11, 10];
 const homeProjectMap = {
-  "home-graphic": [17, 19, 2426, 20],
-  "home-static": [3, 9, 10, 11, 2302, 1380],
+  "home-graphic": [19, 17, 15, 16],
+  "home-static": [3, 9, 1303, 1280, 1281, 11, 10],
   "home-motion": [3001, 3002]
 };
-const wideProjectIds = new Set([10, 1311, 2302, 2426]);
+const wideProjectIds = new Set([10, 2500, 2302, 2426]);
 
 projects.forEach((projectItem) => {
   if (projectItem.subCategory === "detail" && !projectItem.updatedAt) {
@@ -136,20 +139,19 @@ projects.forEach((projectItem) => {
 });
 
 const categoryLabels = {
-  "2d": "平面设计",
-  "3d": "渲染作品",
-  detailRender: "详情页卖点渲染",
-  product3d: "产品渲染",
-  animation: "动画展示",
-  practice: "练习作品",
+  "2d": "平面",
+  "3d": "三维",
+  detailRender: "三维静态",
+  product3d: "三维静态",
+  animation: "三维动态",
+  practice: "三维静态",
   detail: "详情页",
   mainVisual: "电商主图",
-  visualSystem: "视觉规范",
-  aiPoster: "AI 海报",
-  composite: "合成海报",
+  visualSystem: "首页视觉",
+  aiPoster: "其他",
+  composite: "其他",
   ppt: "PPT 展示",
   icon: "电商 icon",
-  handdrawn: "手绘",
   other: "其他"
 };
 
@@ -162,22 +164,18 @@ const subFilterMap = {
   "work-motion-render": [],
   "work-home": [],
   "work-main": [],
-  "work-aigc": [],
-  "work-handdrawn": [],
   "work-ppt": [],
   "work-other": [],
   featured: [],
   "2d": [
     { label: "详情页", value: "detail" },
     { label: "主图", value: "mainVisual" },
-    { label: "视觉规范", value: "visualSystem" },
-    { label: "AI 海报", value: "aiPoster" },
-    { label: "合成海报", value: "composite" }
+    { label: "首页视觉", value: "visualSystem" },
+    { label: "其他", value: "composite" }
   ],
   "3d": [
-    { label: "产品渲染", value: "product3d" },
-    { label: "详情页卖点渲染", value: "detailRender" },
-    { label: "练习作品", value: "practice" }
+    { label: "三维静态", value: "product3d" },
+    { label: "三维动态", value: "animation" }
   ]
 };
 
@@ -192,16 +190,10 @@ const worksCategoryMeta = {
     empty: "电商主图分类会放平台主图、产品主视觉和一屏成交图。"
   },
   "work-static-render": {
-    empty: "静态渲染会放产品渲染、卖点表达、KV 氛围和练习作品。"
-  },
-  "work-aigc": {
-    empty: "AIGC 分类会放 AI 辅助生成或 AI 参与创作的视觉项目。"
-  },
-  "work-handdrawn": {
-    empty: "当前作品文件里还没有明确的手绘项目；后续可用文件夹或项目名标注后自动加入。"
+    empty: "三维静态会放产品渲染、卖点表达、KV 氛围和练习作品。"
   },
   "work-motion-render": {
-    empty: "动态渲染分类会放产品动画、旋转展示和三维运动镜头。"
+    empty: "三维动态分类会放产品动画、旋转展示和三维运动镜头。"
   },
   "work-ppt": {
     empty: "PPT 展示包含品牌策略、品牌手册和主图规范等演示稿项目。"
@@ -271,7 +263,7 @@ function singleFrameProjects(pageNumber, items) {
       image,
       [image],
       ["渲染", `PDF 第 ${pageNumber} 页`, "单帧"],
-      `PDF 第 ${pageNumber} 页单帧渲染图，已按独立作品拆分展示。`
+      ""
     );
   });
 }
@@ -347,7 +339,6 @@ function getWorksCategoryProjects(category) {
       "detailRender",
       "product3d",
       "practice",
-      "aiPoster",
       "composite",
       "animation"
     ].includes(projectItem.subCategory);
@@ -372,14 +363,6 @@ function getWorksCategoryProjects(category) {
     });
   }
 
-  if (category === "work-aigc") {
-    return projects.filter((projectItem) => projectItem.subCategory === "aiPoster");
-  }
-
-  if (category === "work-handdrawn") {
-    return projects.filter((projectItem) => projectItem.subCategory === "handdrawn");
-  }
-
   if (category === "work-motion-render") {
     return projects.filter((projectItem) => projectItem.subCategory === "animation");
   }
@@ -390,7 +373,7 @@ function getWorksCategoryProjects(category) {
 
   if (category === "work-other") {
     return projects.filter((projectItem) => {
-      return projectItem.subCategory === "composite" || !knownProject(projectItem);
+      return ["aiPoster", "composite"].includes(projectItem.subCategory) || !knownProject(projectItem);
     });
   }
 
@@ -492,7 +475,7 @@ function openModal(projectItem) {
   modalImage.alt = projectItem.title;
   modalCategory.textContent = `${categoryLabels[projectItem.mainCategory]} / ${categoryLabels[projectItem.subCategory]}`;
   modalTitle.textContent = projectItem.title;
-  modalDescription.textContent = projectItem.description;
+  modalDescription.textContent = "";
   modalTags.innerHTML = projectItem.tags.map((tag) => `<span>${tag}</span>`).join("");
   modalHistory.innerHTML = renderHistory(projectItem);
   modalGallery.className = `modal-gallery ${getGalleryClass(projectItem)}`;
@@ -545,15 +528,12 @@ function getGalleryClass(projectItem) {
 }
 
 function modalInfoAsBrief(projectItem) {
-  const client = projectItem.client || projectItem.tags?.[2] || projectItem.tags?.[1] || "品牌方";
+  const client = projectItem.client || projectItem.tags?.[1] || "品牌方";
   const year = projectItem.year || "2019";
 
   modalCategory.textContent = "三十二哩";
   modalTitle.textContent = projectItem.title;
-  modalDescription.innerHTML = `
-    <strong>简介</strong>
-    <span>${projectItem.description}</span>
-  `;
+  modalDescription.innerHTML = "";
   modalTags.innerHTML = `
     <span>Design：三三</span>
     <span>Year：${year}</span>
@@ -575,9 +555,9 @@ function getServiceLabel(projectItem) {
   if (projectItem.subCategory === "detail") return projectItem.tags[1] || "电商详情页";
   if (projectItem.subCategory === "mainVisual") return "电商主图";
   if (projectItem.subCategory === "product3d" || projectItem.subCategory === "detailRender") return "产品渲染";
-  if (projectItem.subCategory === "animation") return "动态渲染";
+  if (projectItem.subCategory === "animation") return "三维动态";
   if (projectItem.subCategory === "composite") return "营销合成视觉";
-  if (projectItem.subCategory === "aiPoster") return "AIGC 视觉";
+  if (projectItem.subCategory === "aiPoster") return "其他";
   if (projectItem.subCategory === "ppt") return projectItem.tags[1] || "PPT 展示";
   return projectItem.tags[1] || "视觉设计项目";
 }
@@ -604,7 +584,7 @@ function getEnglishServiceLabel(projectItem) {
   if (projectItem.subCategory === "product3d" || projectItem.subCategory === "detailRender") return "product rendering";
   if (projectItem.subCategory === "animation") return "motion rendering";
   if (projectItem.subCategory === "composite") return "composite campaign visual";
-  if (projectItem.subCategory === "aiPoster") return "AIGC visual";
+  if (projectItem.subCategory === "aiPoster") return "visual design";
   if (projectItem.subCategory === "ppt") return "presentation";
   return "visual design";
 }

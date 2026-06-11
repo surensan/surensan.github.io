@@ -32,10 +32,12 @@ $subCategoryAliases["aiPoster"] = "aiPoster"
 $subCategoryAliases[(U "5408 6210 6D77 62A5")] = "composite"
 $subCategoryAliases["composite"] = "composite"
 $subCategoryAliases[(U "4EA7 54C1 6E32 67D3")] = "product3d"
+$subCategoryAliases[(U "4E09 7EF4 9759 6001")] = "product3d"
 $subCategoryAliases["product3d"] = "product3d"
 $subCategoryAliases[(U "8BE6 60C5 9875 5356 70B9 6E32 67D3")] = "detailRender"
 $subCategoryAliases["detailRender"] = "detailRender"
 $subCategoryAliases[(U "52A8 753B 5C55 793A")] = "animation"
+$subCategoryAliases[(U "4E09 7EF4 52A8 6001")] = "animation"
 $subCategoryAliases["animation"] = "animation"
 $subCategoryAliases[(U "7EC3 4E60 4F5C 54C1")] = "practice"
 $subCategoryAliases[(U "7EC3 4E60")] = "practice"
@@ -207,13 +209,7 @@ foreach ($folder in $projectFolders) {
     $imagePaths += "$folderUrl/$($image.Name)"
   }
 
-  $description = Get-MetaValue $meta $keys.description
-  if ([string]::IsNullOrWhiteSpace($description) -and (Test-Path $descriptionFile)) {
-    $description = (Get-Content -Raw -Encoding UTF8 -LiteralPath $descriptionFile).Trim()
-  }
-  if ([string]::IsNullOrWhiteSpace($description)) {
-    $description = "$title portfolio project."
-  }
+  $description = ""
 
   $tags = Split-List (Get-MetaValue $meta $keys.tags) @("New Work")
   $updatedAt = Get-MetaValue $meta $keys.updatedAt (Get-Date -Format "yyyy-MM")

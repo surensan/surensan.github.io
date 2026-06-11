@@ -10,7 +10,7 @@ window.extraPortfolioProjects = [
     coverImage: "assets/new-details/详情页-玉竹雪梨水/01.png",
     detailImages: ["assets/new-details/详情页-玉竹雪梨水/01.png"],
     tags: ["详情页", "电商页面", "儿童食品"],
-    description: "玉竹雪梨水商品详情页",
+    description: "",
     updatedAt: "2026-06",
     historyLimit: 12,
     updateMonths: ["2026-06"]
