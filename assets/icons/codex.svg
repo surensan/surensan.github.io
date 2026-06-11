@@ -1,11 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Codex">
-  <rect width="64" height="64" rx="14" fill="#0f172a"/>
-  <g fill="none" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M32 11 45 18v14L32 39 19 32V18l13-7Z"/>
-    <path d="M32 25 45 18"/>
-    <path d="M32 25 19 18"/>
-    <path d="M32 25v14"/>
-    <path d="M19 32 32 25l13 7"/>
-    <path d="M19 32v14l13 7 13-7V32"/>
+  <defs>
+    <linearGradient id="codexGlow" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c4b5fd"/>
+      <stop offset="0.45" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="codexShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#4f46e5" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#ffffff"/>
+  <g filter="url(#codexShadow)">
+    <path fill="url(#codexGlow)" d="M22 45c-7 0-12-5-12-12 0-6 4-11 10-12 3-7 10-11 18-9 7 2 11 7 12 14 4 2 7 6 7 11 0 7-5 12-13 12H22Z"/>
+    <path fill="#ffffff" fill-opacity=".22" d="M20 21c4-7 13-9 22-5-6-1-13 1-18 7-4 5-8 6-12 5 1-3 4-6 8-7Z"/>
+    <path d="m24 29-5 5 5 5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m40 29 5 5-5 5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M30 41 35 27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
   </g>
 </svg>

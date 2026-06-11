@@ -786,6 +786,7 @@ section[id] {
 .tool-card {
   min-height: 148px;
   padding: 18px;
+  gap: 18px;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -800,9 +801,9 @@ section[id] {
 }
 
 .tool-card h3 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .tool-card:hover .tool-icon {
