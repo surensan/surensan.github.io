@@ -2279,8 +2279,10 @@ section[id] {
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;
     padding: 22px 18px;
     font-size: 11px;
+    line-height: 1.45;
   }
 
   .works-library-inner {
