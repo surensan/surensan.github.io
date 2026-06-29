@@ -571,7 +571,7 @@ function getGalleryClass(projectItem) {
 function modalInfoAsBrief(projectItem) {
   const copyrightOwner = projectItem.copyrightOwner || projectItem.client || projectItem.tags?.[1] || "品牌方";
   const year = projectItem.year || "2019";
-  const statement = projectItem.statement || "作品仅做展示，版权归品牌方所有，不承担任何法律责任。";
+  const statement = projectItem.statement || "作品仅用于个人作品集网页，版权归品牌方所有。";
 
   modalCategory.textContent = "";
   modalTitle.textContent = projectItem.title;
@@ -656,7 +656,7 @@ function renderHistory(projectItem) {
 }
 
 function createStatement(projectItem) {
-  if (projectItem.subCategory === "detail") return "把产品卖点组织成一条清晰的购买路径。";
+  if (projectItem.subCategory === "detail") return "作品仅用于个人作品集网页，版权归品牌方所有。";
   if (projectItem.subCategory === "animation") return "让产品在运动中显露结构与场景。";
   if (projectItem.subCategory === "product3d") return "用光影和材质提前建立产品现场感。";
   if (projectItem.subCategory === "practice") return "在单帧中练习材质、空间和视觉秩序。";
