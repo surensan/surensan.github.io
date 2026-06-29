@@ -83,6 +83,9 @@ const projects = [
   videoProject(3002, "美朵嘉蚊帐旋转动画", "3d", "animation", "", video("mosquito-net-animation.mp4"), ["三维动态", "蚊帐", "旋转展示"], "")
 ];
 
+const showPptProjects = false;
+
+if (showPptProjects) {
 projects.push(
   pptProject(
     6001,
@@ -109,12 +112,13 @@ projects.push(
     "梓晨主图规范聚焦电商主图的构图、信息层级与情绪表达，服务于平台转化与品牌统一。"
   )
 );
+}
 
 projects.push(...(window.extraPortfolioProjects || []));
 
 const featuredProjectIds = [19, 17, 15, 16, 3, 9, 1303, 1280, 1281, 11, 10];
 const homeProjectMap = {
-  "home-graphic": [19, 17, 15, 16],
+  "home-graphic": [9000, 19, 17, 15],
   "home-static": [3, 9, 1303, 1280, 1281, 11, 10],
   "home-motion": [3001, 3002]
 };
@@ -189,7 +193,7 @@ const categoryLabels = {
   visualSystem: "首页视觉",
   aiPoster: "其他",
   composite: "其他",
-  ppt: "PPT 展示",
+  ppt: "演示稿",
   icon: "电商 icon",
   other: "其他"
 };
@@ -203,7 +207,6 @@ const subFilterMap = {
   "work-motion-render": [],
   "work-home": [],
   "work-main": [],
-  "work-ppt": [],
   "work-other": [],
   featured: [],
   "2d": [
@@ -233,9 +236,6 @@ const worksCategoryMeta = {
   },
   "work-motion-render": {
     empty: "三维动态分类会放产品动画、旋转展示和三维运动镜头。"
-  },
-  "work-ppt": {
-    empty: "PPT 展示包含品牌策略、品牌手册和主图规范等演示稿项目。"
   },
   "work-other": {
     empty: "其他分类会收纳暂时不适合放入前面分类的项目。"
@@ -599,7 +599,7 @@ function getServiceLabel(projectItem) {
   if (projectItem.subCategory === "animation") return "三维动态";
   if (projectItem.subCategory === "composite") return "营销合成视觉";
   if (projectItem.subCategory === "aiPoster") return "其他";
-  if (projectItem.subCategory === "ppt") return projectItem.tags[1] || "PPT 展示";
+  if (projectItem.subCategory === "ppt") return projectItem.tags[1] || "演示稿";
   return projectItem.tags[1] || "视觉设计项目";
 }
 

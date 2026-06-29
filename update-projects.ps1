@@ -57,6 +57,7 @@ $keys = @{
   updateMonths = @((U "4FEE 6539 8BB0 5F55"), "updateMonths")
   historyLimit = @((U "663E 793A 8BB0 5F55"), "historyLimit")
   cover = @((U "5C01 9762"), "cover")
+  detailImages = @((U "8BE6 60C5 56FE 7247"), "detailImages")
   statement = @((U "5361 7247 8BF4 660E"), "statement")
   galleryLayout = @((U "8BE6 60C5 5E03 5C40"), "galleryLayout")
   copyrightOwner = @((U "7248 6743 65B9"), (U "670D 52A1 5BF9 8C61"), "copyrightOwner", "client")
@@ -204,9 +205,18 @@ foreach ($folder in $projectFolders) {
   }
 
   $cover = "$folderUrl/$coverName"
+  $detailImageNames = Split-List (Get-MetaValue $meta $keys.detailImages) @()
+  if ($detailImageNames.Count -eq 0) {
+    $detailImageNames = $images | ForEach-Object { $_.Name }
+  }
+
   $imagePaths = @()
-  foreach ($image in $images) {
-    $imagePaths += "$folderUrl/$($image.Name)"
+  foreach ($imageName in $detailImageNames) {
+    $imageFile = Join-Path $folder.FullName $imageName
+    if (-not (Test-Path $imageFile)) {
+      throw "Project '$($folder.Name)' detail image '$imageName' was not found. Check the detailImages field in meta.txt."
+    }
+    $imagePaths += "$folderUrl/$imageName"
   }
 
   $description = ""

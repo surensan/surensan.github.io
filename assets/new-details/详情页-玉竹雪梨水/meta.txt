@@ -1,6 +1,8 @@
 标题=玉竹雪梨水
 主分类=平面设计
 分类=详情页
+封面=cover.png
+详情图片=detail-01.jpg,detail-02.jpg,detail-03.jpg,detail-04.jpg,detail-05.jpg
 标签=详情页,电商页面,儿童食品
 简介=玉竹雪梨水商品详情页
 修改记录=2026-06
