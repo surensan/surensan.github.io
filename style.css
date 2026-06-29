@@ -1833,12 +1833,23 @@ section[id] {
   justify-items: center;
 }
 
+.modal-card.detail-modal .modal-gallery {
+  gap: 0;
+  background: transparent;
+}
+
 .modal-card.project-modal .modal-gallery img {
   width: auto;
   max-width: 100%;
   max-height: none;
   margin: 0 auto;
   border-radius: 0;
+}
+
+.modal-card.detail-modal .modal-gallery img {
+  display: block;
+  border: 0;
+  background: transparent;
 }
 
 .modal-card.project-modal .modal-video {

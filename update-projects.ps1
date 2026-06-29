@@ -54,6 +54,7 @@ $keys = @{
   tags = @((U "6807 7B7E"), "tags")
   description = @((U "7B80 4ECB"), "description")
   updatedAt = @((U "66F4 65B0 65F6 95F4"), "updatedAt")
+  year = @((U "5E74 4EFD"), "year")
   updateMonths = @((U "4FEE 6539 8BB0 5F55"), "updateMonths")
   historyLimit = @((U "663E 793A 8BB0 5F55"), "historyLimit")
   cover = @((U "5C01 9762"), "cover")
@@ -223,6 +224,7 @@ foreach ($folder in $projectFolders) {
 
   $tags = Split-List (Get-MetaValue $meta $keys.tags) @("New Work")
   $updatedAt = Get-MetaValue $meta $keys.updatedAt (Get-Date -Format "yyyy-MM")
+  $year = Get-MetaValue $meta $keys.year
   $historyLimitText = Get-MetaValue $meta $keys.historyLimit "12"
   $historyLimit = [int]$historyLimitText
   $updateMonths = Split-List (Get-MetaValue $meta $keys.updateMonths) @($updatedAt)
@@ -238,6 +240,9 @@ foreach ($folder in $projectFolders) {
   $optionalLines = @()
   if (-not [string]::IsNullOrWhiteSpace($statement)) {
     $optionalLines += "    statement: $(ConvertTo-JsString $statement)"
+  }
+  if (-not [string]::IsNullOrWhiteSpace($year)) {
+    $optionalLines += "    year: $(ConvertTo-JsString $year)"
   }
   if (-not [string]::IsNullOrWhiteSpace($galleryLayout)) {
     $optionalLines += "    galleryLayout: $(ConvertTo-JsString $galleryLayout)"

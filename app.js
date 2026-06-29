@@ -571,6 +571,7 @@ function getGalleryClass(projectItem) {
 function modalInfoAsBrief(projectItem) {
   const copyrightOwner = projectItem.copyrightOwner || projectItem.client || projectItem.tags?.[1] || "品牌方";
   const year = projectItem.year || "2019";
+  const statement = projectItem.statement || "作品仅做展示，版权归品牌方所有，不承担任何法律责任。";
 
   modalCategory.textContent = "";
   modalTitle.textContent = projectItem.title;
@@ -579,7 +580,7 @@ function modalInfoAsBrief(projectItem) {
     <span>Design：三三</span>
     <span>Year：${year}</span>
     <span>Copyright Owner：${copyrightOwner}</span>
-    <span>作品仅做展示，版权归品牌方所有，不承担任何法律责任。</span>
+    <span>${statement}</span>
   `;
 }
 

@@ -13,6 +13,9 @@ window.extraPortfolioProjects = [
     description: "",
     updatedAt: "2026-06",
     historyLimit: 12,
-    updateMonths: ["2026-06"]
+    updateMonths: ["2026-06"],
+    statement: "作品仅用于个人作品集网页，版权归品牌方所有。",
+    year: "2026",
+    copyrightOwner: "不二宝贝"
   }
 ];
